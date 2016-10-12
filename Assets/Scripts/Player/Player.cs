@@ -4,10 +4,11 @@ using Helper;
 
 
 public class Player : MonoBehaviour {
-    private string name;
+    private string name_player;
+    PlayerControler controler;
 	// Use this for initialization
 	void Start () {
-	
+        controler = gameObject.GetComponent<PlayerControler>();
 	}
 	
 	// Update is called once per frame
@@ -16,10 +17,18 @@ public class Player : MonoBehaviour {
 	}
     public string getName()
     {
-        return name;
+        return name_player;
     }
     public void setName(string name)
     {
-        this.name = name;
+        this.name_player = name;
+    }
+    public void DisableControl()
+    {
+        controler.enabled = false;
+    }
+    public void EnableControl()
+    {
+        controler.enabled = true;
     }
 }

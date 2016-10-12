@@ -7,10 +7,9 @@ using Helper;
 
 public class Gate : MonoBehaviour {
     public GameObject TrigerGate;
-    public GameObject FinishText;
-    public Text text;
     public float time = 3;
     private float countingDown;
+    private GameObject winner;
     // Use this for initialization
 
 
@@ -19,16 +18,13 @@ public class Gate : MonoBehaviour {
         if(other.gameObject.tag == GameTag.PLAYER)
         {
             countingDown = time;
-            FinishText.SetActive(true);
+            winner = null;
         }
         
     }
     void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == GameTag.PLAYER)
-        {
-            FinishText.SetActive(false);
-        }
+        winner = null;
     }
     void OnTriggerStay(Collider other)
     {
@@ -37,16 +33,18 @@ public class Gate : MonoBehaviour {
             if (countingDown>0)
             {
                countingDown -= Time.deltaTime;
-                text.text = Mathf.Ceil(countingDown).ToString();
             }
             else
             {
-                text.text = "Winer /n Player" + other.gameObject.GetComponent<Player>().getName();
+                winner = other.gameObject;
             }
         }
          
     }
-    
+    public GameObject getWinner()
+    {
+        return winner;
+    }
 
     // Update is called once per frame
     void Update () {
