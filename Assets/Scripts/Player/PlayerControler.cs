@@ -4,9 +4,10 @@ using Helper;
 
 public class PlayerControler : MonoBehaviour {
     private Rigidbody rigidbody;
-    public float speed = 5;
-	// Use this for initialization
-	void Start () {
+    public float speed = 5.0f;
+    public float mouseSpeed = 10.0F;
+    // Use this for initialization
+    void Start () {
         rigidbody = GetComponent<Rigidbody>();
 	}
 
@@ -20,7 +21,9 @@ public class PlayerControler : MonoBehaviour {
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rigidbody.velocity = movement * speed;
 
-  
-        rigidbody.rotation = Quaternion.Euler(mouseX*Time.deltaTime, mouseY*Time.deltaTime, 0.0f);
+
+        float h = (mouseSpeed * Input.GetAxis(InputPlayer.MOUSEX));
+        transform.Rotate(0, h, 0);
+
     }
 }
