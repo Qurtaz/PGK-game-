@@ -6,6 +6,8 @@ public class ControlerGame : MonoBehaviour {
 	private int playerTurn;
     public GameObject playerPrefab;
     public List<Player> players = new List<Player>();
+	public KeyCode cont;
+	bool waitForButton = false;
 	// Use this for initialization
 	void Start () {
 		//AddPlayers ();
@@ -18,7 +20,10 @@ public class ControlerGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (waitForButton) {
+			if (Input.GetKeyDown (cont))
+				ChangeActivePlayer ();
+		}
 
 	}
     /*void AddPlayers()
@@ -30,12 +35,17 @@ public class ControlerGame : MonoBehaviour {
 				players.Add (player);
 		}
     }*/
-	public void ChangePlayers()
+	public void ChangeActivePlayer()
 	{
-		players [playerTurn].DeactivatePlayer ();
+		
 		playerTurn++;
 		playerTurn = playerTurn % 2;
 		players [playerTurn].ActivatePlayer ();
+	}
+	public void ChangePlayers()
+	{
+		waitForButton = true;
+		players [playerTurn].DeactivatePlayer ();
 	}
 		
 

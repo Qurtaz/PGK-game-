@@ -100,7 +100,7 @@ GameObject:
   - 4: {fileID: 357681850}
   - 114: {fileID: 357681849}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Test1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildCamera: {fileID: 1097549344}
-  playerToControl: {fileID: 622253270}
+  playerToControl: {fileID: 959109699}
   gameController: {fileID: 1383381715}
   cont: 107
 --- !u!4 &357681850
@@ -248,7 +248,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 407156861}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.36, y: 1.565032, z: -2.5304728}
+  m_LocalPosition: {x: 12.33, y: 0.59, z: 0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -266,6 +266,7 @@ GameObject:
   - 124: {fileID: 424176061}
   - 92: {fileID: 424176060}
   - 81: {fileID: 424176059}
+  - 114: {fileID: 424176063}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: Untagged
@@ -280,7 +281,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 424176057}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.57, z: 0}
+  m_LocalPosition: {x: 0, y: 0.56999993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -341,6 +342,19 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &424176063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 424176057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f56d25790a3a548aec1c0dfd1357f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 2012964246}
+  speed: 5
 --- !u!1 &622253270
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +367,6 @@ GameObject:
   - 136: {fileID: 622253273}
   - 23: {fileID: 622253272}
   - 54: {fileID: 622253271}
-  - 114: {fileID: 622253276}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -439,18 +452,6 @@ Transform:
   - {fileID: 959109700}
   m_Father: {fileID: 357681850}
   m_RootOrder: 1
---- !u!114 &622253276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 622253270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8f56d25790a3a548aec1c0dfd1357f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!1 &650496698
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +835,7 @@ GameObject:
   - 4: {fileID: 659900838}
   - 114: {fileID: 659900837}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Test2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -852,7 +853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildCamera: {fileID: 407156861}
-  playerToControl: {fileID: 2012964244}
+  playerToControl: {fileID: 424176057}
   gameController: {fileID: 1383381715}
   cont: 107
 --- !u!4 &659900838
@@ -1115,8 +1116,9 @@ GameObject:
   - 124: {fileID: 959109703}
   - 92: {fileID: 959109702}
   - 81: {fileID: 959109701}
+  - 114: {fileID: 959109705}
   m_Layer: 0
-  m_Name: PlayerCamera
+  m_Name: PlayerCamera2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,6 +1192,19 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!114 &959109705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 959109699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f56d25790a3a548aec1c0dfd1357f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody: {fileID: 622253271}
+  speed: 5
 --- !u!1 &1097549344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1220,7 @@ GameObject:
   - 114: {fileID: 1097549350}
   - 54: {fileID: 1097549351}
   m_Layer: 0
-  m_Name: FreeCam
+  m_Name: FreeCam2
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1273,7 +1288,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1097549344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.30707, y: 1.565032, z: -2.5304728}
+  m_LocalPosition: {x: 3.7, y: 0.28, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1337,8 +1352,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 0}
   players:
-  - {fileID: 659900836}
-  - {fileID: 357681848}
+  - {fileID: 357681849}
+  - {fileID: 659900837}
+  cont: 13
 --- !u!4 &1383381716
 Transform:
   m_ObjectHideFlags: 0
@@ -1364,7 +1380,6 @@ GameObject:
   - 136: {fileID: 2012964248}
   - 23: {fileID: 2012964247}
   - 54: {fileID: 2012964246}
-  - 114: {fileID: 2012964245}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1372,18 +1387,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2012964245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2012964244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8f56d25790a3a548aec1c0dfd1357f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
 --- !u!54 &2012964246
 Rigidbody:
   m_ObjectHideFlags: 0
