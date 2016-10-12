@@ -4,9 +4,10 @@ using Helper;
 
 
 public class Player : MonoBehaviour {
-    private string name;
+   // private string name;
 	// Use this for initialization
 	void Start () {
+		gameObject.name = "Player";
 	
 	}
 	
@@ -14,12 +15,12 @@ public class Player : MonoBehaviour {
 	void Update () {
 	
 	}
-    public string getName()
+   /* public string getName()
     {
         return name;
     }
     public void setName(string name)
     {
         this.name = name;
-    }
+    } */ // ponieważ bazowa klasa dla wszystkich obiektów w Unity posiada już takie pole
 }

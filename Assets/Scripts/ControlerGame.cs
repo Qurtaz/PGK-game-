@@ -7,16 +7,25 @@ public class ControlerGame : MonoBehaviour {
     public List<GameObject> players = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
-        players.Capacity = 2;
+		AddPlayers ();
+		for (int i = 0; i < players.Capacity; i++)
+			players [i].SetActive (false);
+		
+			
         
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
-    void AddPlayer()
-    {
 
+	}
+    void AddPlayers()
+    {
+		GameObject[] playersToAdd = GameObject.FindObjectsOfType (typeof(GameObject)) as GameObject[]; 
+		foreach (GameObject player in playersToAdd) {
+			
+			if (player.name == "Player")
+				players.Add (player);
+		}
     }
 }

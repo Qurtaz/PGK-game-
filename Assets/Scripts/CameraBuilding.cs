@@ -37,8 +37,8 @@ public class CameraBuilding : MonoBehaviour {
 		transform.eulerAngles = new Vector3 (transform.eulerAngles.x,transform.eulerAngles.y, 0);
         float moveHorizontal = Input.GetAxis(InputPlayer.HORIZONTAL);
         float moveVertical = Input.GetAxis(InputPlayer.VERTICALL);
-		rb.addRelativeForce(Vector3.forward * moveVertical * speed);
-		rb.addRelativeForce(Vector3.right * moveHorizontal * speed);
+		rb.AddRelativeForce(Vector3.forward * moveVertical * speed);
+		rb.AddRelativeForce(Vector3.right * moveHorizontal * speed);
 
 			
 			

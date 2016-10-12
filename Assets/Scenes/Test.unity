@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692534, g: 0.49678725, b: 0.5750856, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -905,8 +905,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8a966e1a07713428f0afb3469cec76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 1097549351}
   speed: 10
-  rotationSpeed: 100
+  mouseSpeed: 10
 --- !u!54 &1097549351
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -915,7 +916,7 @@ Rigidbody:
   m_GameObject: {fileID: 1097549344}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 10
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0

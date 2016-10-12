@@ -38,10 +38,12 @@ public class Gate : MonoBehaviour {
             {
                countingDown -= Time.deltaTime;
                 text.text = Mathf.Ceil(countingDown).ToString();
+				Debug.Log (other.gameObject.GetComponent<Player> ().name);
             }
             else
             {
-                text.text = "Winer /n Player" + other.gameObject.GetComponent<Player>().getName();
+				text.text = "Winer /n Player" + other.gameObject.GetComponent<Player> ().name;
+	
             }
         }
          
