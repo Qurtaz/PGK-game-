@@ -3,11 +3,10 @@ using System.Collections;
 using Helper;
 
 public class PlayerControler : MonoBehaviour {
-    private Rigidbody rigidbody;
+    public Rigidbody rigidbody;
     public float speed = 5;
 	// Use this for initialization
 	void Start () {
-        rigidbody = GetComponent<Rigidbody>();
 	}
 
     void FixedUpdate()
