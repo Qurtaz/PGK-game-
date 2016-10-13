@@ -33,10 +33,12 @@ public class Gate : MonoBehaviour {
             if (countingDown>0)
             {
                countingDown -= Time.deltaTime;
+				Debug.Log (other.gameObject.GetComponent<Player> ().name);
             }
             else
             {
-                winner = other.gameObject;
+				text.text = "Winer /n Player" + other.gameObject.GetComponent<Player> ().name;
+	
             }
         }
          
