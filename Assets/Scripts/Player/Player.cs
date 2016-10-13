@@ -21,19 +21,19 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isMyTurn) {
-			Debug.Log ("My turn!"+this.name);
+			//Debug.Log ("My turn!"+this.name);
 			if (!isBuilding && !isControlling) {
-				Debug.Log ("Building!"+this.name);
+				//Debug.Log ("Building!"+this.name);
 				ActivateBuilding ();
 			}
 			if (Input.GetKeyDown (cont) && !justStarted) {
 
 
 				if (isBuilding && !isControlling) {
-					Debug.Log ("Moving!"+this.name);
+					//Debug.Log ("Moving!"+this.name);
 					DeactivateBuilding ();
 				} else if (!isBuilding && isControlling) {
-					Debug.Log ("End turn!"+this.name);
+					//Debug.Log ("End turn!"+this.name);
 					DeactivateControl ();
 				}
 			}
