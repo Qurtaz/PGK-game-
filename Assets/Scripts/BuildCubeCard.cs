@@ -10,7 +10,7 @@ public class BuildCubeCard : Card {
 
         //base.activateCard();
 		Debug.Log("Cube activated");
-		GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+		GameObject plane = GameObject.CreatePrimitive(PrimitiveType.Cube);
 		plane.AddComponent<Rigidbody>();
 		plane.transform.position = new Vector3(15, 3, -5);
         

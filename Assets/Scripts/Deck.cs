@@ -83,10 +83,13 @@ public class Deck : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(pressed))
         {
-			Debug.Log (deck[pressedActivate].GetType().Name.ToString());
 
-                deck[pressedActivate].ActivateCard();
-			pressedActivate++;
+			if (pressedActivate < deckSize) {
+				deck [pressedActivate].ActivateCard ();
+				pressedActivate++;
+			} else
+				Debug.Log ("Pusty deck!");
+			Debug.Log("Masz " + (deckSize - pressedActivate) +" kart w talii");
             
         }
 	}
