@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692522, g: 0.49678677, b: 0.5750848, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692534, g: 0.49678725, b: 0.5750856, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   buildCamera: {fileID: 1097549344}
   playerToControl: {fileID: 959109699}
   gameController: {fileID: 1383381715}
-  cont: 107
+  cont: 0
 --- !u!4 &357681850
 Transform:
   m_ObjectHideFlags: 0
@@ -349,13 +349,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 424176057}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8f56d25790a3a548aec1c0dfd1357f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 2012964246}
   speed: 5
+  mouseSpeed: 10
 --- !u!1 &622253270
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +388,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!23 &622253272
 MeshRenderer:
@@ -856,7 +856,7 @@ MonoBehaviour:
   buildCamera: {fileID: 407156861}
   playerToControl: {fileID: 424176057}
   gameController: {fileID: 1383381715}
-  cont: 107
+  cont: 0
 --- !u!4 &659900838
 Transform:
   m_ObjectHideFlags: 0
@@ -1024,7 +1024,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh11370
+  m_Name: pb_Mesh9586
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -1283,13 +1283,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 959109699}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8f56d25790a3a548aec1c0dfd1357f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody: {fileID: 622253271}
   speed: 5
+  mouseSpeed: 10
 --- !u!1 &1097549344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,9 +1438,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 0}
   players:
-  - {fileID: 357681849}
-  - {fileID: 659900837}
-  cont: 13
+  - {fileID: 0}
+  - {fileID: 0}
+  cont: 0
 --- !u!4 &1383381716
 Transform:
   m_ObjectHideFlags: 0
@@ -1486,7 +1486,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!23 &2012964247
 MeshRenderer:

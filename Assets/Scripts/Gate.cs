@@ -8,6 +8,7 @@ using Helper;
 public class Gate : MonoBehaviour {
     public GameObject TrigerGate;
     public float time = 3;
+    public Text text;
     private float countingDown;
     private GameObject winner;
     // Use this for initialization
