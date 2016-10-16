@@ -10,7 +10,7 @@ public class BuildCubeCard : Card {
 
         //base.activateCard();
 		Debug.Log("Cube activated");
-		Instantiate (Resources.Load ("Platform"));
+		Instantiate (Resources.Load ("ConstructionPlatform"));
         
     }
 	

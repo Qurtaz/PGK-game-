@@ -12,6 +12,8 @@ namespace Helper
         public static string MOUSEX = "Mouse X";
         public static string MOUSEY = "Mouse Y";
         public static string MOUSESCROLL = "Mouse ScrollWheel";
+		public static string WHEELPRESS = "Fire3";
+		public static string MOUSE0 = "Fire1";
     }
     public static class GameTag
     {

@@ -23,13 +23,15 @@ public class CameraBuilding : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//if(Input.GetKey(keys[6])) do zastąpienia hotkeyem z input managera, dopisanym w helperze
+		if(Input.GetAxis(InputPlayer.WHEELPRESS) > 0)
+			{
 				h = (mouseSpeed * Input.GetAxis(InputPlayer.MOUSEX));
 			v = (-1 * mouseSpeed * Input.GetAxis (InputPlayer.MOUSEY));
 			transform.Rotate (0, h, 0);
 			if (!((v > 0 && Vector3.Dot (transform.forward, Vector3.up) <= -0.90) 
 				|| (v < 0 && Vector3.Dot (transform.forward, Vector3.up) >= 0.90))) // stałe ustalone empirycznie, nie dotykać
 				transform.Rotate (v, 0, 0);
+			}
 			
 
 	
