@@ -9,10 +9,11 @@ public class PlayerControler : MonoBehaviour {
     public float mouseSpeed = 10.0F;
 	public float jumpForce = 200.0F;
 	private bool jumped = false;
+	private float distToGround ;
     // Use this for initialization
     void Start () {
         rigid = GetComponentInParent<Rigidbody>();
-
+		distToGround = rigid.GetComponent<Collider> ().bounds.extents.y;
 	}
 
     void FixedUpdate()
@@ -25,14 +26,11 @@ public class PlayerControler : MonoBehaviour {
 
 		rigid.AddRelativeForce(Vector3.forward * moveVertical * speed);
 		rigid.AddRelativeForce(Vector3.right * moveHorizontal * speed);
-		if (!jumped) {
+		if (jumped) {
 			rigid.AddRelativeForce (Vector3.up * jump * jumpForce);
-			jumped = true;
-		}
-		Debug.Log (jump);
-		if (rigid.velocity.y == 0)
 			jumped = false;
-
+		}
+		jumped = Physics.Raycast (rigid.transform.position, Vector3.down, distToGround + 0.2f);
 
         float h = (mouseSpeed * Input.GetAxis(InputPlayer.MOUSEX));
 		float v = (-1 * mouseSpeed * Input.GetAxis (InputPlayer.MOUSEY));

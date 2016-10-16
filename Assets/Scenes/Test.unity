@@ -150,6 +150,7 @@ GameObject:
   - 81: {fileID: 407156864}
   - 114: {fileID: 407156863}
   - 54: {fileID: 407156862}
+  - 65: {fileID: 407156869}
   m_Layer: 0
   m_Name: FreeCam
   m_TagString: MainCamera
@@ -170,7 +171,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &407156863
 MonoBehaviour:
@@ -255,6 +256,18 @@ Transform:
   - {fileID: 889147158}
   m_Father: {fileID: 659900838}
   m_RootOrder: 0
+--- !u!65 &407156869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 407156861}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &424176057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,6 +1319,7 @@ GameObject:
   - 81: {fileID: 1097549345}
   - 114: {fileID: 1097549350}
   - 54: {fileID: 1097549351}
+  - 65: {fileID: 1097549352}
   m_Layer: 0
   m_Name: FreeCam2
   m_TagString: MainCamera
@@ -1409,8 +1423,20 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &1097549352
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1097549344}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1383381714
 GameObject:
   m_ObjectHideFlags: 0
