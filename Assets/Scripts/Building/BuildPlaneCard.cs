@@ -11,14 +11,5 @@ public class BuildPlaneCard : Card {
         plane.AddComponent<Rigidbody>();
         plane.transform.position = new Vector3(15, 3, -5);
     }
-
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+		
 }
