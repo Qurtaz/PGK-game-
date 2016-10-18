@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Card : Object {
+	public float cost = 0F;
 
     public virtual void ActivateCard()
     {

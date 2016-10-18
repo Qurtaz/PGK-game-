@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
     public GameObject playerToControl;
     public ControlerGame gameController;
     public KeyCode cont;
+	private ResourceSystem resources;
+
     bool isBuilding = false;
     bool isControlling = false;
     bool isMyTurn = false;
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+		resources = GetComponentInChildren<ResourceSystem> ();
         this.DeactivatePlayer();
     }
 
@@ -86,6 +89,7 @@ public class Player : MonoBehaviour {
     }
     public void ActivatePlayer()
     {
+		resources.resourcesAvailable = 10.0F;
         isMyTurn = true;
     }
 

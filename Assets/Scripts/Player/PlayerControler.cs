@@ -9,11 +9,13 @@ public class PlayerControler : MonoBehaviour {
     public float mouseSpeed = 10.0F;
 	public float jumpForce = 200.0F;
 	private bool jumped = false;
-	private float distToGround ;
+	private float distToGround;
+	private ResourceSystem player;
     // Use this for initialization
     void Start () {
         rigid = GetComponentInParent<Rigidbody>();
 		distToGround = rigid.GetComponent<Collider> ().bounds.extents.y;
+		player = GetComponentInParent<ResourceSystem> ();
 	}
 
     void FixedUpdate()
@@ -23,7 +25,8 @@ public class PlayerControler : MonoBehaviour {
         float jump = Input.GetAxis(InputPlayer.JUMP);
         float mouseX = Input.GetAxis(InputPlayer.MOUSEX);
         float mouseY = Input.GetAxis(InputPlayer.MOUSEY);
-
+		if (moveHorizontal != 0 || moveVertical != 0 || jump != 0)
+			player.UseResources (Time.deltaTime);
 		rigid.AddRelativeForce(Vector3.forward * moveVertical * speed);
 		rigid.AddRelativeForce(Vector3.right * moveHorizontal * speed);
 		if (jumped) {
