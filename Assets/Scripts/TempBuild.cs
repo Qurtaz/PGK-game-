@@ -4,6 +4,8 @@ using Helper;
 
 public class TempBuild : MonoBehaviour {
 	private float scrolls;
+	private Collider coll;
+	public bool isAbleToBuild = true;
 	// Use this for initialization
 	void Start () {
 
@@ -19,13 +21,19 @@ public class TempBuild : MonoBehaviour {
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		if (XZPlane.Raycast (ray, out distance)) {
 			hitPoint = ray.GetPoint (distance);
+			hitPoint.x = Mathf.Round (hitPoint.x);
+			hitPoint.z = Mathf.Round (hitPoint.z);
 			hitPoint.y = scrolls;
 		}
-		if (Input.GetAxis (InputPlayer.MOUSE0) > 0) {
+		if (Input.GetAxis (InputPlayer.MOUSE0) > 0 && isAbleToBuild) {
+			Debug.Log (isAbleToBuild);
 			GameObject newPlatform = Instantiate (Resources.Load ("Platform"), hitPoint, Quaternion.identity) as GameObject;
 			Destroy (gameObject);
 		}
+
 		transform.position = hitPoint;
 	}
 
+
+		
 }
