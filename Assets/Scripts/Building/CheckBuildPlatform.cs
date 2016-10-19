@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CheckBuild : MonoBehaviour {
+public class CheckBuildPlatform : MonoBehaviour {
 
-	private TempBuild builder;
+	private TempBuildPlatform builder;
 	// Use this for initialization
 	void Start () {
-		builder = GetComponentInParent<TempBuild> ();
+		builder = GetComponentInParent<TempBuildPlatform> ();
 	}
 	
 	// Update is called once per frame

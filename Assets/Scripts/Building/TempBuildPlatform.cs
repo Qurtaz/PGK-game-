@@ -2,7 +2,7 @@
 using System.Collections;
 using Helper;
 
-public class TempBuild : MonoBehaviour {
+public class TempBuildPlatform : MonoBehaviour {
 	private float scrolls;
 	private Collider coll;
 	public bool isAbleToBuild = true;
@@ -33,7 +33,4 @@ public class TempBuild : MonoBehaviour {
 
 		transform.position = hitPoint;
 	}
-
-
-		
 }

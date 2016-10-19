@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BuildCubeCard : Card {
-	public BuildCubeCard()
+public class BuildPlatformCard : Card {
+	public BuildPlatformCard()
 	{
 		cost = 2F;
 	}
@@ -10,7 +10,7 @@ public class BuildCubeCard : Card {
     public override void ActivateCard()
     {
         //base.activateCard();
-		Debug.Log("Cube activated");
+		Debug.Log("Platform activated");
 		Instantiate (Resources.Load ("ConstructionPlatform"));
         
     }

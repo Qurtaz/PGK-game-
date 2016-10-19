@@ -36,11 +36,11 @@ public class Deck : MonoBehaviour {
             x = rnd.Next(0, 2);
             if(x==0)
             {
-                deck.Add(new BuildCubeCard());
+                deck.Add(new BuildPlatformCard());
             }
             if(x==1)
             {
-                deck.Add(new BuildPlaneCard());
+                deck.Add(new BuildCatapultCard());
             }
         }
     }
@@ -82,12 +82,15 @@ public class Deck : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (Input.GetKeyDown(pressed))
         {
 
-			if (pressedActivate < deckSize) {
-				if (player.resourcesAvailable > deck [pressedActivate].cost) {
+			if (pressedActivate < deckSize)
+            {
+				if (player.resourcesAvailable > deck [pressedActivate].cost)
+                {
 					player.UseResources (deck [pressedActivate].cost);
 					deck [pressedActivate].ActivateCard ();
 
