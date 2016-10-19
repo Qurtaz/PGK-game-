@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     bool isControlling = false;
     bool isMyTurn = false;
     bool justStarted = true;
+	public bool outOfResources = false;
     // Use this for initialization
     void Start()
     {
@@ -89,7 +90,8 @@ public class Player : MonoBehaviour {
     }
     public void ActivatePlayer()
     {
-		resources.resourcesAvailable = 10.0F;
+		resources.resourcesAvailable = 20.0F;
+		outOfResources = false;
         isMyTurn = true;
     }
 

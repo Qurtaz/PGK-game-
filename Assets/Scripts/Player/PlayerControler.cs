@@ -11,11 +11,13 @@ public class PlayerControler : MonoBehaviour {
 	private bool jumped = false;
 	private float distToGround;
 	private ResourceSystem player;
+	private Player cont;
     // Use this for initialization
     void Start () {
         rigid = GetComponentInParent<Rigidbody>();
 		distToGround = rigid.GetComponent<Collider> ().bounds.extents.y;
 		player = GetComponentInParent<ResourceSystem> ();
+		cont = GetComponentInParent<Player> ();
 	}
 
     void FixedUpdate()
@@ -26,14 +28,17 @@ public class PlayerControler : MonoBehaviour {
         float mouseX = Input.GetAxis(InputPlayer.MOUSEX);
         float mouseY = Input.GetAxis(InputPlayer.MOUSEY);
 		if (moveHorizontal != 0 || moveVertical != 0 || jump != 0)
-			player.UseResources (Time.deltaTime);
-		rigid.AddRelativeForce(Vector3.forward * moveVertical * speed);
-		rigid.AddRelativeForce(Vector3.right * moveHorizontal * speed);
-		if (jumped) {
-			rigid.AddRelativeForce (Vector3.up * jump * jumpForce);
-			jumped = false;
+			player.UseResources (2*Time.deltaTime);
+		if (!cont.outOfResources) {
+			rigid.AddRelativeForce (Vector3.forward * moveVertical * speed);
+			rigid.AddRelativeForce (Vector3.right * moveHorizontal * speed);
+			if (jumped) {
+				rigid.AddRelativeForce (Vector3.up * jump * jumpForce);
+				jumped = false;
+			}
+			jumped = Physics.Raycast (rigid.transform.position, Vector3.down, distToGround + 0.2f);
 		}
-		jumped = Physics.Raycast (rigid.transform.position, Vector3.down, distToGround + 0.2f);
+
 
         float h = (mouseSpeed * Input.GetAxis(InputPlayer.MOUSEX));
 		float v = (-1 * mouseSpeed * Input.GetAxis (InputPlayer.MOUSEY));
@@ -45,3 +50,4 @@ public class PlayerControler : MonoBehaviour {
 
     }
 }
+
