@@ -40,10 +40,11 @@ public class ControlerGame : MonoBehaviour {
     }*/
     public void ChangeActivePlayer()
     {
-
+        players[playerTurn].DeactivatePlayer();
         playerTurn++;
         playerTurn = playerTurn % 2;
         players[playerTurn].ActivatePlayer();
+        waitForButton = false;
     }
     public void ChangePlayers()
     {

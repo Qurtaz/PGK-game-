@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public class Deck : MonoBehaviour {
 
     private List<Card> deck = new List<Card>();
-    private List<Card> hand = new List<Card>();
     private int deckSize = 30;
     private int cardsDealt = 0;
 	private ResourceSystem player;
@@ -45,24 +44,12 @@ public class Deck : MonoBehaviour {
         }
     }
 
-    public void PickCard()
-    {
-        hand[hand.Count] = deck[cardsDealt];
-        deck.RemoveAt(cardsDealt);
-        cardsDealt++;
-    }
 
-    public void UseCard(int i)
-    {
-        hand[i].ActivateCard();
-        hand.RemoveAt(i);
-    }
 
     public void ResetDeck()
     {
         cardsDealt = 0;
         deck.Clear();
-        hand.Clear();
         FillDeck();
     }
 
@@ -80,6 +67,10 @@ public class Deck : MonoBehaviour {
         WriteToLog();
 		player = GetComponentInParent<ResourceSystem> ();
 	}
+    public Card PickCard()
+    {
+        return null;
+    }
 	
 	// Update is called once per frame
 	void Update ()

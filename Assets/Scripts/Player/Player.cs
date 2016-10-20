@@ -82,9 +82,9 @@ public class Player : MonoBehaviour {
     {
         isMyTurn = false;
         isControlling = false;
-        playerToControl.SetActive(false);
         isBuilding = false;
         buildCamera.SetActive(false);
+        playerToControl.SetActive(false);
         justStarted = true;
 
     }
