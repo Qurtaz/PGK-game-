@@ -21,9 +21,6 @@ public class PlayerControler : MonoBehaviour {
         float moveHorizontal = Input.GetAxis(InputPlayer.HORIZONTAL);
         float moveVertical = Input.GetAxis(InputPlayer.VERTICALL);
         float jump = Input.GetAxis(InputPlayer.JUMP);
-        float mouseX = Input.GetAxis(InputPlayer.MOUSEX);
-        float mouseY = Input.GetAxis(InputPlayer.MOUSEY);
-
 		rigid.AddRelativeForce(Vector3.forward * moveVertical * speed);
 		rigid.AddRelativeForce(Vector3.right * moveHorizontal * speed);
 		if (jumped) {

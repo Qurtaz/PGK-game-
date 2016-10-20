@@ -26,3 +26,48 @@ namespace Helper
         public static string GAMECONTROLER = "GameController";
     }
 }
+public struct WorldPos
+{
+    public int x, y, z;
+    public WorldPos(int x, int y, int z)
+    {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+    public override bool Equals(object obj)
+    {
+        if (!(obj is WorldPos))
+        {
+            return false;
+        }
+        else
+        {
+            WorldPos pos = (WorldPos)obj;
+            if (pos.x != x || pos.y != y || pos.z != z)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+    }
+    public static WorldPos GetBlockPos(Vector3 pos)
+    {
+        WorldPos blockPos = new WorldPos(
+            Mathf.RoundToInt(pos.x),
+            Mathf.RoundToInt(pos.y),
+            Mathf.RoundToInt(pos.z)
+            );
+
+        return blockPos;
+    }
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+
+}
