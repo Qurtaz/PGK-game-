@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692492, g: 0.4967869, b: 0.57508546, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692522, g: 0.49678677, b: 0.5750848, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -262,10 +262,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 407156861}
-  m_LocalRotation: {x: 0.50403005, y: -0, z: -0, w: 0.86368614}
-  m_LocalPosition: {x: 12.33, y: 5.21, z: 0.35000038}
+  m_LocalRotation: {x: -0, y: -0.9714453, z: -0, w: 0.23726358}
+  m_LocalPosition: {x: 24.25, y: 12.11, z: 22.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 60.518, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -152.63501, z: 0}
   m_Children:
   - {fileID: 889147158}
   m_Father: {fileID: 659900838}
@@ -511,7 +511,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
+  m_Convex: 0
   m_Mesh: {fileID: 904268496}
 --- !u!114 &650496700
 MonoBehaviour:
@@ -996,7 +996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0f7faf76c618a4ebc4d9b85d509dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 
   pressed: 114
   pressedActivate: 1
 --- !u!1 &897693443
@@ -1067,7 +1066,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh11520
+  m_Name: pb_Mesh11622
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -1230,7 +1229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0f7faf76c618a4ebc4d9b85d509dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: 
   pressed: 114
   pressedActivate: 0
 --- !u!1 &959109699
