@@ -69,7 +69,9 @@ public class Deck : MonoBehaviour {
 	}
     public Card PickCard()
     {
-        return null;
+        Card card = deck[deck.Count - 1];
+        deck.Remove(card);
+        return card;
     }
 	
 	// Update is called once per frame
