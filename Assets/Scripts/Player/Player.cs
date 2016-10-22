@@ -5,13 +5,12 @@ using Helper;
 
 public class Player : MonoBehaviour {
     // private string name;
-    public GameObject handObject;
     public GameObject buildCamera;
     public GameObject playerToControl;
     public ControlerGame gameController;
     public KeyCode cont;
 
-    private Hand hand;
+    public Hand hand;
 	private ResourceSystem resources;
 
     bool isBuilding = false;
@@ -22,54 +21,50 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        hand = handObject.GetComponent<Hand>();
-		resources = GetComponentInChildren<ResourceSystem> ();
+		resources = GetComponent<ResourceSystem> ();
         this.DeactivatePlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isMyTurn)
-        {
-            //Debug.Log ("My turn!"+this.name);
-            if (!isBuilding && !isControlling)
-            {
-                //Debug.Log ("Building!"+this.name);
-                ActivateBuilding();
-            }
-            if (Input.GetKeyDown(cont) && !justStarted)
+
+            if (Input.GetKeyDown(cont))
             {
 
-
-                if (isBuilding && !isControlling)
-                {
-                    //Debug.Log ("Moving!"+this.name);
-                    DeactivateBuilding();
-                }
-                else if (!isBuilding && isControlling)
-                {
-                    //Debug.Log ("End turn!"+this.name);
-                    DeactivateControl();
-                }
+				ChangePhase ();
+            
             }
-            if (justStarted)
-                justStarted = false;
-        }
+       
 
 
 
     }
+	public void ChangePhase()
+	{
+		if (isBuilding && !isControlling)
+		{
+			//Debug.Log ("Moving!"+this.name);
+			DeactivateBuilding();
+		}
+		else if (!isBuilding && isControlling)
+		{
+			//Debug.Log ("End turn!"+this.name);
+			DeactivateControl();
+		}
+	}
+
+
     void ActivateBuilding()
     {
         isBuilding = true;
-        hand.SetActiveHand(isBuilding);
+        //hand.SetActiveHand(isBuilding);
         buildCamera.SetActive(true);
     }
     void DeactivateBuilding()
     {
         isBuilding = false;
-        hand.SetActiveHand(isBuilding);
+        //hand.SetActiveHand(isBuilding);
         buildCamera.SetActive(false);
         ActivateControl();
     }
@@ -89,10 +84,9 @@ public class Player : MonoBehaviour {
         isMyTurn = false;
         isControlling = false;
         isBuilding = false;
-        hand.SetActiveHand(isBuilding);
+        //hand.SetActiveHand(isBuilding);
         buildCamera.SetActive(false);
         playerToControl.SetActive(false);
-        justStarted = true;
 
     }
     public void ActivatePlayer()
@@ -100,7 +94,12 @@ public class Player : MonoBehaviour {
 		resources.resourcesAvailable = 20.0F;
 		outOfResources = false;
         isMyTurn = true;
+		ActivateBuilding ();
     }
+	public float GetResources()
+	{
+		return resources.resourcesAvailable;
+	}
 
     /* public string getName()
      {

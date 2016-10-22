@@ -53,6 +53,10 @@ public class ControlerGame : MonoBehaviour {
     }
     public float ResoursesData()
     {
-        return 0.0f;
+		return players [playerTurn].GetResources ();
     }
+	public void ChangePlayerPhase()
+	{
+		players [playerTurn].ChangePhase ();
+	}
 }
