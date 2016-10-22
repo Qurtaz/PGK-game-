@@ -5,10 +5,13 @@ using Helper;
 
 public class Player : MonoBehaviour {
     // private string name;
+    public GameObject handObject;
     public GameObject buildCamera;
     public GameObject playerToControl;
     public ControlerGame gameController;
     public KeyCode cont;
+
+    private Hand hand;
 	private ResourceSystem resources;
 
     bool isBuilding = false;
@@ -19,6 +22,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        hand = handObject.GetComponent<Hand>();
 		resources = GetComponentInChildren<ResourceSystem> ();
         this.DeactivatePlayer();
     }
@@ -59,11 +63,13 @@ public class Player : MonoBehaviour {
     void ActivateBuilding()
     {
         isBuilding = true;
+        hand.SetActiveHand(isBuilding);
         buildCamera.SetActive(true);
     }
     void DeactivateBuilding()
     {
         isBuilding = false;
+        hand.SetActiveHand(isBuilding);
         buildCamera.SetActive(false);
         ActivateControl();
     }
@@ -83,6 +89,7 @@ public class Player : MonoBehaviour {
         isMyTurn = false;
         isControlling = false;
         isBuilding = false;
+        hand.SetActiveHand(isBuilding);
         buildCamera.SetActive(false);
         playerToControl.SetActive(false);
         justStarted = true;

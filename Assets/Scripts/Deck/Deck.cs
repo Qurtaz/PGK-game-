@@ -6,7 +6,6 @@ public class Deck : MonoBehaviour {
     private List<Card> deck = new List<Card>();
     private int deckSize = 30;
     private int cardsDealt = 0;
-	private ResourceSystem player;
 
     public KeyCode pressed;
     public int pressedActivate = 0;
@@ -65,7 +64,6 @@ public class Deck : MonoBehaviour {
 	void Start () {
         ResetDeck();
         WriteToLog();
-		player = GetComponentInParent<ResourceSystem> ();
 	}
     public Card PickCard()
     {
@@ -77,23 +75,6 @@ public class Deck : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKeyDown(pressed))
-        {
-
-			if (pressedActivate < deckSize)
-            {
-				if (player.resourcesAvailable > deck [pressedActivate].cost)
-                {
-					player.UseResources (deck [pressedActivate].cost);
-					deck [pressedActivate].ActivateCard ();
-
-					pressedActivate++;
-				} else
-					Debug.Log ("Za malo zasobow!");
-			} else
-				Debug.Log ("Pusty deck!");
-			Debug.Log("Masz " + (deckSize - pressedActivate) +" kart w talii");
-            
-        }
+        
 	}
 }

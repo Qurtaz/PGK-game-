@@ -51,4 +51,8 @@ public class ControlerGame : MonoBehaviour {
         waitForButton = true;
         players[playerTurn].DeactivatePlayer();
     }
+    public float ResoursesData()
+    {
+        return 0.0f;
+    }
 }

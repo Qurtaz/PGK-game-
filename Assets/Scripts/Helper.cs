@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 namespace Helper
 {
     public static class InputPlayer
     {
-        public static string VERTICALL ="Vertical";
-        public static string HORIZONTAL ="Horizontal";
+        public static string VERTICALL = "Vertical";
+        public static string HORIZONTAL = "Horizontal";
         public static string JUMP = "Jump";
         public static string CANCEL = "Cancel";
         public static string MOUSEX = "Mouse X";
         public static string MOUSEY = "Mouse Y";
         public static string MOUSESCROLL = "Mouse ScrollWheel";
-		public static string WHEELPRESS = "Fire3";
-		public static string MOUSE0 = "Fire1";
+        public static string WHEELPRESS = "Fire3";
+        public static string MOUSE0 = "Fire1";
     }
     public static class GameTag
     {
@@ -25,4 +26,10 @@ namespace Helper
         public static string PLAYER = "Player";
         public static string GAMECONTROLER = "GameController";
     }
+    [System.Serializable]
+    public class CardUI
+        {
+            public GameObject plane;
+            public Text cardTitle;
+        }
 }
