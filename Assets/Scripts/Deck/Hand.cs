@@ -20,6 +20,7 @@ public class Hand : MonoBehaviour {
 		if (playerCard.Count > i) {
 			if (player.resourcesAvailable > playerCard [i].cost) {
 				playerCard [i].ActivateCard ();
+				player.UseResources (playerCard [i].cost);
 				playerCard.RemoveAt (i);
 				Debug.Log ("Używamy karty numer " + (i + 1).ToString ());
 			} else {
