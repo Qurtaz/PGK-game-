@@ -9,6 +9,7 @@ public class Hand : MonoBehaviour {
 
     private Deck deck;
     private ResourceSystem player;
+	private Player playerLogic;
 
     public List<CardUI> cardUI = new List<CardUI>();
     private List<Card> playerCard = new List<Card>();
@@ -16,19 +17,20 @@ public class Hand : MonoBehaviour {
 
     public void UseCard(int i)
     {
-        if(player.resourcesAvailable > playerCard[i].cost)
-        {
-			playerCard[i].ActivateCard();
-            Debug.Log("Używamy karty numer " + (i + 1).ToString());
-        }
-        else
-        {
-            Debug.Log("Za malo zasobow!");
-        }
+		if (playerCard.Count > i) {
+			if (player.resourcesAvailable > playerCard [i].cost) {
+				playerCard [i].ActivateCard ();
+				playerCard.RemoveAt (i);
+				Debug.Log ("Używamy karty numer " + (i + 1).ToString ());
+			} else {
+				Debug.Log ("Za malo zasobow!");
+			}
+		} else
+			Debug.Log ("Pusta karta!" + playerCard.Count);
     }
-    void ChoseCard()
+    public void ChoseCard()
     {
-        for(int z=0; z<= howManyCardOnHand; z++)
+		for(int z=playerCard.Count; z< howManyCardOnHand; z++)
         {
             playerCard.Add(deck.PickCard());
             //cardUI[z].plane.SetActive(true);
@@ -42,7 +44,14 @@ public class Hand : MonoBehaviour {
         deck = GetComponent<Deck>();
         ChoseCard();
 	}
-	
+	public string GetCardName(int cardNumber)
+	{
+		if (playerCard.Count > cardNumber)
+			return playerCard [cardNumber].GetType ().Name;
+		else
+			return "Pusta";
+	}
+
 	// Update is called once per frame
 	void Update () {
 	

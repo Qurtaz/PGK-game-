@@ -22,11 +22,9 @@ public class ControlerGame : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (waitForButton)
-        {
+
             if (Input.GetKeyDown(cont))
-                ChangeActivePlayer();
-        }
+				GetCardName (0);
 
     }
     /*void AddPlayers()
@@ -44,6 +42,8 @@ public class ControlerGame : MonoBehaviour {
         playerTurn++;
         playerTurn = playerTurn % 2;
         players[playerTurn].ActivatePlayer();
+		Hand playerHand = players [playerTurn].GetComponentInChildren<Hand> ();
+		playerHand.ChoseCard ();
         waitForButton = false;
     }
     public void ChangePlayers()
@@ -59,4 +59,21 @@ public class ControlerGame : MonoBehaviour {
 	{
 		players [playerTurn].ChangePhase ();
 	}
+	public string GetCardName(int cardNumber)
+	{
+		Hand playerHand = players [playerTurn].GetComponentInChildren<Hand> ();
+		if (playerHand == null)
+			Debug.Log ("nie załadowano ręki");
+		return playerHand.GetCardName (cardNumber);
+	}
+	public void PlayCard(int cardNumber)
+	{
+		Hand playerHand = players [playerTurn].GetComponentInChildren<Hand> ();
+		if (playerHand == null)
+			Debug.Log ("nie załadowano ręki");
+		playerHand.UseCard (cardNumber);
+	}
+
+		
+
 }
