@@ -15,8 +15,6 @@ public class Player : MonoBehaviour {
 
     bool isBuilding = false;
     bool isControlling = false;
-    bool isMyTurn = false;
-    bool justStarted = true;
 	public bool outOfResources = false;
     // Use this for initialization
     void Start()
@@ -58,13 +56,13 @@ public class Player : MonoBehaviour {
     void ActivateBuilding()
     {
         isBuilding = true;
-        //hand.SetActiveHand(isBuilding);
+
         buildCamera.SetActive(true);
     }
     void DeactivateBuilding()
     {
         isBuilding = false;
-        //hand.SetActiveHand(isBuilding);
+
         buildCamera.SetActive(false);
         ActivateControl();
     }
@@ -81,10 +79,10 @@ public class Player : MonoBehaviour {
     }
     public void DeactivatePlayer()
     {
-        isMyTurn = false;
+
         isControlling = false;
         isBuilding = false;
-        //hand.SetActiveHand(isBuilding);
+
         buildCamera.SetActive(false);
         playerToControl.SetActive(false);
 
@@ -93,7 +91,6 @@ public class Player : MonoBehaviour {
     {
 		resources.resourcesAvailable = 20.0F;
 		outOfResources = false;
-        isMyTurn = true;
 		ActivateBuilding ();
     }
 	public float GetResources()

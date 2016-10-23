@@ -32,9 +32,11 @@ public class TempBuildCatapult : MonoBehaviour
         if (Input.GetAxis(InputPlayer.MOUSE0) > 0 && isAbleToBuild)
         {
             Debug.Log(isAbleToBuild);
-            GameObject newPlatform = Instantiate(Resources.Load("Catapult"), hitPoint, Quaternion.identity) as GameObject;
+            Instantiate(Resources.Load("Catapult"), hitPoint, Quaternion.identity);
             Destroy(gameObject);
         }
+		if (Input.GetAxis (InputPlayer.MOUSE1) > 0) 
+			Destroy (gameObject);
 
         transform.position = hitPoint;
     }

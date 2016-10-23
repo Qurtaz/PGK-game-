@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Deck : MonoBehaviour {
 
-    private List<Card> deck = new List<Card>();
+	private Queue<Card> deck = new Queue<Card>();
     private int deckSize = 30;
     private int cardsDealt = 0;
 
@@ -34,11 +34,11 @@ public class Deck : MonoBehaviour {
             x = rnd.Next(0, 2);
             if(x==0)
             {
-                deck.Add(new BuildPlatformCard());
+				deck.Enqueue(new BuildPlatformCard());
             }
             if(x==1)
             {
-                deck.Add(new BuildCatapultCard());
+				deck.Enqueue(new BuildCatapultCard());
             }
         }
     }
@@ -56,7 +56,7 @@ public class Deck : MonoBehaviour {
     {
         for(int i = 0; i < deck.Count; i++)
         {
-            Debug.Log(deck[i].GetType().Name.ToString() + " ");
+            //Debug.Log(deck[i].GetType().Name.ToString() + " ");
         }
     }
 
@@ -67,9 +67,8 @@ public class Deck : MonoBehaviour {
 	}
     public Card PickCard()
     {
-        Card card = deck[deck.Count - 1];
-        deck.Remove(card);
-        return card;
+		
+		return deck.Dequeue ();
     }
 	
 	// Update is called once per frame

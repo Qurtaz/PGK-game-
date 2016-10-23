@@ -12,12 +12,14 @@ public class PlayerControler : MonoBehaviour {
 	private float distToGround;
 	private ResourceSystem player;
 	private Player cont;
+	private Hand hand;
     // Use this for initialization
     void Start () {
         rigid = GetComponentInParent<Rigidbody>();
 		distToGround = rigid.GetComponent<Collider> ().bounds.extents.y;
 		player = GetComponentInParent<ResourceSystem> ();
 		cont = GetComponentInParent<Player> ();
+		hand = GetComponentInChildren<Hand> ();
 	}
 
     void FixedUpdate()
@@ -47,6 +49,7 @@ public class PlayerControler : MonoBehaviour {
 			|| (v < 0 && Vector3.Dot (transform.forward, Vector3.up) >= 0.85))) // stałe ustalone empirycznie, nie dotykać
 			transform.Rotate (v, 0, 0);
 		transform.eulerAngles = new Vector3 (transform.eulerAngles.x,transform.eulerAngles.y, 0);
+
 
     }
 }

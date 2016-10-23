@@ -17,6 +17,6 @@ public class ResourcesView : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         slider.value = gameControler.ResoursesData();
-        text.text = Mathf.Round(gameControler.ResoursesData()).ToString();
+		text.text = (Mathf.Round (gameControler.ResoursesData ()).ToString () + "/20");
     }
 }

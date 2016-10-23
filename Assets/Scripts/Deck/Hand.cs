@@ -18,10 +18,7 @@ public class Hand : MonoBehaviour {
     {
         if(player.resourcesAvailable > playerCard[i].cost)
         {
-            /*playerCard[i].ActivateCard();
-            player.UseResources(playerCard[i].cost);
-            cardUI[i].plane.SetActive(false);
-            playerCard.RemoveAt(i);*/
+			playerCard[i].ActivateCard();
             Debug.Log("Używamy karty numer " + (i + 1).ToString());
         }
         else
@@ -34,22 +31,16 @@ public class Hand : MonoBehaviour {
         for(int z=0; z<= howManyCardOnHand; z++)
         {
             playerCard.Add(deck.PickCard());
-            cardUI[z].plane.SetActive(true);
+            //cardUI[z].plane.SetActive(true);
             //cardUI[z].cardTitle.text = playerCard.getName();
         }
         
-    }
-    public void SetActiveHand(bool active)
-    {
-
-        Debug.Log(active);
-            handPlane.SetActive(active);
     }
 
     void Start () {
         player = GetComponentInParent<ResourceSystem>();
         deck = GetComponent<Deck>();
-        //ChoseCard();
+        ChoseCard();
 	}
 	
 	// Update is called once per frame
