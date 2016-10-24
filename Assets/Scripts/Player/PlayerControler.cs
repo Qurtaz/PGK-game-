@@ -12,14 +12,12 @@ public class PlayerControler : MonoBehaviour {
 	private float distToGround;
 	private ResourceSystem player;
 	private Player cont;
-	private Hand hand;
     // Use this for initialization
     void Start () {
         rigid = GetComponentInParent<Rigidbody>();
 		distToGround = rigid.GetComponent<Collider> ().bounds.extents.y;
 		player = GetComponentInParent<ResourceSystem> ();
 		cont = GetComponentInParent<Player> ();
-		hand = GetComponentInChildren<Hand> ();
 	}
 
     void FixedUpdate()
@@ -27,8 +25,6 @@ public class PlayerControler : MonoBehaviour {
         float moveHorizontal = Input.GetAxis(InputPlayer.HORIZONTAL);
         float moveVertical = Input.GetAxis(InputPlayer.VERTICALL);
         float jump = Input.GetAxis(InputPlayer.JUMP);
-        float mouseX = Input.GetAxis(InputPlayer.MOUSEX);
-        float mouseY = Input.GetAxis(InputPlayer.MOUSEY);
 		if (moveHorizontal != 0 || moveVertical != 0 || jump != 0)
 			player.UseResources (2*Time.deltaTime);
 		if (!cont.outOfResources) {

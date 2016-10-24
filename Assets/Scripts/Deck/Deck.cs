@@ -5,9 +5,8 @@ public class Deck : MonoBehaviour {
 
 	private Queue<Card> deck = new Queue<Card>();
     private int deckSize = 30;
-    private int cardsDealt = 0;
+    
 
-    public KeyCode pressed;
     public int pressedActivate = 0;
 
     public int SizeOfDeck
@@ -47,7 +46,6 @@ public class Deck : MonoBehaviour {
 
     public void ResetDeck()
     {
-        cardsDealt = 0;
         deck.Clear();
         FillDeck();
     }

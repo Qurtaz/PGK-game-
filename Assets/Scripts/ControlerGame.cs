@@ -6,12 +6,12 @@ public class ControlerGame : MonoBehaviour {
     private int playerTurn;
     public GameObject playerPrefab;
     public List<Player> players = new List<Player>();
-    public KeyCode cont;
-    bool waitForButton = false;
+    private bool finish;
     // Use this for initialization
     void Start()
     {
         //AddPlayers ();
+        finish = false;
         for (int i = 0; i < players.Capacity; i++)
             players[i].DeactivatePlayer();
         playerTurn = 0;
@@ -22,9 +22,6 @@ public class ControlerGame : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
-            if (Input.GetKeyDown(cont))
-				GetCardName (0);
 
     }
     /*void AddPlayers()
@@ -38,17 +35,18 @@ public class ControlerGame : MonoBehaviour {
     }*/
     public void ChangeActivePlayer()
     {
-        players[playerTurn].DeactivatePlayer();
-        playerTurn++;
-        playerTurn = playerTurn % 2;
-        players[playerTurn].ActivatePlayer();
-		Hand playerHand = players [playerTurn].GetComponentInChildren<Hand> ();
-		playerHand.ChoseCard ();
-        waitForButton = false;
+        if(finish == false)
+        {
+            players[playerTurn].DeactivatePlayer();
+            playerTurn++;
+            playerTurn = playerTurn % 2;
+            players[playerTurn].ActivatePlayer();
+            Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
+            playerHand.ChoseCard();
+        }
     }
     public void ChangePlayers()
     {
-        waitForButton = true;
         players[playerTurn].DeactivatePlayer();
     }
     public float ResoursesData()
@@ -73,7 +71,8 @@ public class ControlerGame : MonoBehaviour {
 			Debug.Log ("nie załadowano ręki");
 		playerHand.UseCard (cardNumber);
 	}
-
-		
-
+    public void SetGameWin()
+    {
+        finish = true;
+    }
 }

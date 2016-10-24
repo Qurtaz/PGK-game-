@@ -40,9 +40,6 @@ public class CameraBuilding : MonoBehaviour {
         float moveHorizontal = Input.GetAxis(InputPlayer.HORIZONTAL);
         float moveVertical = Input.GetAxis(InputPlayer.VERTICALL);
 		rb.AddRelativeForce(Vector3.forward * moveVertical * speed);
-		rb.AddRelativeForce(Vector3.right * moveHorizontal * speed);
-
-			
-			
+		rb.AddRelativeForce(Vector3.right * moveHorizontal * speed);	
 	}
 }

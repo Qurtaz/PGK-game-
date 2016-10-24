@@ -4,14 +4,13 @@ using Helper;
 
 
 public class Hand : MonoBehaviour {
-    public GameObject handPlane;
     public int howManyCardOnHand;
+    public GameObject cardUI;
 
     private Deck deck;
     private ResourceSystem player;
 	private Player playerLogic;
 
-    public List<CardUI> cardUI = new List<CardUI>();
     private List<Card> playerCard = new List<Card>();
     // Use this for initialization
 
@@ -34,8 +33,6 @@ public class Hand : MonoBehaviour {
 		for(int z=playerCard.Count; z< howManyCardOnHand; z++)
         {
             playerCard.Add(deck.PickCard());
-            //cardUI[z].plane.SetActive(true);
-            //cardUI[z].cardTitle.text = playerCard.getName();
         }
         
     }
@@ -57,4 +54,9 @@ public class Hand : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void SetActiveCardUI(bool active)
+    {
+        cardUI.SetActive(active);
+    }
 }
