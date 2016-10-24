@@ -2247,7 +2247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0f7faf76c618a4ebc4d9b85d509dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed: 114
   pressedActivate: 1
 --- !u!114 &889147160
 MonoBehaviour:
@@ -2261,6 +2260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   howManyCardOnHand: 10
+  cardUI: {fileID: 341465057}
 --- !u!1 &897693443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2403,7 +2403,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh9668
+  m_Name: pb_Mesh17606
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -2641,7 +2641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0f7faf76c618a4ebc4d9b85d509dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressed: 114
   pressedActivate: 0
 --- !u!114 &928135768
 MonoBehaviour:
@@ -2655,6 +2654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   howManyCardOnHand: 10
+  cardUI: {fileID: 341465057}
 --- !u!1 &940826844
 GameObject:
   m_ObjectHideFlags: 0
