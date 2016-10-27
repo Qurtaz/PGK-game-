@@ -12,6 +12,7 @@ public class PlayerControler : MonoBehaviour {
 	private float distToGround;
 	private ResourceSystem player;
 	private Player cont;
+	public bool blocked = false;
     // Use this for initialization
     void Start () {
         rigid = GetComponentInParent<Rigidbody>();
@@ -36,9 +37,12 @@ public class PlayerControler : MonoBehaviour {
 	
 		distance = Vector3.Distance (rigid.transform.position, hitPoint);
 
-		if (Input.GetKeyDown(KeyCode.Mouse0) && !cont.outOfResources) {
-			player.UseResources ((distance + hitPoint.y)/2);
+		if (!blocked && Input.GetKeyDown(KeyCode.Mouse0) && !cont.outOfResources) {
+			player.UseResources ((distance/5) + hitPoint.y);
 			rigid.transform.position = hitPoint;
+		}
+		if (Input.GetKeyDown (KeyCode.Mouse1)) {
+			blocked = !blocked;
 		}
 
 

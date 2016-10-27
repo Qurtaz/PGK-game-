@@ -75,4 +75,12 @@ public class ControlerGame : MonoBehaviour {
     {
         finish = true;
     }
+	public string GetBlocked()
+	{
+		PlayerControler playerToChange = players [playerTurn].GetComponentInChildren<PlayerControler> ();
+		if (playerToChange != null && playerToChange.blocked)
+			return "Poruszanie zablokowane";
+		else
+			return null;
+	}
 }
