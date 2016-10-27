@@ -22,29 +22,25 @@ public class PlayerControler : MonoBehaviour {
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis(InputPlayer.HORIZONTAL);
-        float moveVertical = Input.GetAxis(InputPlayer.VERTICALL);
-        float jump = Input.GetAxis(InputPlayer.JUMP);
-		if (moveHorizontal != 0 || moveVertical != 0 || jump != 0)
-			player.UseResources (2*Time.deltaTime);
-		if (!cont.outOfResources) {
-			rigid.AddRelativeForce (Vector3.forward * moveVertical * speed);
-			rigid.AddRelativeForce (Vector3.right * moveHorizontal * speed);
-			if (jumped) {
-				rigid.AddRelativeForce (Vector3.up * jump * jumpForce);
-				jumped = false;
-			}
-			jumped = Physics.Raycast (rigid.transform.position, Vector3.down, distToGround + 0.2f);
+		Plane XZPlane = new Plane(Vector3.up, Vector3.zero);
+		float distance;
+		Vector3 hitPoint = new Vector3();
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+		if (Physics.Raycast (ray, out hit)) {
+			hitPoint = hit.point;
+			hitPoint.x = Mathf.Round (hitPoint.x);
+			hitPoint.z = Mathf.Round (hitPoint.z);
+			hitPoint.y += 1F;
+		}
+	
+		distance = Vector3.Distance (rigid.transform.position, hitPoint);
+
+		if (Input.GetKeyDown(KeyCode.Mouse0) && !cont.outOfResources) {
+			player.UseResources ((distance + hitPoint.y)/2);
+			rigid.transform.position = hitPoint;
 		}
 
-
-        float h = (mouseSpeed * Input.GetAxis(InputPlayer.MOUSEX));
-		float v = (-1 * mouseSpeed * Input.GetAxis (InputPlayer.MOUSEY));
-        rigid.transform.Rotate(0, h, 0);
-		if (!((v > 0 && Vector3.Dot (transform.forward, Vector3.up) <= -0.85) 
-			|| (v < 0 && Vector3.Dot (transform.forward, Vector3.up) >= 0.85))) // stałe ustalone empirycznie, nie dotykać
-			transform.Rotate (v, 0, 0);
-		transform.eulerAngles = new Vector3 (transform.eulerAngles.x,transform.eulerAngles.y, 0);
 
 
     }

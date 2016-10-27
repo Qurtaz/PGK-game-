@@ -63,7 +63,7 @@ public class Player : MonoBehaviour {
     {
         isBuilding = false;
         hand.SetActiveCardUI(isBuilding);
-        buildCamera.SetActive(false);
+        //buildCamera.SetActive(false);
         ActivateControl();
     }
     void ActivateControl()
