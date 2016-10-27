@@ -28,6 +28,7 @@ public class TempBuildPlatform : MonoBehaviour {
 		if (Input.GetAxis (InputPlayer.MOUSE0) > 0 && isAbleToBuild) {
 			Debug.Log (isAbleToBuild);
 			Instantiate (Resources.Load ("Platform"), hitPoint, Quaternion.identity);
+
 			Destroy (gameObject);
 		}
 		if (Input.GetAxis (InputPlayer.MOUSE1) > 0)
