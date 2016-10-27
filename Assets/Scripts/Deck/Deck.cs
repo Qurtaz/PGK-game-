@@ -30,7 +30,7 @@ public class Deck : MonoBehaviour {
         System.Random rnd = new System.Random();
         for(int i = 0; i < deckSize; i++)
         {
-            x = rnd.Next(0, 2);
+            x = rnd.Next(0, 3);
             if(x==0)
             {
 				deck.Enqueue(new BuildPlatformCard());
@@ -39,6 +39,8 @@ public class Deck : MonoBehaviour {
             {
 				deck.Enqueue(new BuildCatapultCard());
             }
+			if (x == 2)
+				deck.Enqueue (new DrawCard ());
         }
     }
 

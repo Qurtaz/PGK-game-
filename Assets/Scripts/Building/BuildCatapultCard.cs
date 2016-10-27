@@ -5,7 +5,7 @@ public class BuildCatapultCard : Card
 {
     public BuildCatapultCard()
     {
-        cost = 2F;
+        cost = 4F;
     }
 
     public override void ActivateCard()

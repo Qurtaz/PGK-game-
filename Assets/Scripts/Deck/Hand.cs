@@ -59,4 +59,8 @@ public class Hand : MonoBehaviour {
     {
         cardUI.SetActive(active);
     }
+	public void DrawCard()
+	{
+		playerCard.Add (deck.PickCard ());
+	}
 }

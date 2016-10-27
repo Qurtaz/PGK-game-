@@ -83,4 +83,10 @@ public class ControlerGame : MonoBehaviour {
 		else
 			return null;
 	}
+	public void DrawCard()
+	{
+		Hand playerHand = players [playerTurn].GetComponentInChildren<Hand> ();
+		playerHand.DrawCard ();
+	}
+
 }
