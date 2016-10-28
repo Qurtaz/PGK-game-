@@ -38,7 +38,10 @@ public class PlayerControler : MonoBehaviour {
 		distance = Vector3.Distance (rigid.transform.position, hitPoint);
 
 		if (!blocked && Input.GetKeyDown(KeyCode.Mouse0) && !cont.outOfResources) {
-			player.UseResources ((distance/5) + hitPoint.y);
+			player.UseResources (distance/5);
+			float heightDiff = hitPoint.y - rigid.transform.position.y;
+			if(heightDiff > 0)
+				player.UseResources (heightDiff);
 			rigid.transform.position = hitPoint;
 		}
 		if (Input.GetKeyDown (KeyCode.Mouse1)) {
