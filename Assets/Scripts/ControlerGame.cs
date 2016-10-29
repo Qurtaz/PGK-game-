@@ -88,5 +88,10 @@ public class ControlerGame : MonoBehaviour {
 		Hand playerHand = players [playerTurn].GetComponentInChildren<Hand> ();
 		playerHand.DrawCard ();
 	}
+	public string GetCost()
+	{
+		return players [playerTurn].GetCost ().ToString ();
+	}
+
 
 }

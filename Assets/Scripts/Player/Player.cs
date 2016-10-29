@@ -97,6 +97,11 @@ public class Player : MonoBehaviour {
 	{
 		return resources.resourcesAvailable;
 	}
+	public float GetCost()
+	{
+		PlayerControler cost = GetComponentInChildren<PlayerControler> ();
+		return cost.GetCost ();
+	}
 
     /* public string getName()
      {
