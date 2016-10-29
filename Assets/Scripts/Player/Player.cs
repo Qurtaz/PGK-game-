@@ -100,7 +100,10 @@ public class Player : MonoBehaviour {
 	public float GetCost()
 	{
 		PlayerControler cost = GetComponentInChildren<PlayerControler> ();
-		return cost.GetCost ();
+		if (cost != null)
+			return cost.GetCost ();
+		else
+			return 0.0f;
 	}
 
     /* public string getName()

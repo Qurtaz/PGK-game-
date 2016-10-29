@@ -28,6 +28,11 @@ public class Hand : MonoBehaviour {
 		} else
 			Debug.Log ("Pusta karta!" + playerCard.Count);
     }
+	void Start () {
+		player = GetComponentInParent<ResourceSystem>();
+		deck = GetComponent<Deck>();
+		ChoseCard();
+	}
     public void ChoseCard()
     {
 		for(int z=playerCard.Count; z< howManyCardOnHand; z++)
@@ -37,11 +42,7 @@ public class Hand : MonoBehaviour {
         
     }
 
-    void Start () {
-        player = GetComponentInParent<ResourceSystem>();
-        deck = GetComponent<Deck>();
-        ChoseCard();
-	}
+
 	public string GetCardName(int cardNumber)
 	{
 		if (playerCard.Count > cardNumber)
