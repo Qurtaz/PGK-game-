@@ -4,12 +4,7 @@ using Helper;
 
 public class PlayerControler : MonoBehaviour {
     private Rigidbody rigid;
-	private Collider coll;
     public float speed = 5.0f;
-    public float mouseSpeed = 10.0F;
-	public float jumpForce = 200.0F;
-	private bool jumped = false;
-	private float distToGround;
 	private ResourceSystem player;
 	private Player cont;
 	private Vector3 hitPoint;
@@ -20,7 +15,6 @@ public class PlayerControler : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rigid = GetComponentInParent<Rigidbody>();
-		distToGround = rigid.GetComponent<Collider> ().bounds.extents.y;
 		player = GetComponentInParent<ResourceSystem> ();
 		cont = GetComponentInParent<Player> ();
 	}
@@ -30,7 +24,7 @@ public class PlayerControler : MonoBehaviour {
 		if (moving) {
 			rigid.drag = 2f;
 			Vector3 moveFlat = new Vector3 (hitPoint.x, 0, hitPoint.z);
-			rigid.transform.position = Vector3.MoveTowards (rigid.transform.position, moveFlat, speed * 2 * Time.deltaTime);
+			rigid.transform.position = Vector3.MoveTowards (rigid.transform.position, moveFlat, speed  * Time.deltaTime);
 			Vector3 diff = hitPoint - rigid.transform.position;
 
 			if (diff.x < 5.0f && diff.z < 5.0f && diff.y > 0.1f) {
@@ -39,6 +33,7 @@ public class PlayerControler : MonoBehaviour {
 				rigid.AddForce (new Vector3 (diff.x, v*1000, diff.z));
 			}
 			if (diff.magnitude < 0.5f) {
+				rigid.AddForce (new Vector3 (diff.x * 400, diff.y * 400, diff.z * 400));
 				moving = false;
 
 			}
@@ -54,7 +49,13 @@ public class PlayerControler : MonoBehaviour {
 
 		if (!blocked && Input.GetKeyDown(KeyCode.Mouse0) && !cont.outOfResources) {
 			if (Physics.Raycast (ray, out hit)) {
-				hitPoint = hit.point;
+				if (hit.collider.gameObject.tag == "TopPlatform") {
+					Debug.Log ("platforma!");
+					hitPoint = hit.collider.attachedRigidbody.transform.position;
+				}
+				else {
+					hitPoint = hit.point;
+				}
 				hitPoint.x = Mathf.Round (hitPoint.x);
 				hitPoint.z = Mathf.Round (hitPoint.z);
 				hitPoint.y += 1F;
@@ -100,6 +101,11 @@ public class PlayerControler : MonoBehaviour {
 		res = Mathf.Round (res * 100f) / 100f;
 		return res;
 	}
+	public void DisableMoving()
+	{
+		moving = false;
+	}
+
 
 }
 

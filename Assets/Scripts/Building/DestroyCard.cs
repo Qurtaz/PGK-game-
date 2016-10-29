@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DestroyCard : MonoBehaviour {
+public class DestroyCard : Card {
 
+	public DestroyCard()
+	{
+		cost = 2F;
+	}
 	// Use this for initialization
-	void Start () {
-	
+	public override void ActivateCard()
+	{
+		Instantiate (Resources.Load ("CardDestroyer"));
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

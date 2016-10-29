@@ -26,7 +26,7 @@ GameObject:
   - 138: {fileID: 138000013959410010}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: TopPlatform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ GameObject:
   - 138: {fileID: 138000012201589758}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
