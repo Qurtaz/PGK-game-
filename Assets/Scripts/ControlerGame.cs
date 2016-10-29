@@ -7,6 +7,9 @@ public class ControlerGame : MonoBehaviour {
     public GameObject playerPrefab;
     public List<Player> players = new List<Player>();
     private bool finish;
+    private int turn;
+    private int activePhase;
+    
     // Use this for initialization
     void Start()
     {
@@ -16,7 +19,8 @@ public class ControlerGame : MonoBehaviour {
             players[i].DeactivatePlayer();
         playerTurn = 0;
         ChangePlayers();
-
+        turn = 1;
+        activePhase = -1;
     }
 
     // Update is called once per frame
@@ -37,9 +41,18 @@ public class ControlerGame : MonoBehaviour {
     {
         if(finish == false)
         {
+            
             players[playerTurn].DeactivatePlayer();
             playerTurn++;
+            activePhase++;
+            if (activePhase == 2)
+            {
+                turn++;
+                activePhase = 0;
+            }
+            Debug.Log("player turn: "+activePhase);
             playerTurn = playerTurn % 2;
+            Debug.Log(playerTurn % 2);
             players[playerTurn].ActivatePlayer();
             Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
             playerHand.ChoseCard();
@@ -75,6 +88,7 @@ public class ControlerGame : MonoBehaviour {
     {
         finish = true;
     }
+
 	public string GetBlocked()
 	{
 		PlayerControler playerToChange = players [playerTurn].GetComponentInChildren<PlayerControler> ();
@@ -93,5 +107,15 @@ public class ControlerGame : MonoBehaviour {
 		return players [playerTurn].GetCost ().ToString ();
 	}
 
+
+
+    public int GetPlayerTurn()
+    {
+        return turn;
+    }
+    public string GetPlayerName()
+    {
+        return players[playerTurn].name;
+    }
 
 }
