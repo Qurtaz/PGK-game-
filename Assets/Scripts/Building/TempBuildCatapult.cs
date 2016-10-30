@@ -7,7 +7,6 @@ public class TempBuildCatapult : MonoBehaviour
     private float scrolls;
     private Collider coll;
     public bool isAbleToBuild = true;
-	private bool enableRotating = false;
     // Use this for initialization
     void Start()
     {
@@ -17,7 +16,6 @@ public class TempBuildCatapult : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (!enableRotating) {
 			if (Input.GetAxis (InputPlayer.MOUSESCROLL) != 0)
 				scrolls += Input.GetAxis (InputPlayer.MOUSESCROLL);
 			Plane XZPlane = new Plane (Vector3.up, Vector3.zero);
@@ -31,7 +29,9 @@ public class TempBuildCatapult : MonoBehaviour
 				hitPoint.y = scrolls;
 			}
 			if (Input.GetAxis (InputPlayer.MOUSE0) > 0 && isAbleToBuild) {
-				enableRotating = true;
+
+			Instantiate (Resources.Load ("Catapult"), transform.position, transform.rotation);
+			Destroy (gameObject);
 
 			}
 			if (Input.GetAxis (InputPlayer.MOUSE1) > 0)
@@ -39,15 +39,7 @@ public class TempBuildCatapult : MonoBehaviour
 		
 
 			transform.position = hitPoint;
-		} else {
-			Debug.Log ("Rotating enabled");
-			float v = Input.GetAxis ("Mouse X") * 3;
-			v = Mathf.Round (v);
-			transform.Rotate (0, v, 0);
-			if (Input.GetKeyDown (KeyCode.Mouse0)) {
-				Instantiate (Resources.Load ("Catapult"), transform.position, transform.rotation);
-				Destroy (gameObject);
-			}
+
+
 		}
     }
-}
