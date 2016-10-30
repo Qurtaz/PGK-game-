@@ -22,16 +22,19 @@ public class PlayerControler : MonoBehaviour {
     void FixedUpdate()
     {
 		if (moving) {
-			rigid.drag = 2f;
+			
 			Vector3 moveFlat = new Vector3 (hitPoint.x, 0, hitPoint.z);
+			rigid.transform.LookAt (moveFlat);
+			rigid.transform.eulerAngles = new Vector3 (0,transform.eulerAngles.y, 0);
 			rigid.transform.position = Vector3.MoveTowards (rigid.transform.position, moveFlat, speed  * Time.deltaTime);
 			Vector3 diff = hitPoint - rigid.transform.position;
 
 			if (diff.x < 5.0f && diff.z < 5.0f && diff.y > 0.1f) {
 				float heightDiff = hitPoint.y - rigid.transform.position.y;
 				float v =Mathf.Sqrt( heightDiff / (2 * Physics.gravity.magnitude));
-				rigid.AddForce (new Vector3 (diff.x, v*1000, diff.z));
+				rigid.AddForce (new Vector3 (diff.x, v*1200, diff.z));
 			}
+
 			if (diff.magnitude < 0.5f) {
 				rigid.AddForce (new Vector3 (diff.x * 400, diff.y * 400, diff.z * 400));
 				moving = false;
@@ -50,7 +53,6 @@ public class PlayerControler : MonoBehaviour {
 		if (!blocked && Input.GetKeyDown(KeyCode.Mouse0) && !cont.outOfResources) {
 			if (Physics.Raycast (ray, out hit)) {
 				if (hit.collider.gameObject.tag == "TopPlatform") {
-					Debug.Log ("platforma!");
 					hitPoint = hit.collider.attachedRigidbody.transform.position;
 				}
 				else {
@@ -104,6 +106,18 @@ public class PlayerControler : MonoBehaviour {
 	public void DisableMoving()
 	{
 		moving = false;
+	}
+	public static float AngleAroundAxis (Vector3 dirA, Vector3 dirB, Vector3 axis) 
+	{
+		// Project A and B onto the plane orthogonal target axis
+		dirA = dirA - Vector3.Project (dirA, axis);
+		dirB = dirB - Vector3.Project (dirB, axis);
+
+		// Find (positive) angle between A and B
+		float angle = Vector3.Angle (dirA, dirB);
+
+		// Return angle multiplied with 1 or -1
+		return angle * (Vector3.Dot (axis, Vector3.Cross (dirA, dirB)) < 0 ? -1 : 1);
 	}
 
 
