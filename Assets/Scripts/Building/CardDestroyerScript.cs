@@ -3,9 +3,12 @@ using System.Collections;
 
 public class CardDestroyerScript : MonoBehaviour {
 
+	private Card platformCard;
+	private ControlerGame controller;
 	// Use this for initialization
 	void Start () {
-	
+		platformCard = new DestroyCard();
+		controller = FindObjectOfType<ControlerGame> ();
 	}
 	
 	// Update is called once per frame
@@ -20,6 +23,13 @@ public class CardDestroyerScript : MonoBehaviour {
 				}
 			}
 		}
+		if (Input.GetKeyDown (KeyCode.Mouse1)) {
+			controller.GiveResources (platformCard.cost);
+			controller.ReturnCardToPlayer (platformCard);
+			Destroy (gameObject);
+
+		}
+			
 				
 			
 	}

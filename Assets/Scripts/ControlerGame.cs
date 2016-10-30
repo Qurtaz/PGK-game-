@@ -107,8 +107,10 @@ public class ControlerGame : MonoBehaviour {
 		return players [playerTurn].GetCost ().ToString ();
 	}
 
-
-
+	public void GiveResources(float resToGive)
+	{
+		players [playerTurn].GetComponentInChildren<ResourceSystem> ().UseResources (-resToGive);
+	}
     public int GetPlayerTurn()
     {
         return turn;
@@ -117,5 +119,9 @@ public class ControlerGame : MonoBehaviour {
     {
         return players[playerTurn].name;
     }
+	public void ReturnCardToPlayer(Card cardToReturn)
+	{
+		players [playerTurn].GetComponentInChildren<Hand> ().ReturnCard (cardToReturn);
+	}
 
 }

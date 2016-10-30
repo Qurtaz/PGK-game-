@@ -64,4 +64,9 @@ public class Hand : MonoBehaviour {
 	{
 		playerCard.Add (deck.PickCard ());
 	}
+	public void ReturnCard(Card cardToReturn)
+	{
+		playerCard.Add (cardToReturn);
+	}
+		
 }

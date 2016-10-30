@@ -35,8 +35,8 @@ public class PlayerControler : MonoBehaviour {
 				rigid.AddForce (new Vector3 (diff.x, v*1200, diff.z));
 			}
 
-			if (diff.magnitude < 0.5f) {
-				rigid.AddForce (new Vector3 (diff.x * 400, diff.y * 400, diff.z * 400));
+			if (diff.magnitude < 1.5f) {
+				rigid.transform.position = hitPoint;
 				moving = false;
 
 			}

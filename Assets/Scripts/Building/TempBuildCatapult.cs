@@ -7,10 +7,13 @@ public class TempBuildCatapult : MonoBehaviour
     private float scrolls;
     private Collider coll;
     public bool isAbleToBuild = true;
+	private Card platformCard;
+	private ControlerGame controller;
     // Use this for initialization
     void Start()
     {
-
+		platformCard = new BuildCatapultCard ();
+		controller = FindObjectOfType<ControlerGame> ();
     }
 
     // Update is called once per frame
@@ -34,8 +37,11 @@ public class TempBuildCatapult : MonoBehaviour
 			Destroy (gameObject);
 
 			}
-			if (Input.GetAxis (InputPlayer.MOUSE1) > 0)
-				Destroy (gameObject);
+		if (Input.GetAxis (InputPlayer.MOUSE1) > 0) {
+			controller.GiveResources (platformCard.cost);
+			controller.ReturnCardToPlayer (platformCard);
+			Destroy (gameObject);
+		}
 		
 
 			transform.position = hitPoint;

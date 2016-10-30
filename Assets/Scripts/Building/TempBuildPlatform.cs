@@ -6,8 +6,12 @@ public class TempBuildPlatform : MonoBehaviour {
 	private float scrolls;
 	private Collider coll;
 	public bool isAbleToBuild = true;
+	private Card platformCard;
+	private ControlerGame controller;
 	// Use this for initialization
 	void Start () {
+		platformCard = new BuildPlatformCard ();
+		controller = FindObjectOfType<ControlerGame> ();
 
 	}
 	
@@ -31,8 +35,11 @@ public class TempBuildPlatform : MonoBehaviour {
 
 			Destroy (gameObject);
 		}
-		if (Input.GetAxis (InputPlayer.MOUSE1) > 0)
+		if (Input.GetAxis (InputPlayer.MOUSE1) > 0) {
+			controller.GiveResources (platformCard.cost);
+			controller.ReturnCardToPlayer (platformCard);
 			Destroy (gameObject);
+		}
 
 		transform.position = hitPoint;
 	}
