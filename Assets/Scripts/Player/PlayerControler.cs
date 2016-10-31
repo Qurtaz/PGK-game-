@@ -4,49 +4,122 @@ using Helper;
 
 public class PlayerControler : MonoBehaviour {
     private Rigidbody rigid;
-	private Collider coll;
     public float speed = 5.0f;
-    public float mouseSpeed = 10.0F;
-	public float jumpForce = 200.0F;
-	private bool jumped = false;
-	private float distToGround;
 	private ResourceSystem player;
 	private Player cont;
+	private Vector3 hitPoint;
+	public bool blocked = false;
+	private bool moving = false;
+	private Vector3 estHitPoint;
+
     // Use this for initialization
     void Start () {
         rigid = GetComponentInParent<Rigidbody>();
-		distToGround = rigid.GetComponent<Collider> ().bounds.extents.y;
 		player = GetComponentInParent<ResourceSystem> ();
 		cont = GetComponentInParent<Player> ();
 	}
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis(InputPlayer.HORIZONTAL);
-        float moveVertical = Input.GetAxis(InputPlayer.VERTICALL);
-        float jump = Input.GetAxis(InputPlayer.JUMP);
-		if (moveHorizontal != 0 || moveVertical != 0 || jump != 0)
-			player.UseResources (2*Time.deltaTime);
-		if (!cont.outOfResources) {
-			rigid.AddRelativeForce (Vector3.forward * moveVertical * speed);
-			rigid.AddRelativeForce (Vector3.right * moveHorizontal * speed);
-			if (jumped) {
-				rigid.AddRelativeForce (Vector3.up * jump * jumpForce);
-				jumped = false;
+		if (moving) {
+			
+			Vector3 moveFlat = new Vector3 (hitPoint.x, 0, hitPoint.z);
+			rigid.transform.LookAt (moveFlat);
+			rigid.transform.eulerAngles = new Vector3 (0,transform.eulerAngles.y, 0);
+			rigid.transform.position = Vector3.MoveTowards (rigid.transform.position, moveFlat, speed  * Time.deltaTime);
+			Vector3 diff = hitPoint - rigid.transform.position;
+
+			if (diff.x < 5.0f && diff.z < 5.0f && diff.y > 0.1f) {
+				float heightDiff = hitPoint.y - rigid.transform.position.y;
+				float v =Mathf.Sqrt( heightDiff / (2 * Physics.gravity.magnitude));
+				rigid.AddForce (new Vector3 (diff.x, v*1200, diff.z));
 			}
-			jumped = Physics.Raycast (rigid.transform.position, Vector3.down, distToGround + 0.2f);
+
+			if (diff.magnitude < 2.0f) {
+				rigid.transform.position = hitPoint;
+				moving = false;
+
+			}
+
 		}
 
 
-        float h = (mouseSpeed * Input.GetAxis(InputPlayer.MOUSEX));
-		float v = (-1 * mouseSpeed * Input.GetAxis (InputPlayer.MOUSEY));
-        rigid.transform.Rotate(0, h, 0);
-		if (!((v > 0 && Vector3.Dot (transform.forward, Vector3.up) <= -0.85) 
-			|| (v < 0 && Vector3.Dot (transform.forward, Vector3.up) >= 0.85))) // stałe ustalone empirycznie, nie dotykać
-			transform.Rotate (v, 0, 0);
-		transform.eulerAngles = new Vector3 (transform.eulerAngles.x,transform.eulerAngles.y, 0);
+		float distance;
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+	
+	
+
+		if (!blocked && Input.GetKeyDown(KeyCode.Mouse0) && !cont.outOfResources) {
+			if (Physics.Raycast (ray, out hit)) {
+				if (hit.collider.gameObject.tag == "TopPlatform") {
+					hitPoint = hit.collider.attachedRigidbody.transform.position;
+				}
+				else {
+					hitPoint = hit.point;
+				}
+				hitPoint.x = Mathf.Round (hitPoint.x);
+				hitPoint.z = Mathf.Round (hitPoint.z);
+				hitPoint.y += 1F;
+
+			}
+			distance = Vector3.Distance (rigid.transform.position, hitPoint);
+
+			float res = distance / 5;
+			float heightDiff = hitPoint.y - rigid.transform.position.y;
+			if (heightDiff > 0)
+				res += heightDiff;
+			if (res < player.resourcesAvailable) {
+				player.UseResources (res);
+				moving = true;
+			}
+				
+				
+			
+		}
+		if (Input.GetKeyDown (KeyCode.Mouse1)) {
+			blocked = !blocked;
+		}
+
 
 
     }
+	public float GetCost()
+	{
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		RaycastHit hit;
+		if (Physics.Raycast (ray, out hit)) {
+			estHitPoint = hit.point;
+			estHitPoint.x = Mathf.Round (estHitPoint.x);
+			estHitPoint.z = Mathf.Round (estHitPoint.z);
+			estHitPoint.y += 1F;
+
+		}
+		float distance = Vector3.Distance (rigid.transform.position, estHitPoint);
+		float res = distance / 5;
+		float heightDiff = estHitPoint.y - rigid.transform.position.y;
+		if (heightDiff > 0)
+			res += heightDiff;
+		res = Mathf.Round (res * 100f) / 100f;
+		return res;
+	}
+	public void DisableMoving()
+	{
+		moving = false;
+	}
+	public static float AngleAroundAxis (Vector3 dirA, Vector3 dirB, Vector3 axis) 
+	{
+		// Project A and B onto the plane orthogonal target axis
+		dirA = dirA - Vector3.Project (dirA, axis);
+		dirB = dirB - Vector3.Project (dirB, axis);
+
+		// Find (positive) angle between A and B
+		float angle = Vector3.Angle (dirA, dirB);
+
+		// Return angle multiplied with 1 or -1
+		return angle * (Vector3.Dot (axis, Vector3.Cross (dirA, dirB)) < 0 ? -1 : 1);
+	}
+
+
 }
 

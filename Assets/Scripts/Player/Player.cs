@@ -63,7 +63,7 @@ public class Player : MonoBehaviour {
     {
         isBuilding = false;
         hand.SetActiveCardUI(isBuilding);
-        buildCamera.SetActive(false);
+        //buildCamera.SetActive(false);
         ActivateControl();
     }
     void ActivateControl()
@@ -96,6 +96,14 @@ public class Player : MonoBehaviour {
 	public float GetResources()
 	{
 		return resources.resourcesAvailable;
+	}
+	public float GetCost()
+	{
+		PlayerControler cost = GetComponentInChildren<PlayerControler> ();
+		if (cost != null)
+			return cost.GetCost ();
+		else
+			return 0.0f;
 	}
 
     /* public string getName()

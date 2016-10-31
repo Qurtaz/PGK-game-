@@ -7,7 +7,8 @@ public class BuildJump : MonoBehaviour {
 
     public void OnCollisionEnter(Collision other)
     {
-        other.rigidbody.AddForce(new Vector3(0,transform.up.y, transform.forward.z) * jumpForce);
+		other.gameObject.GetComponentInChildren<PlayerControler> ().DisableMoving ();
+		other.rigidbody.AddRelativeForce((transform.forward + transform.up) * jumpForce);
     }
 
 	// Use this for initialization

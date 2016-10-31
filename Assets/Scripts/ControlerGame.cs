@@ -88,6 +88,29 @@ public class ControlerGame : MonoBehaviour {
     {
         finish = true;
     }
+
+	public string GetBlocked()
+	{
+		PlayerControler playerToChange = players [playerTurn].GetComponentInChildren<PlayerControler> ();
+		if (playerToChange != null && playerToChange.blocked)
+			return "Poruszanie zablokowane";
+		else
+			return null;
+	}
+	public void DrawCard()
+	{
+		Hand playerHand = players [playerTurn].GetComponentInChildren<Hand> ();
+		playerHand.DrawCard ();
+	}
+	public string GetCost()
+	{
+		return players [playerTurn].GetCost ().ToString ();
+	}
+
+	public void GiveResources(float resToGive)
+	{
+		players [playerTurn].GetComponentInChildren<ResourceSystem> ().UseResources (-resToGive);
+	}
     public int GetPlayerTurn()
     {
         return turn;
@@ -96,4 +119,9 @@ public class ControlerGame : MonoBehaviour {
     {
         return players[playerTurn].name;
     }
+	public void ReturnCardToPlayer(Card cardToReturn)
+	{
+		players [playerTurn].GetComponentInChildren<Hand> ().ReturnCard (cardToReturn);
+	}
+
 }
