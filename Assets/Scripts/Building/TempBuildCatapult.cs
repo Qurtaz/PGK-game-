@@ -25,6 +25,7 @@ public class TempBuildCatapult : MonoBehaviour
 			float distance;
 			Vector3 hitPoint = new Vector3 ();
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+        Rotation();
 			if (XZPlane.Raycast (ray, out distance)) {
 				hitPoint = ray.GetPoint (distance);
 				hitPoint.x = Mathf.Round (hitPoint.x);
@@ -48,4 +49,15 @@ public class TempBuildCatapult : MonoBehaviour
 
 
 		}
+     void Rotation()
+    {
+        if(Input.GetAxis (InputPlayer.ROTAION_OBJECT) >0)
+        {
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 90, 0);
+        }
+        if(Input.GetAxis(InputPlayer.ROTAION_OBJECT) < 0)
+        {
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y - 90, 0);
+        }
+    }
     }

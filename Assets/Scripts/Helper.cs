@@ -16,6 +16,7 @@ namespace Helper
         public static string WHEELPRESS = "Fire3";
         public static string MOUSE0 = "Fire1";
 		public static string MOUSE1 = "Fire2";
+        public static string ROTAION_OBJECT = "Rotation";
     }
     public static class GameTag
     {
