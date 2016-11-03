@@ -50,7 +50,7 @@ public class PlayerControler : MonoBehaviour {
 	
 	
 
-		if (!blocked && Input.GetKeyDown(KeyCode.Mouse0) && !cont.outOfResources) {
+		if (!blocked && Input.GetKeyDown(KeyCode.Mouse0) && !cont.outOfResources && !moving) {
 			if (Physics.Raycast (ray, out hit)) {
 				if (hit.collider.gameObject.tag == "TopPlatform") {
 					hitPoint = hit.collider.attachedRigidbody.transform.position;
@@ -81,10 +81,10 @@ public class PlayerControler : MonoBehaviour {
 			blocked = !blocked;
 		}
 
-
+        cont.SetIsMoving(moving);
 
     }
-	public float GetCost()
+    public float GetCost()
 	{
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit hit;

@@ -41,21 +41,22 @@ public class ControlerGame : MonoBehaviour {
     {
         if(finish == false)
         {
-            
-            players[playerTurn].DeactivatePlayer();
-            playerTurn++;
-            activePhase++;
-            if (activePhase == 2)
+            if (players[playerTurn].DeactivatePlayer())         //checks if player isn't moving
             {
-                turn++;
-                activePhase = 0;
+                playerTurn++;
+                activePhase++;
+                if (activePhase == 2)
+                {
+                    turn++;
+                    activePhase = 0;
+                }
+                Debug.Log("player turn: " + activePhase);
+                playerTurn = playerTurn % 2;
+                Debug.Log(playerTurn % 2);
+                players[playerTurn].ActivatePlayer();
+                Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
+                playerHand.ChoseCard();
             }
-            Debug.Log("player turn: "+activePhase);
-            playerTurn = playerTurn % 2;
-            Debug.Log(playerTurn % 2);
-            players[playerTurn].ActivatePlayer();
-            Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
-            playerHand.ChoseCard();
         }
     }
     public void ChangePlayers()

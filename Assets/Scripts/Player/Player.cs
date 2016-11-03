@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
 
     bool isBuilding = false;
     bool isControlling = false;
+    private bool isMoving = false;
 	public bool outOfResources = false;
     // Use this for initialization
     void Start()
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour {
 			//Debug.Log ("Moving!"+this.name);
 			DeactivateBuilding();
 		}
-		else if (!isBuilding && isControlling)
+		else if (!isBuilding && isControlling && !isMoving)
 		{
 			//Debug.Log ("End turn!"+this.name);
 			DeactivateControl();
@@ -77,15 +78,21 @@ public class Player : MonoBehaviour {
         playerToControl.SetActive(false);
         gameController.ChangePlayers();
     }
-    public void DeactivatePlayer()
+    public bool DeactivatePlayer()
     {
-
-        isControlling = false;
-        isBuilding = false;
-        hand.SetActiveCardUI(isBuilding);
-        buildCamera.SetActive(false);
-        playerToControl.SetActive(false);
-
+        if (!isMoving)
+        {
+            isControlling = false;
+            isBuilding = false;
+            hand.SetActiveCardUI(isBuilding);
+            buildCamera.SetActive(false);
+            playerToControl.SetActive(false);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     public void ActivatePlayer()
     {
@@ -105,6 +112,11 @@ public class Player : MonoBehaviour {
 		else
 			return 0.0f;
 	}
+
+    public void SetIsMoving(bool moving)
+    {
+        isMoving = moving;
+    }
 
     /* public string getName()
      {
