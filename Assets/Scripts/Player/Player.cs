@@ -8,8 +8,9 @@ public class Player : MonoBehaviour {
     public GameObject buildCamera;
     public GameObject playerToControl;
     public ControlerGame gameController;
-    public KeyCode cont;
-
+    public GameObject playerToMaterial;
+    public Material isActive;
+    public Material isNotActive;
     public Hand hand;
 	private ResourceSystem resources;
 
@@ -27,17 +28,6 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
-            if (Input.GetKeyDown(cont))
-            {
-
-				ChangePhase ();
-            
-            }
-       
-
-
-
     }
 	public void ChangePhase()
 	{
@@ -82,6 +72,7 @@ public class Player : MonoBehaviour {
     {
         if (!isMoving)
         {
+            playerToMaterial.GetComponent<Renderer>().material = isNotActive;
             isControlling = false;
             isBuilding = false;
             hand.SetActiveCardUI(isBuilding);
@@ -96,7 +87,8 @@ public class Player : MonoBehaviour {
     }
     public void ActivatePlayer()
     {
-		resources.resourcesAvailable = 20.0F;
+        playerToMaterial.GetComponent<Renderer>().material = isActive;
+        resources.resourcesAvailable = 20.0F;
 		outOfResources = false;
 		ActivateBuilding ();
     }

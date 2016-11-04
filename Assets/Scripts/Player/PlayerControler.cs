@@ -100,7 +100,7 @@ public class PlayerControler : MonoBehaviour {
 		float heightDiff = estHitPoint.y - rigid.transform.position.y;
 		if (heightDiff > 0)
 			res += heightDiff;
-		res = Mathf.Round (res * 100f) / 100f;
+		res = Mathf.Round (res) ;
 		return res;
 	}
 	public void DisableMoving()

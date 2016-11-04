@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Helper;
 using System.Collections;
 
 public class BuildJump : MonoBehaviour {
@@ -7,8 +8,12 @@ public class BuildJump : MonoBehaviour {
 
     public void OnCollisionEnter(Collision other)
     {
-		other.gameObject.GetComponentInChildren<PlayerControler> ().DisableMoving ();
-		other.rigidbody.AddRelativeForce((transform.forward + transform.up) * jumpForce);
+        if(other.gameObject.tag == GameTag.PLAYER)
+        {
+            other.gameObject.GetComponentInChildren<PlayerControler>().DisableMoving();
+            other.rigidbody.AddRelativeForce((transform.forward + transform.up) * jumpForce);
+
+        }
     }
 
 	// Use this for initialization
