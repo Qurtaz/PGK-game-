@@ -34,4 +34,9 @@ namespace Helper
             public GameObject plane;
             public Text cardTitle;
         }
+    public static class DataString
+    {
+        public static string BUDOWANIE = "Finish building";
+        public static string RUCH = "Finish Moving";
+    }
 }

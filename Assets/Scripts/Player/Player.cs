@@ -110,6 +110,11 @@ public class Player : MonoBehaviour {
         isMoving = moving;
     }
 
+    public bool isBuldingActive()
+    {
+        Debug.Log("is Building = " + isBuilding.ToString());
+        return isBuilding;
+    }
     /* public string getName()
      {
          return name;

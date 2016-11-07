@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Helper;
 
 public class ControlerGame : MonoBehaviour {
     private int playerTurn;
@@ -124,5 +125,15 @@ public class ControlerGame : MonoBehaviour {
 	{
 		players [playerTurn].GetComponentInChildren<Hand> ().ReturnCard (cardToReturn);
 	}
-
+    public string GetPlayerPhase()
+    {
+        if(players[playerTurn].isBuldingActive() == true)
+        {
+            return DataString.BUDOWANIE;
+        }
+        else
+        {
+            return DataString.RUCH;
+        }
+    }
 }
