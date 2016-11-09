@@ -38,7 +38,6 @@ GameObject:
   - 222: {fileID: 222000013104370610}
   - 114: {fileID: 114000011374394424}
   - 114: {fileID: 114000011306094352}
-  - 114: {fileID: 114000011847914294}
   m_Layer: 5
   m_Name: CostMuwment
   m_TagString: Untagged
@@ -457,6 +456,7 @@ GameObject:
   - 224: {fileID: 224000010735782646}
   - 222: {fileID: 222000014082311028}
   - 114: {fileID: 114000013472888246}
+  - 114: {fileID: 114000014182290940}
   m_Layer: 5
   m_Name: Instruction
   m_TagString: Untagged
@@ -1656,18 +1656,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114000011847914294
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010091464262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd9b5c8ae71b1d74b9f388add87e5bc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
 --- !u!114 &114000011867088748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2523,6 +2511,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Button
+--- !u!114 &114000014182290940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012834267792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9382bf1c238060647914fdc29750f63c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameControler: {fileID: 0}
+  text: {fileID: 114000013472888246}
+  howManyTurnSeeInstruction: 3
 --- !u!114 &114000014234744624
 MonoBehaviour:
   m_ObjectHideFlags: 1

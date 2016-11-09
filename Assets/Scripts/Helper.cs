@@ -39,4 +39,15 @@ namespace Helper
         public static string BUDOWANIE = "Finish building";
         public static string RUCH = "Finish Moving";
     }
+    [System.Serializable]
+    public class Grid
+    {
+        public float howBigGrid;
+
+        public float Round(float z)
+        {
+            return Mathf.Round(Mathf.Round(z) * howBigGrid);
+        }
+
+    }
 }

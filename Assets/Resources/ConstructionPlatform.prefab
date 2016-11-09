@@ -218,6 +218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAbleToBuild: 1
+  grid:
+    howBigGrid: 3
 --- !u!114 &114000013035293754
 MonoBehaviour:
   m_ObjectHideFlags: 1

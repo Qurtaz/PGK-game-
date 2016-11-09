@@ -6,6 +6,7 @@ public class TempBuildCatapult : MonoBehaviour
 {
     private float scrolls;
     private Collider coll;
+    public Grid grid;
     public bool isAbleToBuild = true;
 	private Card platformCard;
 	private ControlerGame controller;
@@ -28,8 +29,8 @@ public class TempBuildCatapult : MonoBehaviour
         Rotation();
 			if (XZPlane.Raycast (ray, out distance)) {
 				hitPoint = ray.GetPoint (distance);
-				hitPoint.x = Mathf.Round (hitPoint.x);
-				hitPoint.z = Mathf.Round (hitPoint.z);
+				hitPoint.x = grid.Round(hitPoint.x);
+				hitPoint.z = grid.Round(hitPoint.z);
 				hitPoint.y = scrolls;
 			}
 			if (Input.GetAxis (InputPlayer.MOUSE0) > 0 && isAbleToBuild) {

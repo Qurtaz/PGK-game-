@@ -112,7 +112,6 @@ public class Player : MonoBehaviour {
 
     public bool isBuldingActive()
     {
-        Debug.Log("is Building = " + isBuilding.ToString());
         return isBuilding;
     }
     /* public string getName()

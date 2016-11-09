@@ -7,12 +7,12 @@ public class TempBuildPlatform : MonoBehaviour {
 	private Collider coll;
 	public bool isAbleToBuild = true;
 	private Card platformCard;
-	private ControlerGame controller;
+    public Grid grid;
+    private ControlerGame controller;
 	// Use this for initialization
 	void Start () {
 		platformCard = new BuildPlatformCard ();
 		controller = FindObjectOfType<ControlerGame> ();
-
 	}
 	
 	// Update is called once per frame
@@ -25,9 +25,9 @@ public class TempBuildPlatform : MonoBehaviour {
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		if (XZPlane.Raycast (ray, out distance)) {
 			hitPoint = ray.GetPoint (distance);
-			hitPoint.x = Mathf.Round (hitPoint.x);
-			hitPoint.z = Mathf.Round (hitPoint.z);
-			hitPoint.y = scrolls;
+            hitPoint.x = grid.Round(hitPoint.x);
+            hitPoint.z = grid.Round(hitPoint.z);
+            hitPoint.y = scrolls;
 		}
 		if (Input.GetAxis (InputPlayer.MOUSE0) > 0 && isAbleToBuild) {
 			Debug.Log (isAbleToBuild);

@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: MovingArea
+  m_Name: Go
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHABLEND_ON _EMISSION
   m_LightmapFlags: 1
@@ -76,7 +76,7 @@ Material:
       second: 1
     - first:
         name: _Cutoff
-      second: 0
+      second: 0.5
     - first:
         name: _DetailNormalMapScale
       second: 1
@@ -88,13 +88,13 @@ Material:
       second: 1
     - first:
         name: _Glossiness
-      second: 0
+      second: 1
     - first:
         name: _GlossyReflections
       second: 1
     - first:
         name: _Metallic
-      second: 0
+      second: 1
     - first:
         name: _Mode
       second: 2
@@ -122,7 +122,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0, g: 0.13103437, b: 1, a: 0.275}
+      second: {r: 0.9558824, g: 0.04919982, b: 0.04919982, a: 0.447}
     - first:
         name: _EmissionColor
-      second: {r: 0, g: 0, b: 0, a: 1}
+      second: {r: 0.8897059, g: 0.26822016, b: 0.26822016, a: 1}

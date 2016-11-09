@@ -320,6 +320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8f56d25790a3a548aec1c0dfd1357f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whereYouGo: {fileID: 0}
+  grid:
+    howBigGrid: 3
   speed: 10
   blocked: 0
 --- !u!114 &114000011686665196
