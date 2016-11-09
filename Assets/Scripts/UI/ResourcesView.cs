@@ -9,8 +9,8 @@ public class ResourcesView : MonoBehaviour {
     public ControlerGame gameControler;
 	// Use this for initialization
 	void Start () {
-        slider.maxValue = gameControler.ResoursesData()*2;
-        slider.value = gameControler.ResoursesData();
+        slider.maxValue = (int)gameControler.ResoursesData()*2;
+        slider.value = (int)gameControler.ResoursesData();
         text.text = Mathf.Round(gameControler.ResoursesData()).ToString();
 	}
 	
@@ -18,13 +18,15 @@ public class ResourcesView : MonoBehaviour {
 	void Update () {
         if(gameControler.ResoursesData()>0)
         {
-            slider.value = gameControler.ResoursesData();
+            slider.value = (int)gameControler.ResoursesData();
 		    text.text = (Mathf.Round (gameControler.ResoursesData ()).ToString () + "/20");
+            Debug.Log(slider.value.ToString());
         }
         else
         {
             slider.value = gameControler.ResoursesData();
             text.text = "0";
         }
+        Debug.Log(slider.value.ToString());
     }
 }

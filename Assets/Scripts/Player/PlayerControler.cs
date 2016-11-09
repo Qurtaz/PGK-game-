@@ -4,6 +4,8 @@ using Helper;
 
 public class PlayerControler : MonoBehaviour {
     private Rigidbody rigid;
+    private  Grid grid;
+    public float gridSize = 3;
     public float speed = 5.0f;
 	private ResourceSystem player;
 	private Player cont;
@@ -14,6 +16,7 @@ public class PlayerControler : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        //grid.howBigGrid = gridSize;
         rigid = GetComponentInParent<Rigidbody>();
 		player = GetComponentInParent<ResourceSystem> ();
 		cont = GetComponentInParent<Player> ();
