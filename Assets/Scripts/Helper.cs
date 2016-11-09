@@ -46,7 +46,7 @@ namespace Helper
 
         public float Round(float z)
         {
-            return Mathf.Round(Mathf.Round(z) * howBigGrid);
+			return Mathf.Round(z / howBigGrid) * howBigGrid;
         }
 
     }

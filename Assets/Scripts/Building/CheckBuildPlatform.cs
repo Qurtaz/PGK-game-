@@ -16,12 +16,12 @@ public class CheckBuildPlatform : MonoBehaviour {
 	void OnTriggerEnter (Collider other)
 	{
 		builder.isAbleToBuild = false;
-		Debug.Log ("Enter");
+		Debug.Log (builder.isAbleToBuild);
 	}
 	void OnTriggerExit (Collider other)
 	{
 		builder.isAbleToBuild = true;
-		Debug.Log ("Exit");
+		Debug.Log (builder.isAbleToBuild);
 	}
 
 }
