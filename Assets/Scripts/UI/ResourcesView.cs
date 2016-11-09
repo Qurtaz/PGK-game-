@@ -20,13 +20,13 @@ public class ResourcesView : MonoBehaviour {
         {
             slider.value = (int)gameControler.ResoursesData();
 		    text.text = (Mathf.Round (gameControler.ResoursesData ()).ToString () + "/20");
-            Debug.Log(slider.value.ToString());
+            //Debug.Log(slider.value.ToString());
         }
         else
         {
             slider.value = gameControler.ResoursesData();
             text.text = "0";
         }
-        Debug.Log(slider.value.ToString());
+        //Debug.Log(slider.value.ToString());
     }
 }
