@@ -4,8 +4,6 @@ using Helper;
 
 public class PlayerControler : MonoBehaviour {
     private Rigidbody rigid;
-    private  Grid grid;
-    public float gridSize = 3;
     public float speed = 5.0f;
 	private ResourceSystem player;
 	private Player cont;
@@ -13,10 +11,10 @@ public class PlayerControler : MonoBehaviour {
 	public bool blocked = false;
 	private bool moving = false;
 	private Vector3 estHitPoint;
+	public float unit;
 
     // Use this for initialization
     void Start () {
-        //grid.howBigGrid = gridSize;
         rigid = GetComponentInParent<Rigidbody>();
 		player = GetComponentInParent<ResourceSystem> ();
 		cont = GetComponentInParent<Player> ();
@@ -54,18 +52,7 @@ public class PlayerControler : MonoBehaviour {
 	
 
 		if (!blocked && Input.GetKeyDown(KeyCode.Mouse0) && !cont.outOfResources && !moving) {
-			if (Physics.Raycast (ray, out hit)) {
-				if (hit.collider.gameObject.tag == "TopPlatform") {
-					hitPoint = hit.collider.attachedRigidbody.transform.position;
-				}
-				else {
-					hitPoint = hit.point;
-				}
-				hitPoint.x = Mathf.Round (hitPoint.x);
-				hitPoint.z = Mathf.Round (hitPoint.z);
-				hitPoint.y += 1F;
-
-			}
+			hitPoint = MousePoint.mousePoint (unit);
 			distance = Vector3.Distance (rigid.transform.position, hitPoint);
 
 			float res = distance / 5;
@@ -89,15 +76,7 @@ public class PlayerControler : MonoBehaviour {
     }
     public float GetCost()
 	{
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		RaycastHit hit;
-		if (Physics.Raycast (ray, out hit)) {
-			estHitPoint = hit.point;
-			estHitPoint.x = Mathf.Round (estHitPoint.x);
-			estHitPoint.z = Mathf.Round (estHitPoint.z);
-			estHitPoint.y += 1F;
-
-		}
+		estHitPoint = MousePoint.mousePoint (unit);
 		float distance = Vector3.Distance (rigid.transform.position, estHitPoint);
 		float res = distance / 5;
 		float heightDiff = estHitPoint.y - rigid.transform.position.y;

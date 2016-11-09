@@ -241,9 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9793716d7f2739d479ae189553d7cce8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid:
-    howBigGrid: 3
   isAbleToBuild: 1
+  unit: 3
 --- !u!138 &138000011633716866
 FixedJoint:
   m_ObjectHideFlags: 1

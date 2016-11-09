@@ -8,7 +8,7 @@ public class TempBuildPlatform : MonoBehaviour {
 	public bool isAbleToBuild = true;
 	private bool noCollisionInThisPoint = true;
 	private Card platformCard;
-    public Grid grid;
+	public float unit;
     private ControlerGame controller;
 	// Use this for initialization
 	void Start () {
@@ -20,17 +20,8 @@ public class TempBuildPlatform : MonoBehaviour {
 	void Update () {
 		if (Input.GetAxis (InputPlayer.MOUSESCROLL) != 0)
 			scrolls += Input.GetAxis (InputPlayer.MOUSESCROLL);
-		Vector3 hitPoint = new Vector3();
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		RaycastHit hit;
-		if (Physics.Raycast (ray, out hit)) {
-				hitPoint = hit.point;
-				hitPoint.x = grid.Round (hitPoint.x);
-				hitPoint.z = grid.Round (hitPoint.z);
-				hitPoint.y = scrolls;
-				noCollisionInThisPoint = true; // bo jak ustawiamy tą flagę właśnie tak to trzeba ją przestawić z powrotem gdy już można wstawić tą platformę
-
-		}
+		Vector3 hitPoint = MousePoint.mousePoint (unit);
+		hitPoint.y = scrolls;
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag ("Platform");
 		float minxz = Mathf.Infinity;

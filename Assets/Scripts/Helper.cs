@@ -4,6 +4,31 @@ using System.Collections;
 
 namespace Helper
 {
+	public static class MousePoint
+	{
+		public static Vector3 mousePoint(float unit)
+		{
+			Vector3 hitPoint = new Vector3();
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+				if (Physics.Raycast (ray, out hit)) {
+					if (hit.collider.gameObject.tag == "TopPlatform") {
+						hitPoint = hit.collider.attachedRigidbody.transform.position;
+					} else {
+						hitPoint = hit.point;
+					}
+					hitPoint.x = Mathf.Round (hitPoint.x / unit) * unit;
+					hitPoint.z = Mathf.Round (hitPoint.z / unit) * unit;
+					hitPoint.y += 1F;
+
+				}
+			
+			return hitPoint;
+			}
+		}
+
+
+
     public static class InputPlayer
     {
         public static string VERTICALL = "Vertical";
@@ -39,15 +64,5 @@ namespace Helper
         public static string BUDOWANIE = "Finish building";
         public static string RUCH = "Finish Moving";
     }
-    [System.Serializable]
-    public class Grid
-    {
-        public float howBigGrid;
 
-        public float Round(float z)
-        {
-			return Mathf.Round(z / howBigGrid) * howBigGrid;
-        }
-
-    }
 }

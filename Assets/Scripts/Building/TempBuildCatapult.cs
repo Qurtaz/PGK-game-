@@ -6,11 +6,11 @@ public class TempBuildCatapult : MonoBehaviour
 {
     private float scrolls;
     private Collider coll;
-    public Grid grid;
     public bool isAbleToBuild = true;
 	private bool noCollisionInThisPoint = true;
 	private Card platformCard;
 	private ControlerGame controller;
+	public float unit;
     // Use this for initialization
     void Start()
     {
@@ -23,16 +23,8 @@ public class TempBuildCatapult : MonoBehaviour
     {
 		if (Input.GetAxis (InputPlayer.MOUSESCROLL) != 0)
 			scrolls += Input.GetAxis (InputPlayer.MOUSESCROLL);
-		Vector3 hitPoint = new Vector3();
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		RaycastHit hit;
-		if (Physics.Raycast (ray, out hit)) {
-				hitPoint = hit.point;
-				hitPoint.x = grid.Round (hitPoint.x);
-				hitPoint.z = grid.Round (hitPoint.z);
-				hitPoint.y = scrolls;
-
-		}
+		Vector3 hitPoint = MousePoint.mousePoint (unit);
+		hitPoint.y = scrolls;
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag ("Platform");
 		float minxz = Mathf.Infinity;

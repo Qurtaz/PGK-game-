@@ -1143,6 +1143,11 @@ Prefab:
       propertyPath: cardUI
       value: 
       objectReference: {fileID: 341465057}
+    - target: {fileID: 114000011567769330, guid: 892ee47a6b49d2147aab2e2863d86a34,
+        type: 2}
+      propertyPath: unit
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 892ee47a6b49d2147aab2e2863d86a34, type: 2}
   m_IsPrefabParent: 0
@@ -1420,9 +1425,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8f56d25790a3a548aec1c0dfd1357f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: 3
   speed: 10
   blocked: 0
+  unit: 3
 --- !u!1 &2012964244
 GameObject:
   m_ObjectHideFlags: 0
