@@ -6,10 +6,16 @@ public class TempBuildPlatform : MonoBehaviour {
 	private float scrolls;
 	private Collider coll;
 	public bool isAbleToBuild = true;
+    public bool onPlatform = false;
 	private bool noCollisionInThisPoint = true;
 	private Card platformCard;
 	public float unit;
+<<<<<<< .mine
+    public bool destroy = false;
+    public Vector3 offset = new Vector3(0, 0, 0);
+=======
     private bool flag = false;
+>>>>>>> .r73
     private ControlerGame controller;
 	// Use this for initialization
 	void Start () {
@@ -35,7 +41,7 @@ public class TempBuildPlatform : MonoBehaviour {
 		}
 =======
 		Vector3 hitPoint = MousePoint.mousePoint (unit);
-		hitPoint.y = scrolls;
+		//hitPoint.y = scrolls;
 >>>>>>> .r72
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag ("Platform");
@@ -48,6 +54,14 @@ public class TempBuildPlatform : MonoBehaviour {
 		if (minxz == 0f) {
 			//transform.position = new Vector3 (10000, 10000, 10000);
 			noCollisionInThisPoint = false;
+<<<<<<< .mine
+            if (onPlatform)
+            {
+                hitPoint = offset + new Vector3(0, 2F, 0);
+            }
+            transform.position = hitPoint;
+        } else {
+=======
             if (hit.collider.gameObject.tag == "Platform")
             {
                 hitPoint = hit.collider.gameObject.transform.position + new Vector3(0, 2F, 0);
@@ -55,6 +69,7 @@ public class TempBuildPlatform : MonoBehaviour {
             transform.position = hitPoint;
         }
         else {
+>>>>>>> .r73
 			transform.position = hitPoint;
 			noCollisionInThisPoint = true;
         }
@@ -67,6 +82,17 @@ public class TempBuildPlatform : MonoBehaviour {
 
 			Destroy (gameObject);
 		}
+<<<<<<< .mine
+        if (Input.GetAxis(InputPlayer.MOUSE0) > 0 && !noCollisionInThisPoint && onPlatform)
+        {
+            Debug.Log(isAbleToBuild);
+            destroy = true;
+            Instantiate(Resources.Load("Platform"), hitPoint, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
+        if (Input.GetAxis (InputPlayer.MOUSE1) > 0) {
+=======
         if (Input.GetAxis(InputPlayer.MOUSE0) > 0 && !noCollisionInThisPoint)
         {
             Debug.Log(isAbleToBuild);
@@ -80,6 +106,7 @@ public class TempBuildPlatform : MonoBehaviour {
             
         }
         if (Input.GetAxis (InputPlayer.MOUSE1) > 0) {
+>>>>>>> .r73
 			controller.GiveResources (platformCard.cost);
 			controller.ReturnCardToPlayer (platformCard);
 			Destroy (gameObject);
