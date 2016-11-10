@@ -19,14 +19,7 @@ public class CheckBuildPlatform : MonoBehaviour {
 		Debug.Log (builder.isAbleToBuild);
         if (other.gameObject.tag == "Platform")
         {
-            Debug.Log("DESTROY" + builder.destroy);
             builder.onPlatform = true;
-            builder.offset = other.transform.position;
-            if (builder.destroy)
-            {
-                builder.destroy = false;
-                Destroy(other.gameObject);
-            }
         }
     }
 	void OnTriggerExit (Collider other)
@@ -34,7 +27,6 @@ public class CheckBuildPlatform : MonoBehaviour {
 		builder.isAbleToBuild = true;
 		Debug.Log (builder.isAbleToBuild);
 	    builder.onPlatform = false;
-       // builder.offset = new Vector3(0, 0, 0);
 	}
 
 }

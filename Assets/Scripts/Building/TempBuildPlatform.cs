@@ -11,9 +11,6 @@ public class TempBuildPlatform : MonoBehaviour {
 	public float unit;
     public bool onPlatform = false;
     private ControlerGame controller;
-    public bool destroy = false;
-    private RaycastHit hit;
-    private bool iShouldBuild = false;
     public Vector3 offset = new Vector3(0, 0, 0);
     // Use this for initialization
     void Start () {
@@ -32,17 +29,21 @@ public class TempBuildPlatform : MonoBehaviour {
 		float minxz = Mathf.Infinity;
 		foreach (GameObject go in gos) {
 			Vector3 diff = go.transform.position - hitPoint;
-			if (Mathf.Abs (diff.x + diff.z) < minxz)
+		    if (Mathf.Abs(diff.x + diff.z) < minxz)
+		    {
 				minxz = Mathf.Abs (diff.x + diff.z);
-		}
+		        offset = go.transform.position;
+		    }
+        }
 		if (minxz == 0f) {
 			//transform.position = new Vector3 (10000, 10000, 10000);
 			noCollisionInThisPoint = false;
 
-            transform.position = hitPoint;
+            transform.position = offset;
         }
         else
         {
+            offset = new Vector3(0, 0, 0);
 			transform.position = hitPoint;
 			noCollisionInThisPoint = true;
 		}
@@ -57,14 +58,12 @@ public class TempBuildPlatform : MonoBehaviour {
         if (Input.GetAxis(InputPlayer.MOUSE0) > 0 && !noCollisionInThisPoint && onPlatform)
         {
             Debug.Log(isAbleToBuild);
-            destroy = true;
-            Debug.Log("DESTROY" + destroy);
             foreach (var go in gos)
             {
                 if (go.transform.position == gameObject.transform.position)
                 {
                     Destroy(go);
-                    Instantiate(Resources.Load("Platform"), hitPoint + new Vector3(0, 2F, 0), Quaternion.identity);
+                    Instantiate(Resources.Load("Platform"), offset + new Vector3(0, 2F, 0), Quaternion.identity);
                     Destroy(gameObject);
                 }
             }
