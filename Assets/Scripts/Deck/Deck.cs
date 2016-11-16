@@ -42,7 +42,7 @@ public class Deck : MonoBehaviour {
 			if (x == 2)
 				deck.Enqueue (new DrawCard ());
 			if (x == 3)
-				deck.Enqueue (new DestroyCard ());
+				deck.Enqueue (new DestroyBuilding());
         }
     }
 

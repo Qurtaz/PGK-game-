@@ -136,4 +136,8 @@ public class ControlerGame : MonoBehaviour {
             return DataString.RUCH;
         }
     }
+    public Player GetPlayer()
+    {
+        return players[playerTurn];
+    }
 }

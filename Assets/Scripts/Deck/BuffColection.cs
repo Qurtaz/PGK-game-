@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
-public class MovingArea : MonoBehaviour {
-
+public class BuffColection : MonoBehaviour {
+    List<Buff> buff = new List<Buff>();
 	// Use this for initialization
 	void Start () {
 	

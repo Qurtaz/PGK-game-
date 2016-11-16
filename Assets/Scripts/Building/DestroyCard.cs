@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DestroyCard : Card {
+public class DestroyBuilding : Card {
 
-	public DestroyCard()
+	public DestroyBuilding()
 	{
 		cost = 2F;
 	}

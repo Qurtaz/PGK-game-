@@ -114,6 +114,10 @@ public class Player : MonoBehaviour {
     {
         return isBuilding;
     }
+    public bool IsMovingActive()
+    {
+        return isControlling;
+    }
     /* public string getName()
      {
          return name;
