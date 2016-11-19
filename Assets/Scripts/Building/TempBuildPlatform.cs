@@ -12,6 +12,7 @@ public class TempBuildPlatform : MonoBehaviour {
     public bool onPlatform = false;
     private ControlerGame controller;
     public Vector3 offset = new Vector3(0, 0, 0);
+	public float startingHeight = 5f;
     // Use this for initialization
     void Start () {
 		platformCard = new BuildPlatformCard ();
@@ -23,7 +24,7 @@ public class TempBuildPlatform : MonoBehaviour {
 		//if (Input.GetAxis (InputPlayer.MOUSESCROLL) != 0)
 			//scrolls += Input.GetAxis (InputPlayer.MOUSESCROLL);
 		Vector3 hitPoint = MousePoint.mousePoint (unit);
-		hitPoint.y = scrolls;
+		hitPoint.y = scrolls - startingHeight;
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag ("Platform");
 		float minxz = Mathf.Infinity;

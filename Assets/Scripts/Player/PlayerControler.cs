@@ -4,7 +4,7 @@ using Helper;
 
 public class PlayerControler : MonoBehaviour {
     private Rigidbody rigid;
-    public GameObject whereYouGo;
+   // public GameObject whereYouGo;
     public float speed = 5.0f;
 	private ResourceSystem player;
 	private Player cont;
@@ -85,7 +85,7 @@ public class PlayerControler : MonoBehaviour {
 			res += heightDiff;
 		res = Mathf.Round (res) ;
         estHitPoint.y = estHitPoint.y - 1;
-        whereYouGo.transform.position = estHitPoint;
+      //  whereYouGo.transform.position = estHitPoint;
 		return res;
 	}
 	public void DisableMoving()
