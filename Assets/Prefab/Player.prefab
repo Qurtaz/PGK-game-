@@ -114,6 +114,7 @@ GameObject:
   - 4: {fileID: 4000012857157194}
   - 114: {fileID: 114000010336969372}
   - 114: {fileID: 114000012484118812}
+  - 114: {fileID: 114000013116517218}
   m_Layer: 0
   m_Name: Deck+Hand1
   m_TagString: Untagged
@@ -411,6 +412,7 @@ MonoBehaviour:
   isActive: {fileID: 2100000, guid: 27c805d6c8e69564299609c9ee93ae9c, type: 2}
   isNotActive: {fileID: 2100000, guid: 5359d7f30a5bf5d4299a35feeb605fd4, type: 2}
   hand: {fileID: 114000012484118812}
+  buff: {fileID: 0}
   outOfResources: 1
 --- !u!114 &114000011691280136
 MonoBehaviour:
@@ -451,7 +453,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingArea: {fileID: 1000010187408352}
+  prefabGrid: {fileID: 0}
   playersStat: {fileID: 114000011686665196}
+  controlerGo: {fileID: 0}
 --- !u!114 &114000012733892194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -464,6 +468,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourcesAvailable: 10
+--- !u!114 &114000013116517218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013027700980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffb1e002d209ed4c96bc27ea4f1f070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 0}
+  howManyCardOnHand: 0
+  buffUI: {fileID: 0}
 --- !u!124 &124000014103856774
 Behaviour:
   m_ObjectHideFlags: 1

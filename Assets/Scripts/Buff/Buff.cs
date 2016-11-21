@@ -20,7 +20,12 @@ public class Buff :MonoBehaviour
         }
         else
         {
+            player.gameObject.GetComponentInChildren<PlayerControler>().EditCost(-1*(int)Active());
             return false;
         }
+    }
+    public void ActiveBuff()
+    {
+        player.gameObject.GetComponentInChildren<PlayerControler>().EditCost((int)Active());
     }
 }

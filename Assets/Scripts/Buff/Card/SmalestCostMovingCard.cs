@@ -8,12 +8,12 @@ public class SmalestCostMovingCard : Card {
 	public SmalestCostMovingCard(List<Buff> list, ControlerGame game)
     {
         cost = 5f;
-        buff = list;
-        _game = game;
     }
     public override void ActivateCard()
     {
+        _game = (ControlerGame)FindObjectOfType<ControlerGame>();
         SmalestCostMoving cd =new SmalestCostMoving(_game.GetPlayerTurn(), _game.GetPlayer());
+        cd.ActiveBuff();
         buff.Add(cd);
     }
 }

@@ -22,6 +22,7 @@ GameObject:
   - 33: {fileID: 33000012277252274}
   - 65: {fileID: 65000010107755528}
   - 23: {fileID: 23000012211114044}
+  - 114: {fileID: 114000012817884494}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -36,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012329258526}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
-  m_LocalScale: {x: 3, y: 1, z: 3}
+  m_LocalPosition: {x: -21.17, y: 0, z: 32.78}
+  m_LocalScale: {x: 3, y: 2, z: 3}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5359d7f30a5bf5d4299a35feeb605fd4, type: 2}
+  - {fileID: 2100000, guid: 2acf0c0c611cddf42a3b272ec202c8d5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -90,3 +91,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114000012817884494
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012329258526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552e96c6def199442955414188801e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 2100000, guid: 2acf0c0c611cddf42a3b272ec202c8d5, type: 2}
+  gridChose: {fileID: 2100000, guid: d415d7b6f078f7d48b9cc4473196b635, type: 2}
