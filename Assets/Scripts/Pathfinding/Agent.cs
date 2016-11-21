@@ -33,7 +33,7 @@ public class Agent : MonoBehaviour {
 			rigid.transform.position = Vector3.MoveTowards (rigid.transform.position, moveFlat, speed  * Time.deltaTime);
 			Vector3 diff = hitPoint - rigid.transform.position;
 
-			if (diff.magnitude < 0.5f) {
+			if (diff.magnitude < 0.1f) {
 				rigid.transform.position = hitPoint;
 				i -= 1;
 				if(i!=0)
