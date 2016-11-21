@@ -31,7 +31,7 @@ public class Agent : MonoBehaviour {
 			SetRoute (end);
 		if (moving) {
 			Vector3 hitPoint = curTarget.transform.position;
-			Vector3 moveFlat = new Vector3 (hitPoint.x, 0, hitPoint.z);
+			Vector3 moveFlat = new Vector3 (hitPoint.x, hitPoint.y, hitPoint.z);
 			rigid.transform.LookAt (moveFlat);
 			rigid.transform.eulerAngles = new Vector3 (0,transform.eulerAngles.y, 0);
 			rigid.transform.position = Vector3.MoveTowards (rigid.transform.position, moveFlat, speed  * Time.deltaTime);
@@ -47,8 +47,8 @@ public class Agent : MonoBehaviour {
 			if(Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f))
 				jumped = false;
 
-			if (diff.magnitude < 1.0f) {
-				rigid.transform.position = hitPoint;
+			if (diff.magnitude < 0.6f) {
+				//rigid.transform.position = hitPoint;
 				i -= 1;
 				if(i!=0)
 				curTarget = nodes [nodes.Count - i];
