@@ -8,6 +8,7 @@ public class BigerCostMovingCard :Card {
     public BigerCostMovingCard()
     {
         cost = 2f;
+        opis = "Zwieksza koszty ruchu, buff negatywny nakładany na przeciwnika";
     }
     public override void ActivateCard()
     {

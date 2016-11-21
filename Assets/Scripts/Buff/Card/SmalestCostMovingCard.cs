@@ -8,6 +8,7 @@ public class SmalestCostMovingCard : Card {
 	public SmalestCostMovingCard(List<Buff> list, ControlerGame game)
     {
         cost = 5f;
+        opis = "Zmniesz koszt ruchu sprawiając że grać może przebic dłuższy dystans";
     }
     public override void ActivateCard()
     {

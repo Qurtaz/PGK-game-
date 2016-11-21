@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Helper;
+using System;
 
 public class ControlerGame : MonoBehaviour {
     private int playerTurn;
@@ -22,6 +23,12 @@ public class ControlerGame : MonoBehaviour {
         ChangePlayers();
         turn = 1;
         activePhase = -1;
+    }
+
+    internal string FindCardDescryption(string text)
+    {
+        Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
+        return playerHand.FindCardDescryption(text);
     }
 
     // Update is called once per frame

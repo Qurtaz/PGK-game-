@@ -7,6 +7,7 @@ public class DrawCard : Card {
 	public DrawCard()
 	{
 		cost = 3F;
+        opis = "Pozwala dobrać dwie dodatkowe karty";
 	}
 	// Use this for initialization
 	void Start () {

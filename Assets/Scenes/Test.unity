@@ -22614,9 +22614,84 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114000010237015718, guid: 44b27828f1fa4e1448817c43d433b145,
+    - target: {fileID: 114000014182290940, guid: 44b27828f1fa4e1448817c43d433b145,
         type: 2}
       propertyPath: gameControler
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000013779298016, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000013446112914, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000013419495728, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000013018563968, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000012754466850, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: game
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000012693349948, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000012651502854, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: gameControler
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000012256478770, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: game
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000012197855790, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000012044374592, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000011812756132, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000011596445724, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000011465699918, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000011306094352, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 1383381715}
+    - target: {fileID: 114000011038239694, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1383381715}
     - target: {fileID: 114000010883394720, guid: 44b27828f1fa4e1448817c43d433b145,
@@ -22629,87 +22704,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000011465699918, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000013419495728, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: controller
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000013779298016, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000011038239694, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000011812756132, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000012044374592, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000013446112914, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: gameController
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000012693349948, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000013018563968, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000012651502854, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: gameControler
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000012197855790, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000012256478770, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000012754466850, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000011306094352, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: gameController
-      value: 
-      objectReference: {fileID: 1383381715}
     - target: {fileID: 114000010527770956, guid: 44b27828f1fa4e1448817c43d433b145,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000011596445724, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1383381715}
-    - target: {fileID: 114000014182290940, guid: 44b27828f1fa4e1448817c43d433b145,
+    - target: {fileID: 114000010237015718, guid: 44b27828f1fa4e1448817c43d433b145,
         type: 2}
       propertyPath: gameControler
       value: 
@@ -22727,11 +22727,6 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012572150118, guid: 44b27828f1fa4e1448817c43d433b145,
-        type: 2}
-      propertyPath: m_Value
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44b27828f1fa4e1448817c43d433b145, type: 2}

@@ -68,5 +68,15 @@ public class Hand : MonoBehaviour {
 	{
 		playerCard.Add (cardToReturn);
 	}
-		
+    public string FindCardDescryption(string text)
+    {
+        foreach(Card c in playerCard)
+        {
+            if(c.name == text)
+            {
+                return c.opis;
+            }
+        }
+        return "";
+    }
 }

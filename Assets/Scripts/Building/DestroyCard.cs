@@ -6,6 +6,7 @@ public class DestroyBuilding : Card {
 	public DestroyBuilding()
 	{
 		cost = 2F;
+        opis = "Po wybraniu karty pozwala zniszczyć postawiony objekt(prze garcza lub jego przeciwnika";
 	}
 	// Use this for initialization
 	public override void ActivateCard()

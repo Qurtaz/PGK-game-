@@ -12,6 +12,7 @@ public class PlayerControler : MonoBehaviour {
 	public bool blocked = false;
 	private bool moving = false;
 	private Vector3 estHitPoint;
+    int cost = 4;
 	public float unit;
 
     // Use this for initialization
@@ -36,7 +37,7 @@ public class PlayerControler : MonoBehaviour {
 			hitPoint = MousePoint.mousePoint (unit);
 			distance = Vector3.Distance (rigid.transform.position, hitPoint);
 
-			float res = distance / 5;
+			float res = distance / cost;
 			float heightDiff = hitPoint.y - rigid.transform.position.y;
 			if (heightDiff > 0)
 				res += heightDiff;
@@ -59,7 +60,7 @@ public class PlayerControler : MonoBehaviour {
 	{
 		estHitPoint = MousePoint.mousePoint (unit);
 		float distance = Vector3.Distance (rigid.transform.position, estHitPoint);
-		float res = distance / 5;
+		float res = distance / cost;
 		float heightDiff = estHitPoint.y - rigid.transform.position.y;
 		if (heightDiff > 0)
 			res += heightDiff;
@@ -84,7 +85,10 @@ public class PlayerControler : MonoBehaviour {
 		// Return angle multiplied with 1 or -1
 		return angle * (Vector3.Dot (axis, Vector3.Cross (dirA, dirB)) < 0 ? -1 : 1);
 	}
-
+    public void EditCost(int z)
+    {
+        cost -= z;
+    }
 
 }
 

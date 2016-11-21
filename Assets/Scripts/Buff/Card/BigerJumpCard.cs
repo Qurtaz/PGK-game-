@@ -9,6 +9,7 @@ public class BigerJumpCard : Card
     public BigerJumpCard()
     {
         cost = 2f;
+        opis = "Pozwala zwiekszyc skok o 50%";
     }
     public override void ActivateCard()
     {
