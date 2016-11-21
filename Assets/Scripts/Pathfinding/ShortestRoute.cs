@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class ShortestRoute : MonoBehaviour {
+public class ShortestRoute {
 	public int estCost = 3;
 
 

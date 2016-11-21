@@ -12,11 +12,13 @@ public class Agent : MonoBehaviour {
 	private int i;
 	private bool moving;
 	public float speed = 5.0f;
+	public NodeSwapPathfindingTest test;
 	// Use this for initialization
 	void Start () {
 		rigid = GetComponent<Rigidbody> ();
 		curTarget = null;
 		pathfinder = new ShortestRoute ();
+		test = GameObject.Find ("NodeTest").GetComponent<NodeSwapPathfindingTest>();
 	}
 	
 	// Update is called once per frame
@@ -39,6 +41,8 @@ public class Agent : MonoBehaviour {
 				if (i == 0) {
 					curTarget = null;
 					moving = false;
+					if(test != null)
+						test.changeFinish ();
 				}
 				
 

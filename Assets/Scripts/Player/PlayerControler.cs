@@ -23,27 +23,7 @@ public class PlayerControler : MonoBehaviour {
 
     void FixedUpdate()
     {
-		if (moving) {
-			
-			Vector3 moveFlat = new Vector3 (hitPoint.x, 0, hitPoint.z);
-			rigid.transform.LookAt (moveFlat);
-			rigid.transform.eulerAngles = new Vector3 (0,transform.eulerAngles.y, 0);
-			rigid.transform.position = Vector3.MoveTowards (rigid.transform.position, moveFlat, speed  * Time.deltaTime);
-			Vector3 diff = hitPoint - rigid.transform.position;
 
-			if (diff.x < 5.0f && diff.z < 5.0f && diff.y > 0.1f) {
-				float heightDiff = hitPoint.y - rigid.transform.position.y;
-				float v =Mathf.Sqrt( heightDiff / (2 * Physics.gravity.magnitude));
-				rigid.AddForce (new Vector3 (diff.x, v*1200, diff.z));
-			}
-
-			if (diff.magnitude < 2.0f) {
-				rigid.transform.position = hitPoint;
-				moving = false;
-
-			}
-
-		}
 
 
 		float distance;
