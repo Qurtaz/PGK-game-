@@ -3,14 +3,18 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class CardDescription : MonoBehaviour {
+
     private Button _button;
     private bool _distaplyInformation;
-    public Text text;
-    public GameObject planeText;
-    public ControlerGame controller;
+    [SerializeField]
+    private Text _text;
+    [SerializeField]
+    private ControlerGame _controller;
     // Use this for initialization
     void Start () {
         _button = gameObject.GetComponent<Button>();
+        _controller = gameObject.GetComponentInParent<ButtonHandler>().GetGameControler();
+        _text = GameObject.Find("Destription and cost").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
@@ -26,11 +30,11 @@ public class CardDescription : MonoBehaviour {
     {
         if (_distaplyInformation)
         {
-            text.text = controller.FindCardDescryption(_button.GetComponentInChildren<Text>().text);
+            _text.text = _controller.FindCardDescryption(_button.GetComponentInChildren<Text>().text);
         }
         else
         {
-            text.text = "";
+            _text.text = "";
         }
     }
     void Update()

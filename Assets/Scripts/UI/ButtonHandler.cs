@@ -9,7 +9,10 @@ public class ButtonHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		button = GetComponentsInChildren<Button>();
-
+        foreach(Button b in button)
+        {
+            b.gameObject.AddComponent<CardDescription>();
+        }
 	}
 	
 	// Update is called once per frame
@@ -28,4 +31,8 @@ public class ButtonHandler : MonoBehaviour {
         }
 		
 	}
+    public ControlerGame GetGameControler()
+    {
+        return controller;
+    }
 }

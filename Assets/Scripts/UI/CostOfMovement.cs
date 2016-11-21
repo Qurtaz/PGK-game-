@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Helper;
 using System.Collections;
 
 public class CostOfMovement : MonoBehaviour {
@@ -14,6 +15,9 @@ public class CostOfMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		text.text = gameController.GetCost ();
+        if(gameController.GetPlayerPhase() != DataString.RUCH)
+        {
+            text.text = gameController.GetCost ();
+        }	
 	}
 }
