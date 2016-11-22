@@ -21,18 +21,29 @@ public class GraphNode : MonoBehaviour {
 			if(node.gameObject.tag == "Node")
 			{
 				Vector3 diff = node.transform.position - transform.position;
+				Vector3 revDiff = -diff;
+				float moveCost = diff.magnitude / 3;
 				GraphNode nodeToAdd = node.gameObject.GetComponent<GraphNode> ();
 				if(nodeToAdd != this && !nodeList.ContainsKey(nodeToAdd))
 				{
 					if (diff.y < 0f) {
-						nodeList.Add (nodeToAdd, cost);
+						nodeList.Add (nodeToAdd, diff.magnitude);
 						nodeListDebug.Add (nodeToAdd);
-						nodeToAdd.AddNode (this,cost);
+
+
+						if (revDiff.y < 0f)
+							nodeToAdd.AddNode (this, moveCost);
+						else if (revDiff.y < 15f)
+							nodeToAdd.AddNode (this, revDiff.y + moveCost);
+						
 
 					} else if (diff.y < 15f) {
-						nodeList.Add (nodeToAdd, (diff.y) + cost);
+						nodeList.Add (nodeToAdd, (diff.y) + moveCost);
 						nodeListDebug.Add (nodeToAdd);
-						nodeToAdd.AddNode (this,diff.y + cost);
+						if (revDiff.y < 0f)
+							nodeToAdd.AddNode (this, moveCost);
+						else if (revDiff.y < 15f)
+							nodeToAdd.AddNode (this, revDiff.y + moveCost);
 					}
 				}
 
@@ -63,11 +74,10 @@ public class GraphNode : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other) {
 		isWalkable = false;
-		Agent playerAgent = other.gameObject.GetComponent<Agent> ();
+		StartingNode playerAgent = other.gameObject.GetComponentInChildren<StartingNode> ();
 		if (playerAgent != null) {
 			playerAgent.start = this;
 		}
-		Debug.Log (gameObject.name);
 	}
 	void OnTriggerExit() {
 		isWalkable = true;

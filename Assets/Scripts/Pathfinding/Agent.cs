@@ -6,7 +6,6 @@ public class Agent : MonoBehaviour {
 	private ShortestRoute pathfinder;
 	private Rigidbody rigid;
 	public List<GraphNode> nodes;
-	public GraphNode start;
 	public GraphNode curTarget;
 	public GraphNode end;
 	private int i;
@@ -16,17 +15,24 @@ public class Agent : MonoBehaviour {
 	public NodeSwapPathfindingTest test;
 	private bool jumped;
 	private float distToGround;
+	private StartingNode start;
+	private GraphNode nodeStart;
 	// Use this for initialization
 	void Start () {
-		rigid = GetComponent<Rigidbody> ();
+		rigid = GetComponentInParent<Rigidbody> ();
 		curTarget = null;
 		pathfinder = new ShortestRoute ();
-		test = GameObject.Find ("NodeTest").GetComponent<NodeSwapPathfindingTest>();
-		distToGround = gameObject.GetComponent<Collider> ().bounds.extents.y;
+		distToGround = rigid.gameObject.GetComponent<Collider> ().bounds.extents.y;
+		start = GetComponentInParent<StartingNode> ();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (start.start != null)
+			nodeStart = start.start;
+
+		
 		if (Input.GetKeyDown (KeyCode.Mouse0))
 			SetRoute (end);
 		if (moving) {
@@ -47,16 +53,15 @@ public class Agent : MonoBehaviour {
 			if(Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f))
 				jumped = false;
 
-			if (diff.magnitude < 0.6f) {
-				//rigid.transform.position = hitPoint;
+			if (diff.magnitude < 0.7f) {
+				if(!curTarget.isStatic)
+					rigid.transform.position = hitPoint;
 				i -= 1;
 				if(i!=0)
 				curTarget = nodes [nodes.Count - i];
 				if (i == 0) {
 					curTarget = null;
 					moving = false;
-					if(test != null)
-						test.changeFinish ();
 				}
 				
 
@@ -68,10 +73,16 @@ public class Agent : MonoBehaviour {
 	}
 	void SetRoute(GraphNode end){
 		
-		nodes = pathfinder.findShortestRoute (start, end);
+		nodes = pathfinder.findShortestRoute (nodeStart, end);
 		i = nodes.Count;
-		curTarget = nodes [nodes.Count-i];
-		moving = true;
+		if (i == 0) {
+			curTarget = null;
+			moving = false;
+		} else {
+			nodes.Remove (curTarget);
+			curTarget = nodes [0];
+			moving = true;
+		}
 
 
 

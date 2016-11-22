@@ -71,19 +71,32 @@ public class ShortestRoute {
 	}
 	public float hCalc(GraphNode current, GraphNode end)
 	{
-		return Vector3.Distance (current.gameObject.transform.position, end.gameObject.transform.position) / estCost;
+		Vector3 diff = current.gameObject.transform.position - end.gameObject.transform.position;
+		return Mathf.Abs (diff.x)  + Mathf.Abs(diff.y) + Mathf.Abs(diff.z) / estCost;
+		return Vector3.Distance (current.gameObject.transform.position, end.gameObject.transform.position)/ estCost;
 	}
 	public List<GraphNode> findShortestRoute(GraphNode start, GraphNode end)
 	{
+		
 		List<GraphNode> finalList = new List<GraphNode> ();
 		List<GraphNodePair> setToSearch = routeCalc (start, end);
+		if (setToSearch.Count == 0)
+			return new List<GraphNode> ();
 		GraphNodePair helpingPoint = new GraphNodePair (null, end, 0f, 0f, 0f);
 		GraphNodePair search = setToSearch.Find (i => i.Equals(helpingPoint));
 		finalList.Add (end);
 		while (search.parentNode != null) {
 			helpingPoint.actualNode = search.parentNode;
 			finalList.Add (helpingPoint.actualNode);
-			search = setToSearch.Find (i => i.Equals(helpingPoint));		
+			List<GraphNodePair> searchAll = setToSearch.FindAll (i => i.Equals(helpingPoint));
+			float minF = Mathf.Infinity;
+			foreach (GraphNodePair nodes in searchAll) {
+				if (nodes.f < minF) {
+					search = nodes;
+					minF = nodes.f;
+				}
+
+			}
 		}
 		finalList.Reverse ();
 		return finalList;
