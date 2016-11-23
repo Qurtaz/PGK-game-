@@ -22,6 +22,7 @@ public class BuffColection : MonoBehaviour {
         }
 	}
 
+    public void AddBuff(Buff add) //fix
     {
         buff.Add(add);
     }
