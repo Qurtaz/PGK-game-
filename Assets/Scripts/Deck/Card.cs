@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Card : Object {
+public abstract class Card : Object {
 	public float cost = 0F;
     public string opis;
 

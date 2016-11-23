@@ -3,15 +3,20 @@ using System.Collections;
 
 public class SmallerMovingCost : Buff {
 
-    public SmallerMovingCost(int _startTurn, Player player)
+    public SmallerMovingCost(int currentTurn, bool posit)
     {
-        startTurn = _startTurn;
-        howManyTurn = 4;
-        this.player = player;
+        startTurn = currentTurn;
+        howManyTurns = 3;
+        this.positive = posit;
     }
 
     override public float Active()
     {
-        return -3;
+        return 0.85f;
+    }
+
+    public override void ActivateBuff()
+    {
+        base.ActivateBuff(); 
     }
 }

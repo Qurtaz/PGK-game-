@@ -2,19 +2,32 @@
 using System.Collections.Generic;
 
 public class SmallerMovingCostCard : Card {
-    private List<Buff> buff = new List<Buff>();
-    private ControlerGame _game;
+    private ControlerGame game;
 
-	public SmallerMovingCostCard(List<Buff> list, ControlerGame game)
+	public SmallerMovingCostCard()
     {
-        cost = 5f;
-        opis = "Zmniesz koszt ruchu sprawiając że grać może przebic dłuższy dystans";
+        cost = 2f;
+        opis = "Zmniejsza koszt ruchu sprawiając że grać może przebyc dłuższy dystans";
     }
     public override void ActivateCard()
     {
-        _game = (ControlerGame)FindObjectOfType<ControlerGame>();
-        SmallerMovingCost cd = new SmallerMovingCost(_game.GetPlayerTurn(), _game.GetPlayer());
-        cd.ActiveBuff();
-        buff.Add(cd);
+        game = (ControlerGame)FindObjectOfType<ControlerGame>();
+        SmallerMovingCost buff = new SmallerMovingCost(game.GetPlayerTurn(), true);
+        buff.ActivateBuff();
+        if (!buff.positive)
+        {
+            if (game.GetPlayer().name == "Test1")
+            {
+                GameObject.Find("Test2").GetComponentInChildren<BuffColection>().AddBuff(buff);
+            }
+            if (game.GetPlayer().name == "Test2")
+            {
+                GameObject.Find("Test1").GetComponentInChildren<BuffColection>().AddBuff(buff);
+            }
+        }
+        else
+        {
+            game.GetPlayer().GetComponentInChildren<BuffColection>().AddBuff(buff);
+        }
     }
 }

@@ -2,19 +2,32 @@
 using System.Collections.Generic;
 
 public class BiggerMovingCostCard : Card {
-    private List<Buff> buff = new List<Buff>();
-    private ControlerGame _game;
+    private ControlerGame game;
 
     public BiggerMovingCostCard()
     {
         cost = 2f;
-        opis = "Zwieksza koszty ruchu, buff negatywny nakładany na przeciwnika";
+        opis = "Zwieksza koszt ruchu u przeciwnika";
     }
     public override void ActivateCard()
     {
-        _game = (ControlerGame)FindObjectOfType<ControlerGame>();
-        BiggerMovingCost cd = new BiggerMovingCost(_game.GetPlayerTurn(), _game.GetPlayer());
-        cd.ActiveBuff();
-        buff.Add(cd);
+        game = (ControlerGame)FindObjectOfType<ControlerGame>();
+        BiggerMovingCost buff = new BiggerMovingCost(game.GetPlayerTurn(), false);
+        buff.ActivateBuff();
+        if (!buff.positive)
+        {
+            if (game.GetPlayer().name == "Test1")
+            {
+                GameObject.Find("Test2").GetComponentInChildren<BuffColection>().AddBuff(buff);
+            }
+            if (game.GetPlayer().name == "Test2")
+            {
+                GameObject.Find("Test1").GetComponentInChildren<BuffColection>().AddBuff(buff);
+            }
+        }
+        else
+        {
+            game.GetPlayer().GetComponentInChildren<BuffColection>().AddBuff(buff);
+        }
     }
 }

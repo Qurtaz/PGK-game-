@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 public class BiggerJumpCard : Card
 {
-    private List<Buff> buff = new List<Buff>();
-    private ControlerGame _game;
+    private ControlerGame game;
 
     public BiggerJumpCard()
     {
@@ -14,9 +13,23 @@ public class BiggerJumpCard : Card
     public override void ActivateCard()
     {
 
-        _game = (ControlerGame)FindObjectOfType<ControlerGame>();
-        BiggerJump cd = new BiggerJump(_game.GetPlayerTurn(), _game.GetPlayer());
-        cd.ActiveBuff();
-        buff.Add(cd);
+        game = (ControlerGame)FindObjectOfType<ControlerGame>();
+        BiggerJump buff = new BiggerJump(game.GetPlayerTurn(), true);
+        buff.ActivateBuff();
+        if (!buff.positive)
+        {
+            if (game.GetPlayer().name == "Test1")
+            {
+                GameObject.Find("Test2").GetComponentInChildren<BuffColection>().AddBuff(buff);
+            }
+            if (game.GetPlayer().name == "Test2")
+            {
+                GameObject.Find("Test1").GetComponentInChildren<BuffColection>().AddBuff(buff);
+            }
+        }
+        else
+        {
+            game.GetPlayer().GetComponentInChildren<BuffColection>().AddBuff(buff);
+        }
     }
 }

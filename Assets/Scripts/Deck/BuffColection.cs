@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 
 public class BuffColection : MonoBehaviour {
-    List<Buff> buff = new List<Buff>();
+
+    private List<Buff> buff = new List<Buff>();
+    ControlerGame game;
+
 	// Use this for initialization
 	void Start () {
 	

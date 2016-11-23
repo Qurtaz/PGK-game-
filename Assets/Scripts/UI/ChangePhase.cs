@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using Helper;
 using System.Collections;
 
-public class ChnagePhase : MonoBehaviour {
+public class ChangePhase : MonoBehaviour {
     public ControlerGame controler;
     public GameObject plane;
     public Text data;

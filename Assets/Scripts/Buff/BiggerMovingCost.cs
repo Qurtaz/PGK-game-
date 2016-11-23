@@ -3,15 +3,20 @@ using System.Collections;
 
 public class BiggerMovingCost : Buff {
 
-    public BiggerMovingCost(int _startTurn, Player player)
+    public BiggerMovingCost(int currentTurn, bool posit)
     {
-        startTurn = _startTurn;
-        howManyTurn = 5;
-        this.player = player;
+        startTurn = currentTurn;
+        howManyTurns = 3;
+        this.positive = posit;
     }
 
     override public float Active()
     {
-        return 3;
+        return 1.15f;
+    }
+
+    public override void ActivateBuff()
+    {
+        base.ActivateBuff();
     }
 }

@@ -24,7 +24,7 @@ GameObject:
   - 23: {fileID: 23000013446756012}
   - 54: {fileID: 54000010004384516}
   - 138: {fileID: 138000010575737896}
-  - 114: {fileID: 114000010831765738}
+  - 114: {fileID: 114000014171934112}
   m_Layer: 0
   m_Name: ConstructionDoublePlatform
   m_TagString: Untagged
@@ -206,19 +206,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114000010831765738
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011099310076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 107c3e40e3483ef43960ed369c5ed2c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAbleToBuild: 1
-  unit: 3
 --- !u!114 &114000013073083324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -230,6 +217,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27e80a54af84714fb7b7e2c928a9922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000014171934112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011099310076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205eb5ec9586ba84889840abe886d20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAbleToBuild: 1
+  unit: 3
 --- !u!138 &138000010575737896
 FixedJoint:
   m_ObjectHideFlags: 1

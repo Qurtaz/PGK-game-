@@ -5,7 +5,7 @@ public class Deck : MonoBehaviour {
 
 	private Queue<Card> deck = new Queue<Card>();
     private int deckSize = 30;
-    
+    private bool teleportInHand = false;
 
     public int pressedActivate = 0;
 
@@ -28,17 +28,69 @@ public class Deck : MonoBehaviour {
     {
         int x;
         System.Random rnd = new System.Random();
-        for(int i = 0; i < deckSize; i++)
+        for (int i = 0; i < deckSize; i++)
         {
-            x = rnd.Next(0, 5);
-            if(x==0) deck.Enqueue(new BuildPlatformCard());
-            if(x==1) deck.Enqueue(new BuildCatapultCard());
-			if (x==2) deck.Enqueue(new DrawCard ());
-			if (x==3) deck.Enqueue (new DestroyBuilding());
-            if (x==4) deck.Enqueue(new BuildTeleportCard());
+            x = rnd.Next(1, 100);
+            if (!teleportInHand)
+            {
+                if (x > 0 && x <= 35)
+                {
+                    deck.Enqueue(new BuildPlatformCard());
+                }
+                else if (x > 35 && x <= 50)
+                {
+                    deck.Enqueue(new BuildCatapultCard());
+                }
+                else if (x > 50 && x <= 70)
+                {
+                    deck.Enqueue(new DrawCard());
+                }
+                else if (x > 70 && x <= 85)
+                {
+                    deck.Enqueue(new DestroyBuilding());
+                }
+                else if (x > 85 && x <= 95)
+                {
+                    deck.Enqueue(new BuildTeleportCard());
+                    teleportInHand = true;
+                }
+                else if (x > 95 && x <= 100)
+                {
+                    deck.Enqueue(new BuildDoublePlatformCard());
+                }
+            }
+            else
+            {
+                if (x > 0 && x <= 40)
+                {
+                    deck.Enqueue(new BuildPlatformCard());
+                }
+                else if (x > 40 && x <= 60)
+                {
+                    deck.Enqueue(new BuildCatapultCard());
+                }
+                else if (x > 60 && x <= 80)
+                {
+                    deck.Enqueue(new DrawCard());
+                }
+                else if (x > 80 && x <= 95)
+                {
+                    deck.Enqueue(new DestroyBuilding());
+                }
+                else if (x > 95 && x <= 100)
+                {
+                    deck.Enqueue(new BuildDoublePlatformCard());
+                }
+            }
         }
     }
-
+            //x = rnd.Next(0, 6);
+            //if(x==0) deck.Enqueue(new BuildPlatformCard());
+            //if(x==1) deck.Enqueue(new BuildCatapultCard());
+			//if (x==2) deck.Enqueue(new DrawCard ());
+			//if (x==3) deck.Enqueue (new DestroyBuilding());
+            //if (x==4) deck.Enqueue(new BuildTeleportCard());
+            //if (x==5) deck.Enqueue(new BuildDoublePlatformCard());
 
 
     public void ResetDeck()

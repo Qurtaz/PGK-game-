@@ -73,11 +73,11 @@ public class ControlerGame : MonoBehaviour {
     }
     public float ResoursesData()
     {
-		return players [playerTurn].GetResources ();
+		return players[playerTurn].GetResources ();
     }
 	public void ChangePlayerPhase()
 	{
-		players [playerTurn].ChangePhase ();
+		players[playerTurn].ChangePhase();
 	}
 	public string GetCardName(int cardNumber)
 	{
@@ -130,7 +130,7 @@ public class ControlerGame : MonoBehaviour {
     }
 	public void ReturnCardToPlayer(Card cardToReturn)
 	{
-		players [playerTurn].GetComponentInChildren<Hand> ().ReturnCard (cardToReturn);
+		players[playerTurn].GetComponentInChildren<Hand> ().ReturnCard (cardToReturn);
 	}
     public string GetPlayerPhase()
     {

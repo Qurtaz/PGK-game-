@@ -85,10 +85,6 @@ public class Agent : MonoBehaviour {
 			curTarget = nodes [0];
 			moving = true;
 		}
-
-
-
-		
 	}
 	public void FinishRoute()
 	{
@@ -97,4 +93,9 @@ public class Agent : MonoBehaviour {
 		curTarget = null;
 		moving = false;
 	}
+
+    public float GetCost()
+    {
+        return 0;
+    }
 }

@@ -3,11 +3,11 @@ using System.Collections;
 
 public class BiggerJump : Buff {
 
-    public BiggerJump(int _startTurn, Player player)
+    public BiggerJump(int currentTurn, bool posit)
     {
-        startTurn = _startTurn;
-        howManyTurn = 4;
-        this.player = player;
+        startTurn = currentTurn;
+        howManyTurns = 3;
+        this.positive = posit;
     }
 
     override public float Active()

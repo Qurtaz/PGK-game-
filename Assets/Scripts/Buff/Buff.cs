@@ -1,31 +1,47 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Buff :MonoBehaviour
-{
-    public int howManyTurn = 0;
-    public int startTurn= 0;
-    public Player player;
+public abstract class Buff : MonoBehaviour{
 
+    protected int howManyTurns;
+    protected int startTurn;
+    public bool positive;
+    protected ControlerGame controller;
+
+    public int Turns
+    {
+        get
+        {
+            return howManyTurns;
+        }
+    }
+
+    public int Start
+    {
+        get
+        {
+            return startTurn;
+        }
+    }
 	
     public virtual float Active()
     {
         return 1;
     }
-    public bool TurnToFinish(int actualTurn)
+    public virtual bool TurnToFinish(int actualTurn)
     {
-        if(actualTurn-startTurn <= howManyTurn)
+        if (actualTurn - startTurn >= howManyTurns)
         {
             return true;
         }
         else
         {
-            player.gameObject.GetComponentInChildren<PlayerControler>().EditCost(-1*(int)Active());
             return false;
         }
     }
-    public void ActiveBuff()
+    public virtual void ActivateBuff()
     {
-        player.gameObject.GetComponentInChildren<PlayerControler>().EditCost((int)Active());
+        startTurn = controller.GetPlayerTurn();
+        //player.gameObject.GetComponentInChildren<PlayerControler>().EditCost((int)Active());
     }
 }
