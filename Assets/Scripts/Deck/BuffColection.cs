@@ -13,6 +13,21 @@ public class BuffColection : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        for(int i=0; i<buff.Count; i++)
+        {
+            if (buff[i].TurnToFinish(game.GetPlayerTurn()) == false)
+            {
+                buff.RemoveAt(i);
+            }
+        }
 	}
+
+    {
+        buff.Add(add);
+    }
+
+    public void RemoveBuff(int i)
+    {
+        buff.RemoveAt(i);
+    }
 }

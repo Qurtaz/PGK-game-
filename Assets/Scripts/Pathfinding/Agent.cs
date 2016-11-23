@@ -9,6 +9,7 @@ public class Agent : MonoBehaviour {
 	public GraphNode curTarget;
 	public GraphNode end;
 	private int i;
+    private int cost;
 	private bool moving;
 	public float speed = 5.0f;
 	public float force = 100f;
@@ -66,9 +67,6 @@ public class Agent : MonoBehaviour {
 					curTarget = null;
 					moving = false;
 				}
-				
-
-
 			}
 		}
 
