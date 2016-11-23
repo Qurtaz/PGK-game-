@@ -85,10 +85,10 @@ public class ShortestRoute {
 		else
 			return 0;
 	}
-	public List<GraphNode> findShortestRoute(GraphNode start, GraphNode end, int heuristics)
+	public Dictionary<GraphNode> findShortestRoute(GraphNode start, GraphNode end, int heuristics)
 	{
 		
-		List<GraphNode> finalList = new List<GraphNode> ();
+		Dictionary<GraphNode> finalList = new Dictionary<GraphNode> ();
 		List<GraphNodePair> setToSearch = routeCalc (start, end, heuristics);
 		if (setToSearch.Count == 0)
 			return new List<GraphNode> ();
