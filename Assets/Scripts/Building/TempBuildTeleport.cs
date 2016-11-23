@@ -2,7 +2,7 @@
 using System.Collections;
 using Helper;
 
-public class TempBuildCatapult : MonoBehaviour
+public class TempBuildTeleport : MonoBehaviour
 {
     private float scrolls;
     private Collider coll;
@@ -14,7 +14,7 @@ public class TempBuildCatapult : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        platformCard = new BuildCatapultCard();
+        platformCard = new BuildTeleportCard();
         controller = FindObjectOfType<ControlerGame>();
     }
 
@@ -46,7 +46,7 @@ public class TempBuildCatapult : MonoBehaviour
         if (Input.GetAxis(InputPlayer.MOUSE0) > 0 && isAbleToBuild && noCollisionInThisPoint)
         {
             Debug.Log(isAbleToBuild);
-            Instantiate(Resources.Load("Catapult"), hitPoint, Quaternion.identity);
+            Instantiate(Resources.Load("TeleportChair"), hitPoint, Quaternion.identity);
 
             Destroy(gameObject);
         }

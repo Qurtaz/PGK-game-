@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Buff :MonoBehaviour
 {
-    public  int howManyTurn = 0;
+    public int howManyTurn = 0;
     public int startTurn= 0;
     public Player player;
 

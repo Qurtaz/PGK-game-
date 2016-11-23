@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BigerJump : Buff {
+public class BiggerMovingCost : Buff {
 
-    public BigerJump(int _startTurn, Player player)
+    public BiggerMovingCost(int _startTurn, Player player)
     {
         startTurn = _startTurn;
-        howManyTurn = 4;
+        howManyTurn = 5;
         this.player = player;
     }
 
     override public float Active()
     {
-        return 1.5f;
+        return 3;
     }
 }

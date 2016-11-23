@@ -1,21 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class BigerJumpCard : Card
-{
+public class BiggerMovingCostCard : Card {
     private List<Buff> buff = new List<Buff>();
     private ControlerGame _game;
 
-    public BigerJumpCard()
+    public BiggerMovingCostCard()
     {
         cost = 2f;
-        opis = "Pozwala zwiekszyc skok o 50%";
+        opis = "Zwieksza koszty ruchu, buff negatywny nakładany na przeciwnika";
     }
     public override void ActivateCard()
     {
-
         _game = (ControlerGame)FindObjectOfType<ControlerGame>();
-        BigerJump cd = new BigerJump(_game.GetPlayerTurn(), _game.GetPlayer());
+        BiggerMovingCost cd = new BiggerMovingCost(_game.GetPlayerTurn(), _game.GetPlayer());
         cd.ActiveBuff();
         buff.Add(cd);
     }

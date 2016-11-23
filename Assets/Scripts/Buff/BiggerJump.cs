@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SmalestCostMoving :Buff {
+public class BiggerJump : Buff {
 
-    public SmalestCostMoving(int _startTurn, Player player)
+    public BiggerJump(int _startTurn, Player player)
     {
         startTurn = _startTurn;
         howManyTurn = 4;
@@ -12,6 +12,6 @@ public class SmalestCostMoving :Buff {
 
     override public float Active()
     {
-        return -3;
+        return 1.5f;
     }
 }

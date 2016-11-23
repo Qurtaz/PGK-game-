@@ -30,19 +30,12 @@ public class Deck : MonoBehaviour {
         System.Random rnd = new System.Random();
         for(int i = 0; i < deckSize; i++)
         {
-            x = rnd.Next(0, 4);
-            if(x==0)
-            {
-				deck.Enqueue(new BuildPlatformCard());
-            }
-            if(x==1)
-            {
-				deck.Enqueue(new BuildCatapultCard());
-            }
-			if (x == 2)
-				deck.Enqueue (new DrawCard ());
-			if (x == 3)
-				deck.Enqueue (new DestroyBuilding());
+            x = rnd.Next(0, 5);
+            if(x==0) deck.Enqueue(new BuildPlatformCard());
+            if(x==1) deck.Enqueue(new BuildCatapultCard());
+			if (x==2) deck.Enqueue(new DrawCard ());
+			if (x==3) deck.Enqueue (new DestroyBuilding());
+            if (x==4) deck.Enqueue(new BuildTeleportCard());
         }
     }
 
