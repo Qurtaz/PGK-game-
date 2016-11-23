@@ -90,4 +90,11 @@ public class Agent : MonoBehaviour {
 
 		
 	}
+	public void FinishRoute()
+	{
+		nodes = new List<GraphNode> ();
+		i = 0;
+		curTarget = null;
+		moving = false;
+	}
 }
