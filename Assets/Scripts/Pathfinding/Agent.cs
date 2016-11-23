@@ -17,6 +17,7 @@ public class Agent : MonoBehaviour {
 	private float distToGround;
 	private StartingNode start;
 	private GraphNode nodeStart;
+	public int heuristics;
 	// Use this for initialization
 	void Start () {
 		rigid = GetComponentInParent<Rigidbody> ();
@@ -34,7 +35,7 @@ public class Agent : MonoBehaviour {
 
 		
 		if (Input.GetKeyDown (KeyCode.Mouse0))
-			SetRoute (end);
+			SetRoute (end, heuristics);
 		if (moving) {
 			Vector3 hitPoint = curTarget.transform.position;
 			Vector3 moveFlat = new Vector3 (hitPoint.x, hitPoint.y, hitPoint.z);
@@ -57,8 +58,10 @@ public class Agent : MonoBehaviour {
 				if(!curTarget.isStatic)
 					rigid.transform.position = hitPoint;
 				i -= 1;
-				if(i!=0)
-				curTarget = nodes [nodes.Count - i];
+				if (i != 0) {
+					nodes.RemoveAt (0);
+					curTarget = nodes [0];
+				}
 				if (i == 0) {
 					curTarget = null;
 					moving = false;
@@ -71,15 +74,14 @@ public class Agent : MonoBehaviour {
 
 	
 	}
-	void SetRoute(GraphNode end){
+	void SetRoute(GraphNode end, int heuristics){
 		
-		nodes = pathfinder.findShortestRoute (nodeStart, end);
+		nodes = pathfinder.findShortestRoute (nodeStart, end, heuristics);
 		i = nodes.Count;
 		if (i == 0) {
 			curTarget = null;
 			moving = false;
 		} else {
-			nodes.Remove (curTarget);
 			curTarget = nodes [0];
 			moving = true;
 		}

@@ -53084,6 +53084,7 @@ MonoBehaviour:
   speed: 5
   force: 2
   test: {fileID: 0}
+  heuristics: 2
 --- !u!1 &812478775
 GameObject:
   m_ObjectHideFlags: 0
@@ -120326,8 +120327,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 64.376816, y: 94.159966, z: 96.10608}
-  m_Center: {x: -94.662766, y: 29.35413, z: -22.596884}
+  m_Size: {x: 64.37682, y: 74.729965, z: 96.10608}
+  m_Center: {x: -94.66291, y: 19.639004, z: -22.596634}
 --- !u!64 &1797520832
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -128154,6 +128155,7 @@ MonoBehaviour:
   speed: 5
   force: 2
   test: {fileID: 0}
+  heuristics: 2
 --- !u!1 &1917185446
 GameObject:
   m_ObjectHideFlags: 0

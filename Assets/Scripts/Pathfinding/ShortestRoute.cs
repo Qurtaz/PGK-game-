@@ -14,7 +14,7 @@ public class ShortestRoute {
 	void Update () {
 	
 	}
-	public List<GraphNodePair> routeCalc(GraphNode start, GraphNode end)
+	public List<GraphNodePair> routeCalc(GraphNode start, GraphNode end, int heuristics)
 	{
 		List<GraphNodePair> openSet = new List<GraphNodePair>();
 		List<GraphNodePair> closedSet = new List<GraphNodePair>();
@@ -46,8 +46,8 @@ public class ShortestRoute {
 			if (currentNode.actualNode == end)
 				return closedSet;
 			foreach (KeyValuePair<GraphNode, float> nodesWithValues in currentNode.actualNode.nodeList) {
-				curG = nodesWithValues.Value;
-				curH = hCalc (nodesWithValues.Key, end);
+				curG = nodesWithValues.Value + currentNode.g;
+				curH = hCalc (nodesWithValues.Key, end, heuristics);
 				float curF = curG + curH;
 				GraphNodePair nodeWithParent = new GraphNodePair (currentNode.actualNode, nodesWithValues.Key,curF,curG,curH);
 				if(nodesWithValues.Key.isWalkable && !closedSet.Exists(i => i.Equals(nodeWithParent)))
@@ -69,17 +69,27 @@ public class ShortestRoute {
 
 
 	}
-	public float hCalc(GraphNode current, GraphNode end)
+	public float hCalc(GraphNode current, GraphNode end, int heuristics)
 	{
 		Vector3 diff = current.gameObject.transform.position - end.gameObject.transform.position;
+		if(heuristics == 1)
 		return Mathf.Abs (diff.x)  + Mathf.Abs(diff.y) + Mathf.Abs(diff.z) / estCost;
-		return Vector3.Distance (current.gameObject.transform.position, end.gameObject.transform.position)/ estCost;
+		if(heuristics == 2)
+			return ((Mathf.Abs(diff.x) + Mathf.Abs(diff.y)) + ((1.41f - 2f) * Mathf.Min(Mathf.Abs(diff.x),Mathf.Abs(diff.y))) + diff.z)  / 3;
+		if (heuristics == 3)
+			return diff.magnitude;
+		if (heuristics == 4)
+			return 0;
+		if (heuristics == 5)
+			return diff.sqrMagnitude;
+		else
+			return 0;
 	}
-	public List<GraphNode> findShortestRoute(GraphNode start, GraphNode end)
+	public List<GraphNode> findShortestRoute(GraphNode start, GraphNode end, int heuristics)
 	{
 		
 		List<GraphNode> finalList = new List<GraphNode> ();
-		List<GraphNodePair> setToSearch = routeCalc (start, end);
+		List<GraphNodePair> setToSearch = routeCalc (start, end, heuristics);
 		if (setToSearch.Count == 0)
 			return new List<GraphNode> ();
 		GraphNodePair helpingPoint = new GraphNodePair (null, end, 0f, 0f, 0f);
