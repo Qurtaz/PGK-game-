@@ -20,6 +20,7 @@ public class Teleport : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Player")
         {
+			coll.gameObject.GetComponentInChildren<Agent> ().FinishRoute ();
             coll.GetComponentInParent<Rigidbody>().transform.position = destination.transform.position;
             //coll.GetComponent<Rigidbody>().transform.position = new Vector3(-4.7f, 16.8f, -39.3f);
             coll.GetComponentInParent<Player>().GetComponentInChildren<Camera>().transform.LookAt(destination.transform.position);
