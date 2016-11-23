@@ -5,7 +5,7 @@ public class BuildPlatformCard : Card {
 	public BuildPlatformCard()
 	{
 		cost = 2F;
-        opis = "Pozwala zbudować platworme na planszy";
+        opis = "Pozwala zbudować platforme na planszy";
 	}
 
     public override void ActivateCard()
@@ -15,6 +15,4 @@ public class BuildPlatformCard : Card {
 		Instantiate (Resources.Load ("ConstructionPlatform"));
         
     }
-	
-
 }
