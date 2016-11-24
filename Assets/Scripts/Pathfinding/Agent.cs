@@ -60,24 +60,27 @@ public class Agent : MonoBehaviour {
 					rigid.transform.position = hitPoint;
 				i -= 1;
 				if (i != 0) {
-                    if (diff.y == 0)
+					Vector3 diff2 = nodes [1].transform.position - nodes [0].transform.position;
+                    if (diff2.y == 0)
                     {
-                        cost = diff.magnitude;
+                        cost = diff2.magnitude / 3;
                     }
-                    else if (diff.y < 0)
+                    else if (diff2.y < 0)
                     {
-                        cost = (new Vector3(diff.x, 0, diff.z)).magnitude;
+                        cost = (new Vector3(diff2.x, 0, diff2.z)).magnitude / 3;
                     }
-                    else if (diff.y > 0)
+                    else if (diff2.y > 0)
                     {
-                        cost = diff.y;
-                        diff.y = 0;
-                        cost += diff.magnitude;
+                        cost = diff2.y / 3;
+                        diff2.y = 0;
+                        cost += diff2.magnitude / 3;
 
                     }
 					nodes.RemoveAt (0);
 					curTarget = nodes [0];
                     this.GetComponentInParent<ResourceSystem>().UseResources(cost);
+					if (this.GetComponentInParent<ResourceSystem> ().resourcesAvailable < 0)
+						FinishRoute ();
 				}
 				if (i == 0) {
 					curTarget = null;
