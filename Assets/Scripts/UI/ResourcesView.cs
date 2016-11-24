@@ -9,22 +9,22 @@ public class ResourcesView : MonoBehaviour {
     public ControlerGame gameControler;
 	// Use this for initialization
 	void Start () {
-        slider.maxValue = (int)gameControler.ResoursesData()*2;
-        slider.value = (int)gameControler.ResoursesData();
-        text.text = Mathf.Round(gameControler.ResoursesData()).ToString();
+        slider.maxValue = (int)gameControler.ResourcesData()*2;
+        slider.value = (int)gameControler.ResourcesData();
+        text.text = Mathf.Round(gameControler.ResourcesData()).ToString();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if(gameControler.ResoursesData()>0)
+        if(gameControler.ResourcesData()>0)
         {
-            slider.value = (int)gameControler.ResoursesData();
-		    text.text = (Mathf.Round (gameControler.ResoursesData ()).ToString () + "/20");
+            slider.value = (int)gameControler.ResourcesData();
+		    text.text = (Mathf.Round (gameControler.ResourcesData ()).ToString () + "/20");
             //Debug.Log(slider.value.ToString());
         }
         else
         {
-            slider.value = gameControler.ResoursesData();
+            slider.value = gameControler.ResourcesData();
             text.text = "0";
         }
         //Debug.Log(slider.value.ToString());

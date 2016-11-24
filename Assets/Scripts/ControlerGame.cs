@@ -25,7 +25,7 @@ public class ControlerGame : MonoBehaviour {
         activePhase = -1;
     }
 
-    internal string FindCardDescryption(string text)
+    internal string FindCardDescription(string text)
     {
         Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
         return playerHand.FindCardDescryption(text);
@@ -71,7 +71,7 @@ public class ControlerGame : MonoBehaviour {
     {
         players[playerTurn].DeactivatePlayer();
     }
-    public float ResoursesData()
+    public float ResourcesData()
     {
 		return players[playerTurn].GetResources ();
     }

@@ -30,7 +30,7 @@ public class CardDescription : MonoBehaviour {
     {
         if (_distaplyInformation)
         {
-            _text.text = _controller.FindCardDescryption(_button.GetComponentInChildren<Text>().text);
+            _text.text = _controller.FindCardDescription(_button.GetComponentInChildren<Text>().text);
         }
         else
         {
