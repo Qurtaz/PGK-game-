@@ -22,29 +22,55 @@ public class GraphNode : MonoBehaviour {
 			{
 				Vector3 diff = node.transform.position - transform.position;
 				Vector3 revDiff = -diff;
-				float moveCost = diff.magnitude / 3;
 				GraphNode nodeToAdd = node.gameObject.GetComponent<GraphNode> ();
+				float moveCost = 0f;
 				if(nodeToAdd != this && !nodeList.ContainsKey(nodeToAdd))
 				{
-					if (diff.y < 0f) {
-						nodeList.Add (nodeToAdd, diff.magnitude);
+					if (diff.y == 0f)
+					{
+						moveCost = diff.magnitude / 3f;
+						nodeList.Add (nodeToAdd, moveCost);
+						nodeListDebug.Add (nodeToAdd);
+					}
+					else if (diff.y < 0f)
+					{
+						moveCost = (new Vector3(diff.x, 0, diff.z)).magnitude / 3;
+						nodeList.Add (nodeToAdd, moveCost);
+						nodeListDebug.Add (nodeToAdd);
+					}
+					else if (diff.y > 0f && diff.y < 15f)
+					{
+						moveCost = diff.y / 3;
+						diff.y = 0;
+						moveCost += diff.magnitude / 3;
+						nodeList.Add (nodeToAdd,moveCost);
 						nodeListDebug.Add (nodeToAdd);
 
+					}
+					if (revDiff.y == 0f)
+					{
+						moveCost = revDiff.magnitude / 3;
+						nodeToAdd.AddNode (this, moveCost);
+					}
+					else if (revDiff.y < 0f)
+					{
+						moveCost = (new Vector3(revDiff.x, 0, revDiff.z)).magnitude / 3;
+						nodeToAdd.AddNode (this, moveCost);
+					}
+					else if (revDiff.y > 0f && revDiff.y < 15f)
+					{
+						moveCost = revDiff.y / 3;
+						revDiff.y = 0;
+						moveCost += revDiff.magnitude / 3;
+						nodeToAdd.AddNode (this,moveCost);
+					
+					}
 
-						if (revDiff.y < 0f)
-							nodeToAdd.AddNode (this, moveCost);
-						else if (revDiff.y < 15f)
-							nodeToAdd.AddNode (this, revDiff.y + moveCost);
+						
 						
 
-					} else if (diff.y < 15f) {
-						nodeList.Add (nodeToAdd, (diff.y) + moveCost);
-						nodeListDebug.Add (nodeToAdd);
-						if (revDiff.y < 0f)
-							nodeToAdd.AddNode (this, moveCost);
-						else if (revDiff.y < 15f)
-							nodeToAdd.AddNode (this, revDiff.y + moveCost);
-					}
+
+
 				}
 
 
