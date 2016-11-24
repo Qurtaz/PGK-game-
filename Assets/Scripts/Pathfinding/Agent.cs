@@ -35,7 +35,7 @@ public class Agent : MonoBehaviour {
 			nodeStart = start.start;
 
 		
-		if (Input.GetKeyDown (KeyCode.Mouse0))
+		if (Input.GetKeyDown (KeyCode.Mouse0) && !moving)
 			SetRoute (end, heuristics);
 		if (moving) {
 			Vector3 hitPoint = curTarget.transform.position;
