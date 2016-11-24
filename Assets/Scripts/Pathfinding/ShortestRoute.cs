@@ -60,7 +60,7 @@ public class ShortestRoute {
 							openSet.Add (nodeWithParent);
 						}
 					}
-					}
+				}
 			}
 
 		}

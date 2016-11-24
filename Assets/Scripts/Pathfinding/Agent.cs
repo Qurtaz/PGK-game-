@@ -9,7 +9,7 @@ public class Agent : MonoBehaviour {
 	public GraphNode curTarget;
 	public GraphNode end;
 	private int i;
-    private int cost;
+    private float cost;
 	private bool moving;
 	public float speed = 5.0f;
 	public float force = 100f;
@@ -60,8 +60,24 @@ public class Agent : MonoBehaviour {
 					rigid.transform.position = hitPoint;
 				i -= 1;
 				if (i != 0) {
+                    if (diff.y == 0)
+                    {
+                        cost = diff.magnitude;
+                    }
+                    else if (diff.y < 0)
+                    {
+                        cost = (new Vector3(diff.x, 0, diff.z)).magnitude;
+                    }
+                    else if (diff.y > 0)
+                    {
+                        cost = diff.y;
+                        diff.y = 0;
+                        cost += diff.magnitude;
+
+                    }
 					nodes.RemoveAt (0);
 					curTarget = nodes [0];
+                    this.GetComponentInParent<ResourceSystem>().UseResources(cost);
 				}
 				if (i == 0) {
 					curTarget = null;
