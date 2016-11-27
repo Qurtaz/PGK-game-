@@ -29,8 +29,9 @@ public class Agent : MonoBehaviour {
 		pathfinder = new ShortestRoute ();
 		distToGround = rigid.gameObject.GetComponent<Collider> ().bounds.extents.y;
 		start = GetComponentInParent<StartingNode> ();
-		range = new RangeFinder();
+		range = new RangeFinder ();
 
+		rend.HideAllNodes ();
 
 	}
 	
