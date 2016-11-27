@@ -70,8 +70,8 @@ public class Player : MonoBehaviour {
     }
     public bool DeactivatePlayer()
     {
-        if (!isMoving)
-        {
+        //if (!isMoving)
+        //{
             playerToMaterial.GetComponent<Renderer>().material = isNotActive;
             isControlling = false;
             isBuilding = false;
@@ -79,11 +79,11 @@ public class Player : MonoBehaviour {
             buildCamera.SetActive(false);
             playerToControl.SetActive(false);
             return true;
-        }
-        else
-        {
-            return false;
-        }
+       // }
+       // else
+       // {
+         //   return false;
+       // }
     }
     public void ActivatePlayer()
     {
