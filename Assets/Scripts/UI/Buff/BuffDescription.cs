@@ -1,21 +1,20 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System.Collections;
+using UnityEngine;
 
-public class CardDescription : EventTrigger {
-
-    [SerializeField]
+public class BuffDescription : EventTrigger
+{
     private Text _text;
-    public Card card;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         _text = GameObject.Find("Destription").GetComponent<Text>();
-	}
-
+    }
+    public Buff buff;
+    // Use this for initialization
     public override void OnPointerEnter(PointerEventData data)
     {
-        Opis(card.opis);
+        Opis(buff.opis);
     }
 
     public override void OnPointerExit(PointerEventData data)

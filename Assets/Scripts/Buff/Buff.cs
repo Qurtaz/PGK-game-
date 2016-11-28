@@ -6,6 +6,7 @@ public abstract class Buff : MonoBehaviour{
     protected int howManyTurns;
     protected int startTurn;
     public bool positive;
+    public string opis;
     protected ControlerGame controller;
 
     public int Turns

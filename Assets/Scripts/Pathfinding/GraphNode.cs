@@ -10,6 +10,7 @@ public class GraphNode : MonoBehaviour {
 	public List<GraphNode> nodeListDebug;
 	public bool isWalkable = true;
 	public bool isStatic = true;
+	private Renderer rend;
 	// Use this for initialization
 	public void UpdatePath() {
 		Vector3 checkBottom = transform.position;
@@ -80,7 +81,9 @@ public class GraphNode : MonoBehaviour {
 	}
 	void Start () {
 		UpdatePath ();
-
+		rend = GetComponent<Renderer> ();
+		if (!isStatic)
+			AddDynamicNodeToController ();
 	
 
 
@@ -114,6 +117,30 @@ public class GraphNode : MonoBehaviour {
 		nodeList.Add (node, value);
 		nodeListDebug.Add (node);
 	}
+	public void ActivateRendering()
+	{
+		rend.enabled = true;
+	}
+	public void DisableRendering()
+	{
+		rend.enabled = false;
+	}
+	public void AddDynamicNodeToController()
+	{
+		NodeDrawController rend = GameObject.FindObjectOfType<NodeDrawController> ();
+		rend.AddNode (this);
 
+	}
+	public override bool Equals(object obj)
+	{
+		if (obj == null) return false;
+		GraphNode objAsNode = obj as GraphNode;
+		if (objAsNode == null) return false;
+		else return Equals(objAsNode);
+	}
+	public bool Equals(GraphNode node)
+	{
+		return transform == node.transform;
+	}
 
 }
