@@ -86,7 +86,15 @@ public class ControlerGame : MonoBehaviour {
 			Debug.Log ("nie załadowano ręki");
 		return playerHand.GetCardName (cardNumber);
 	}
-	public void PlayCard(int cardNumber)
+    public Card GetCard(int cardNumber)
+    {
+        Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
+        if (playerHand == null)
+            Debug.Log("nie załadowano ręki");
+        return playerHand.GetCard(cardNumber);
+    }
+
+    public void PlayCard(int cardNumber)
 	{
 		Hand playerHand = players [playerTurn].GetComponentInChildren<Hand> ();
 		if (playerHand == null)

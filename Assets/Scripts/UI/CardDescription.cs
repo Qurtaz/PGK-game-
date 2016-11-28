@@ -1,44 +1,38 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using System.Collections;
 
-public class CardDescription : MonoBehaviour {
+public class CardDescription : EventTrigger {
 
     private Button _button;
-    private bool _distaplyInformation;
     [SerializeField]
     private Text _text;
     [SerializeField]
     private ControlerGame _controller;
+    public Card card;
     // Use this for initialization
     void Start () {
         _button = gameObject.GetComponent<Button>();
         _controller = gameObject.GetComponentInParent<ButtonHandler>().GetGameControler();
-        _text = GameObject.Find("Destription and cost").GetComponent<Text>();
+        _text = GameObject.Find("Destription").GetComponent<Text>();
 	}
-	
-	// Update is called once per frame
-	void OnMouseOver()
+
+    public override void OnPointerEnter(PointerEventData data)
     {
-        _distaplyInformation = true;
+        Opis(card.opis);
     }
-    void OnMouseExit()
+
+    public override void OnPointerExit(PointerEventData data)
     {
-        _distaplyInformation = false;
+        Opis("Informacjie");
     }
-    private void Data()
-    {
-        if (_distaplyInformation)
-        {
-            _text.text = _controller.FindCardDescription(_button.GetComponentInChildren<Text>().text);
-        }
-        else
-        {
-            _text.text = "";
-        }
-    }
+
     void Update()
     {
-        Data();
+    }
+    private void Opis(string opis)
+    {
+        _text.text = opis;
     }
 }

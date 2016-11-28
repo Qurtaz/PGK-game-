@@ -231,7 +231,6 @@ GameObject:
   - 222: {fileID: 222000012885815220}
   - 114: {fileID: 114000010770495368}
   - 114: {fileID: 114000010883394720}
-  - 114: {fileID: 114000011690654448}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -600,7 +599,7 @@ GameObject:
   - 114: {fileID: 114000010907933440}
   - 114: {fileID: 114000013169222458}
   m_Layer: 5
-  m_Name: Destription and cost
+  m_Name: Destription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1184,7 +1183,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: po
 --- !u!114 &114000010941089046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1229,7 +1228,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: bc5ed5ce64def6b4fb82a08264ed31e5, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -1825,19 +1824,6 @@ MonoBehaviour:
   controler: {fileID: 0}
   plane: {fileID: 1000012422680588}
   data: {fileID: 114000012162835970}
---- !u!114 &114000011690654448
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011454508726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7d47f5f162ca8043bf7020d8fc8d71f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _text: {fileID: 0}
-  _controller: {fileID: 0}
 --- !u!114 &114000011792165326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2635,7 +2621,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013054418656}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77f8b05dda01d8c42b83b1986fb25507, type: 3}
   m_Name: 

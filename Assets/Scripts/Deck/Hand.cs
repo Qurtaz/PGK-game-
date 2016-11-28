@@ -50,9 +50,16 @@ public class Hand : MonoBehaviour {
 		else
 			return "Pusta";
 	}
+    public Card GetCard(int cardNumber)
+    {
+        if (playerCard.Count > cardNumber)
+            return playerCard[cardNumber];
+        else
+            return null;
+    }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 	
 	}
 
@@ -70,11 +77,11 @@ public class Hand : MonoBehaviour {
 	}
     public string FindCardDescryption(string text)
     {
-        foreach(Card c in playerCard)
+        for (int z = 0 ; z < playerCard.Count; z++)
         {
-            if(c.name == text)
+            if(playerCard[z].name == text)
             {
-                return c.opis;
+                return playerCard[z].opis;
             }
         }
         return "";
