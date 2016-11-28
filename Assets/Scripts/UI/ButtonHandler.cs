@@ -7,23 +7,23 @@ public class ButtonHandler : MonoBehaviour {
     //private List<Button> button = new List<Button>();
     public GameObject buttonPrefab;
 	public ControlerGame controller;
-	// Use this for initialization
-	void Start () {
-        foreach(Button b in button)
+    void Start()
+    {
+        button = GetComponentsInChildren<Button>();
+        foreach (Button b in button)
         {
             b.gameObject.AddComponent<CardDescription>();
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        
-		for(int i=0; i<10; i++)
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        for (int i = 0; i < 10; i++)
         {
-            if(controller.GetCardName(i) != "Pusta")
+            if (controller.GetCardName(i) != "Pusta")
             {
-                button [i].GetComponentInChildren<Text> ().text = controller.GetCardName(i);
-                //button[i].gameObject.GetComponent<CardDescription>().card = controller.GetCard();
+                button[i].GetComponentInChildren<Text>().text = controller.GetCardName(i);
                 button[i].gameObject.SetActive(true);
             }
             else
@@ -31,8 +31,8 @@ public class ButtonHandler : MonoBehaviour {
                 button[i].gameObject.SetActive(false);
             }
         }
-		
-	}
+
+    }
     public ControlerGame GetGameControler()
     {
         return controller;

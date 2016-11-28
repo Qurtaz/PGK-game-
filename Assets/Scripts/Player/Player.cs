@@ -33,7 +33,7 @@ public class Player : MonoBehaviour {
 	{
 		if (isBuilding && !isControlling)
 		{
-			//Debug.Log ("Moving!"+this.name);
+            //Debug.Log ("Moving!"+this.name);
 			DeactivateBuilding();
 		}
 		else if (!isBuilding && isControlling && !isMoving)
@@ -49,6 +49,7 @@ public class Player : MonoBehaviour {
         isBuilding = true;
         hand.SetActiveCardUI(isBuilding);
         buildCamera.SetActive(true);
+        gameController.GetChangePhaseInformation().See();
     }
     void DeactivateBuilding()
     {
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour {
     {
         isControlling = true;
         playerToControl.SetActive(true);
+        gameController.GetChangePhaseInformation().See();
     }
     void DeactivateControl()
     {

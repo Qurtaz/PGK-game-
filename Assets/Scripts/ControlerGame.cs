@@ -8,6 +8,7 @@ public class ControlerGame : MonoBehaviour {
     private int playerTurn;
     public GameObject playerPrefab;
     public List<Player> players = new List<Player>();
+    public ChangePhaseInformation changePhaseInformation;
     private bool finish;
     private int turn;
     private int activePhase;
@@ -23,6 +24,7 @@ public class ControlerGame : MonoBehaviour {
         ChangePlayers();
         turn = 1;
         activePhase = -1;
+        ChangeActivePlayer();
     }
 
     internal string FindCardDescription(string text)
@@ -30,7 +32,17 @@ public class ControlerGame : MonoBehaviour {
         Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
         return playerHand.FindCardDescryption(text);
     }
-
+    public void ChangeActivePlayerNadPhase()
+    {
+        if(GetPlayerPhase() == DataString.BUDOWANIE)
+        {
+            ChangePlayerPhase();
+        }
+        if(GetPlayerPhase() == DataString.BUDOWANIE)
+        {
+            ChangeActivePlayer();
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -154,5 +166,9 @@ public class ControlerGame : MonoBehaviour {
     public Player GetPlayer()
     {
         return players[playerTurn];
+    }
+    public ChangePhaseInformation GetChangePhaseInformation()
+    {
+        return changePhaseInformation;
     }
 }
