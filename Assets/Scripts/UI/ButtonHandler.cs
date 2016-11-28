@@ -24,6 +24,7 @@ public class ButtonHandler : MonoBehaviour {
             if (controller.GetCardName(i) != "Pusta")
             {
                 button[i].GetComponentInChildren<Text>().text = controller.GetCardName(i);
+                button[i].gameObject.GetComponent<CardDescription>().card = controller.GetCard(i);
                 button[i].gameObject.SetActive(true);
             }
             else

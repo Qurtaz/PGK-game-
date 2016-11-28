@@ -36,10 +36,13 @@ public class ControlerGame : MonoBehaviour {
     {
         if(GetPlayerPhase() == DataString.BUDOWANIE)
         {
+            Debug.Log("Zmaina fazy");
             ChangePlayerPhase();
         }
-        if(GetPlayerPhase() == DataString.BUDOWANIE)
+        if(GetPlayerPhase() == DataString.RUCH)
         {
+
+            Debug.Log("Zmaina Gracza");
             ChangeActivePlayer();
         }
     }

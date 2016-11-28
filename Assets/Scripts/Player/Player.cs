@@ -31,6 +31,7 @@ public class Player : MonoBehaviour {
     }
 	public void ChangePhase()
 	{
+        Debug.Log("ChangePhase");
 		if (isBuilding && !isControlling)
 		{
             //Debug.Log ("Moving!"+this.name);
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour {
 
     void ActivateBuilding()
     {
+        Debug.Log("ActivateBuilding");
         isBuilding = true;
         hand.SetActiveCardUI(isBuilding);
         buildCamera.SetActive(true);
@@ -53,6 +55,7 @@ public class Player : MonoBehaviour {
     }
     void DeactivateBuilding()
     {
+        Debug.Log("DeactivateBuilding");
         isBuilding = false;
         hand.SetActiveCardUI(isBuilding);
         //buildCamera.SetActive(false);
@@ -60,18 +63,21 @@ public class Player : MonoBehaviour {
     }
     void ActivateControl()
     {
+        Debug.Log(" ActivateContro");
         isControlling = true;
         playerToControl.SetActive(true);
         gameController.GetChangePhaseInformation().See();
     }
     void DeactivateControl()
     {
+        Debug.Log("DeactivateControl");
         isControlling = false;
         playerToControl.SetActive(false);
         gameController.ChangePlayers();
     }
     public bool DeactivatePlayer()
     {
+        Debug.Log("DeactivatePlayer");
         //if (!isMoving)
         //{
             playerToMaterial.GetComponent<Renderer>().material = isNotActive;
