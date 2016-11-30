@@ -117,6 +117,7 @@ public class Agent : MonoBehaviour {
 	}
 	public void FinishRoute()
 	{
+		rend.HideAllNodes ();
 		nodes = new List<GraphNode> ();
 		i = 0;
 		curTarget = null;
