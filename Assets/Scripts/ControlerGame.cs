@@ -36,13 +36,10 @@ public class ControlerGame : MonoBehaviour {
     {
         if(GetPlayerPhase() == DataString.BUDOWANIE)
         {
-            Debug.Log("Zmaina fazy");
             ChangePlayerPhase();
         }
-        if(GetPlayerPhase() == DataString.RUCH)
+        else
         {
-
-            Debug.Log("Zmaina Gracza");
             ChangeActivePlayer();
         }
     }
@@ -73,9 +70,7 @@ public class ControlerGame : MonoBehaviour {
                     turn++;
                     activePhase = 0;
                 }
-                Debug.Log("player turn: " + activePhase);
                 playerTurn = playerTurn % 2;
-                Debug.Log(playerTurn % 2);
                 players[playerTurn].ActivatePlayer();
                 Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
                 playerHand.ChoseCard();
@@ -173,5 +168,18 @@ public class ControlerGame : MonoBehaviour {
     public ChangePhaseInformation GetChangePhaseInformation()
     {
         return changePhaseInformation;
+    }
+    public List<Card> GetHandCardList()
+    {
+        Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
+        if (playerHand == null)
+            Debug.Log("nie załadowano ręki");
+        List<Card> listToReturn = playerHand.GetHandCardList();
+        if (listToReturn != null)
+        {
+            return listToReturn;
+        }
+        return new List<Card>();
+
     }
 }

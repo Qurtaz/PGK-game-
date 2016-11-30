@@ -86,4 +86,8 @@ public class Hand : MonoBehaviour {
         }
         return "";
     }
+    public List<Card> GetHandCardList()
+    {
+        return playerCard;
+    }
 }
