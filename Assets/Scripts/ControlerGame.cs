@@ -169,17 +169,12 @@ public class ControlerGame : MonoBehaviour {
     {
         return changePhaseInformation;
     }
-    public List<Card> GetHandCardList()
+    public Hand GetHand()
     {
         Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
         if (playerHand == null)
             Debug.Log("nie załadowano ręki");
-        List<Card> listToReturn = playerHand.GetHandCardList();
-        if (listToReturn != null)
-        {
-            return listToReturn;
-        }
-        return new List<Card>();
+        return playerHand;
 
     }
 }

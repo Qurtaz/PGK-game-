@@ -7,7 +7,6 @@ public class CardDestroyerScript : MonoBehaviour {
 	private ControlerGame controller;
 	// Use this for initialization
 	void Start () {
-		platformCard = new DestroyBuilding();
 		controller = FindObjectOfType<ControlerGame> ();
 	}
 	
@@ -33,4 +32,8 @@ public class CardDestroyerScript : MonoBehaviour {
 				
 			
 	}
+   public void setCard(Card card)
+    {
+
+    }
 }

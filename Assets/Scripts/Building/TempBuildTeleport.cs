@@ -14,7 +14,6 @@ public class TempBuildTeleport : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        platformCard = new BuildTeleportCard();
         controller = FindObjectOfType<ControlerGame>();
     }
 
@@ -70,5 +69,9 @@ public class TempBuildTeleport : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y - 90, 0);
         }
+    }
+    public void setCard(Card card)
+    {
+        platformCard = card;
     }
 }

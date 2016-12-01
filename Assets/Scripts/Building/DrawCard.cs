@@ -4,10 +4,11 @@ using System.Collections;
 public class DrawCard : Card {
 
 	public ControlerGame gameController;
-	public DrawCard()
+	public DrawCard(int id)
 	{
 		cost = 3F;
         opis = "Pozwala dobrać dwie dodatkowe karty";
+        cardID = id;
 	}
 	// Use this for initialization
 	void Start () {

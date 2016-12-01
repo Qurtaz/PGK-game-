@@ -4,6 +4,7 @@ using System.Collections;
 public abstract class Card : Object {
 	public float cost = 0F;
     public string opis;
+    public int cardID;
 
     public virtual void ActivateCard()
     {

@@ -35,51 +35,51 @@ public class Deck : MonoBehaviour {
             {
                 if (x > 0 && x <= 35)
                 {
-                    deck.Enqueue(new BuildPlatformCard());
+                    deck.Enqueue(new BuildPlatformCard(i));
                 }
                 else if (x > 35 && x <= 50)
                 {
-                    deck.Enqueue(new BuildCatapultCard());
+                    deck.Enqueue(new BuildCatapultCard(i));
                 }
                 else if (x > 50 && x <= 70)
                 {
-                    deck.Enqueue(new DrawCard());
+                    deck.Enqueue(new DrawCard(i));
                 }
                 else if (x > 70 && x <= 85)
                 {
-                    deck.Enqueue(new DestroyBuilding());
+                    deck.Enqueue(new DestroyBuilding(i));
                 }
                 else if (x > 85 && x <= 95)
                 {
-                    deck.Enqueue(new BuildTeleportCard());
+                    deck.Enqueue(new BuildTeleportCard(i));
                     teleportInHand = true;
                 }
                 else if (x > 95 && x <= 100)
                 {
-                    deck.Enqueue(new BuildDoublePlatformCard());
+                    deck.Enqueue(new BuildDoublePlatformCard(i));
                 }
             }
             else
             {
                 if (x > 0 && x <= 40)
                 {
-                    deck.Enqueue(new BuildPlatformCard());
+                    deck.Enqueue(new BuildPlatformCard(i));
                 }
                 else if (x > 40 && x <= 60)
                 {
-                    deck.Enqueue(new BuildCatapultCard());
+                    deck.Enqueue(new BuildCatapultCard(i));
                 }
                 else if (x > 60 && x <= 80)
                 {
-                    deck.Enqueue(new DrawCard());
+                    deck.Enqueue(new DrawCard(i));
                 }
                 else if (x > 80 && x <= 95)
                 {
-                    deck.Enqueue(new DestroyBuilding());
+                    deck.Enqueue(new DestroyBuilding(i));
                 }
                 else if (x > 95 && x <= 100)
                 {
-                    deck.Enqueue(new BuildDoublePlatformCard());
+                    deck.Enqueue(new BuildDoublePlatformCard(i));
                 }
             }
         }

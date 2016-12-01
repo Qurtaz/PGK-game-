@@ -14,7 +14,6 @@ public class TempBuildCatapult : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        platformCard = new BuildCatapultCard();
         controller = FindObjectOfType<ControlerGame>();
     }
 
@@ -70,5 +69,9 @@ public class TempBuildCatapult : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y - 90, 0);
         }
+    }
+    public void setCard(Card card)
+    {
+
     }
 }

@@ -86,8 +86,20 @@ public class Hand : MonoBehaviour {
         }
         return "";
     }
-    public List<Card> GetHandCardList()
+    public int GetListLengcht()
     {
-        return playerCard;
+        return playerCard.Count;
+    }
+
+    public bool Check(Card c)
+    {
+        for(int z= 0; z<playerCard.Count;z++)
+        {
+            if(playerCard[z] == c)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -4,8 +4,10 @@ using UnityEngine.UI;
 
 public class ButtonHandler : MonoBehaviour {
     private Button[] button;
-    //private List<Button> button = new List<Button>();
+    private List<Button> buttonList = new List<Button>();
     private List<Button> buttonToDestroy = new List<Button>();
+    private Hand hand;
+    private int howManyCard;
     public GameObject buttonPrefab;
 	public ControlerGame controller;
     void Start()
@@ -21,7 +23,16 @@ public class ButtonHandler : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        //Check();
+        //hand = controller.GetHand();
+        //howManyCard = hand.GetListLengcht();
+        //if(buttonList.Count == 0)
+        //{
+        //    for (int z = 0;z<howManyCard;z++)
+        //    {
+        //        CreateButton(hand.GetCard(z));
+        //    }
+        //}
+
         for (int i = 0; i < 10; i++)
         {
             if (controller.GetCardName(i) != "Pusta")
@@ -48,6 +59,7 @@ public class ButtonHandler : MonoBehaviour {
         b.AddComponent<CardDescription>();
         b.GetComponent<CardDescription>().card = c;
         b.GetComponentInChildren<Text>().text = c.name;
+        buttonList.Add(b.GetComponent<Button>());
     }
     //public void Check()
     //{

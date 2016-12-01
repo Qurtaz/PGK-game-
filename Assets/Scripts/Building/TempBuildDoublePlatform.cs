@@ -14,7 +14,6 @@ public class TempBuildDoublePlatform : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        platformCard = new BuildPlatformCard();
         controller = FindObjectOfType<ControlerGame>();
     }
 
@@ -47,7 +46,8 @@ public class TempBuildDoublePlatform : MonoBehaviour
         {
             Debug.Log(isAbleToBuild);
             Instantiate(Resources.Load("Platform"), hitPoint, Quaternion.identity);
-            Instantiate(Resources.Load("ConstructionPlatform"), hitPoint, Quaternion.identity);
+            var cardSetup = Instantiate(Resources.Load("ConstructionPlatform"), hitPoint, Quaternion.identity) as GameObject;
+            cardSetup.GetComponent<TempBuildPlatform>().setCard(platformCard);
             Destroy(gameObject);
         }
         if (Input.GetAxis(InputPlayer.MOUSE1) > 0)
@@ -70,5 +70,10 @@ public class TempBuildDoublePlatform : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y - 90, 0);
         }
+    }
+    public void setCard(Card card)
+    {
+        platformCard = card;
+
     }
 }

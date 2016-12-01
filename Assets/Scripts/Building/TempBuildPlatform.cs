@@ -14,8 +14,8 @@ public class TempBuildPlatform : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        platformCard = new BuildPlatformCard();
         controller = FindObjectOfType<ControlerGame>();
+       
     }
 
     // Update is called once per frame
@@ -70,5 +70,9 @@ public class TempBuildPlatform : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y - 90, 0);
         }
+    }
+    public void setCard(Card card)
+    {
+        platformCard = card;
     }
 }
