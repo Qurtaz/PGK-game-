@@ -10,7 +10,7 @@ public class BuildJump : MonoBehaviour {
     {
         if(other.gameObject.tag == GameTag.PLAYER)
         {
-            other.gameObject.GetComponentInChildren<PlayerControler>().DisableMoving();
+			other.gameObject.GetComponentInChildren<Agent> ().FinishRoute ();
             other.rigidbody.AddRelativeForce((transform.forward + transform.up) * jumpForce);
 
         }
