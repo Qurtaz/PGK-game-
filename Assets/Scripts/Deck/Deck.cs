@@ -114,8 +114,9 @@ public class Deck : MonoBehaviour {
 	}
     public Card PickCard()
     {
-		
-		return deck.Dequeue ();
+        if(deck.Count < 1)
+            Debug.Log("brak kart w decku, nie pytaj mnie jak");
+        return deck.Dequeue();
     }
 	
 	// Update is called once per frame

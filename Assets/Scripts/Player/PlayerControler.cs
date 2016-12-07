@@ -26,8 +26,7 @@ public class PlayerControler : MonoBehaviour {
     {
 
 
-
-		float distance;
+        float distance;
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 	
@@ -36,8 +35,8 @@ public class PlayerControler : MonoBehaviour {
 		if (!blocked && Input.GetKeyDown(KeyCode.Mouse0) && !cont.outOfResources && !moving) {
 			hitPoint = MousePoint.mousePoint (unit);
 			distance = Vector3.Distance (rigid.transform.position, hitPoint);
-
-			float res = distance / cost;
+            Debug.Log(distance);
+            float res = distance / cost;
 			float heightDiff = hitPoint.y - rigid.transform.position.y;
 			if (heightDiff > 0)
 				res += heightDiff;

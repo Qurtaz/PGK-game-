@@ -10,13 +10,22 @@ public class Hand : MonoBehaviour {
     private Deck deck;
     private ResourceSystem player;
 	private Player playerLogic;
+    private bool tooManyCards = false;
+    public bool canChangePhase = true;
+
 
     private List<Card> playerCard = new List<Card>();
     // Use this for initialization
 
     public void UseCard(int i)
     {
-		if (playerCard.Count > i) {
+        if (tooManyCards)
+        {
+            playerCard.RemoveAt(i);
+            tooManyCards = false;
+            canChangePhase = true;
+        }
+		else if (playerCard.Count > i) {
 			if (player.resourcesAvailable > playerCard [i].cost) {
 				playerCard [i].ActivateCard ();
 				player.UseResources (playerCard [i].cost);
@@ -27,6 +36,11 @@ public class Hand : MonoBehaviour {
 			}
 		} else
 			Debug.Log ("Pusta karta!" + playerCard.Count);
+        if (playerCard.Count > 10)
+        {
+            tooManyCards = true;
+            canChangePhase = false;
+        }
     }
 	void Start () {
 		player = GetComponentInParent<ResourceSystem>();

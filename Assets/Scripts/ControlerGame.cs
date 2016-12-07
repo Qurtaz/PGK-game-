@@ -9,6 +9,7 @@ public class ControlerGame : MonoBehaviour {
     public GameObject playerPrefab;
     public List<Player> players = new List<Player>();
     public ChangePhaseInformation changePhaseInformation;
+    public bool canChangePhase = true;
     private bool finish;
     private int turn;
     private int activePhase;
@@ -34,13 +35,16 @@ public class ControlerGame : MonoBehaviour {
     }
     public void ChangeActivePlayerNadPhase()
     {
-        if(GetPlayerPhase() == DataString.BUDOWANIE)
+        if(players[0].hand.canChangePhase == true && players[1].hand.canChangePhase == true)
         {
-            ChangePlayerPhase();
-        }
-        else
-        {
-            ChangeActivePlayer();
+            if (GetPlayerPhase() == DataString.BUDOWANIE)
+            {
+                ChangePlayerPhase();
+            }
+            else
+            {
+                ChangeActivePlayer();
+            }
         }
     }
     // Update is called once per frame
