@@ -11,6 +11,7 @@ public abstract class Card : Object {
         System.Console.WriteLine("If you are reading this, something went wrong");
         Debug.Log("Nie pykło, nie można mieć wszystkiego");
     }
+
     bool Equals(Object obj)
     {
         if (obj == null) return false;

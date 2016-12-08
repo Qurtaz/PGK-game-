@@ -6,9 +6,9 @@ public class Teleport : MonoBehaviour {
     public Transform destination;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         destination = GameObject.Find("ChairPoint").transform;
-
     }
 	
 	// Update is called once per frame

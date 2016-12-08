@@ -25,17 +25,35 @@ public class Hand : MonoBehaviour {
             tooManyCards = false;
             canChangePhase = true;
         }
-		else if (playerCard.Count > i) {
-			if (player.resourcesAvailable > playerCard [i].cost) {
+		else if (playerCard.Count > i)
+        {
+            if (player.resourcesAvailable > playerCard[i].cost && playerCard[i].GetType().ToString()!="StealCard")
+            {
 				playerCard [i].ActivateCard ();
 				player.UseResources (playerCard [i].cost);
 				playerCard.RemoveAt (i);
 				Debug.Log ("Używamy karty numer " + (i + 1).ToString ());
-			} else {
-				Debug.Log ("Za malo zasobow!");
 			}
-		} else
-			Debug.Log ("Pusta karta!" + playerCard.Count);
+            else if(player.resourcesAvailable > playerCard[i].cost && playerCard[i].GetType().ToString()=="StealCard")
+            {
+                if (playerCard.Count < 10)
+                {
+                    playerCard[i].ActivateCard();
+                    player.UseResources(playerCard[i].cost);
+                    playerCard.RemoveAt(i);
+                    Debug.Log("Używamy karty numer " + (i + 1).ToString());
+                }
+                else
+                {
+                    Debug.Log("Na ręce nie zmieści się więcej kart");
+                }
+			}
+            else
+            {
+                Debug.Log("Za malo zasobow!");
+            }
+		}
+        else Debug.Log ("Pusta karta!" + playerCard.Count);
         if (playerCard.Count > 10)
         {
             tooManyCards = true;
@@ -56,11 +74,14 @@ public class Hand : MonoBehaviour {
         
     }
 
-
 	public string GetCardName(int cardNumber)
 	{
+        string s;
 		if (playerCard.Count > cardNumber)
-			return playerCard [cardNumber].GetType ().Name;
+        {
+            s = playerCard[cardNumber].GetType().Name;
+            return s;
+        }
 		else
 			return "Pusta";
 	}
@@ -83,11 +104,11 @@ public class Hand : MonoBehaviour {
     }
 	public void DrawCard()
 	{
-		playerCard.Add (deck.PickCard ());
+		playerCard.Add(deck.PickCard());
 	}
 	public void ReturnCard(Card cardToReturn)
 	{
-		playerCard.Add (cardToReturn);
+		playerCard.Add(cardToReturn);
 	}
     public string FindCardDescryption(string text)
     {
@@ -115,5 +136,10 @@ public class Hand : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    public void AddCard(Card which)
+    {
+        playerCard.Add(which);
     }
 }

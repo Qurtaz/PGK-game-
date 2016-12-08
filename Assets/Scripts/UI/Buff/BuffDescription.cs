@@ -19,7 +19,7 @@ public class BuffDescription : EventTrigger
 
     public override void OnPointerExit(PointerEventData data)
     {
-        Opis("Informacjie");
+        Opis("Informacje");
     }
 
     void Update()

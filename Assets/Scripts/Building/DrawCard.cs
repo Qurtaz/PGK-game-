@@ -18,7 +18,7 @@ public class DrawCard : Card {
 	
 	// Update is called once per frame
 	public override void ActivateCard() {
-		gameController = (ControlerGame)FindObjectOfType<ControlerGame> ();
+		gameController = FindObjectOfType<ControlerGame> ();
 		gameController.DrawCard ();
 		gameController.DrawCard ();
 		Destroy (this);

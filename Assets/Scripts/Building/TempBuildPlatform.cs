@@ -15,7 +15,6 @@ public class TempBuildPlatform : MonoBehaviour
     void Start()
     {
         controller = FindObjectOfType<ControlerGame>();
-       
     }
 
     // Update is called once per frame

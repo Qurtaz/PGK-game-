@@ -11,23 +11,16 @@ public class BiggerMovingCostCard : Card {
     }
     public override void ActivateCard()
     {
-        game = (ControlerGame)FindObjectOfType<ControlerGame>();
+        game = FindObjectOfType<ControlerGame>();
         BiggerMovingCost buff = new BiggerMovingCost(game.GetPlayerTurn(), false);
         buff.ActivateBuff();
         if (!buff.positive)
         {
-            if (game.GetPlayer().name == "Test1")
-            {
-                GameObject.Find("Test2").GetComponentInChildren<BuffColection>().AddBuff(buff);
-            }
-            if (game.GetPlayer().name == "Test2")
-            {
-                GameObject.Find("Test1").GetComponentInChildren<BuffColection>().AddBuff(buff);
-            }
+            game.GetOtherPlayer().GetComponentInChildren<BuffCollection>().AddBuff(buff);
         }
         else
         {
-            game.GetPlayer().GetComponentInChildren<BuffColection>().AddBuff(buff);
+            game.GetPlayer().GetComponentInChildren<BuffCollection>().AddBuff(buff);
         }
     }
 }

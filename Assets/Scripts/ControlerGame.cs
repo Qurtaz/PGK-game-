@@ -7,6 +7,7 @@ using System;
 public class ControlerGame : MonoBehaviour {
     private int playerTurn;
     public GameObject playerPrefab;
+    public Trap[] traps;
     public List<Player> players = new List<Player>();
     public ChangePhaseInformation changePhaseInformation;
     public bool canChangePhase = true;
@@ -35,7 +36,7 @@ public class ControlerGame : MonoBehaviour {
     }
     public void ChangeActivePlayerNadPhase()
     {
-        if(players[0].hand.canChangePhase == true && players[1].hand.canChangePhase == true)
+        if(GetPlayer().hand.canChangePhase)
         {
             if (GetPlayerPhase() == DataString.BUDOWANIE)
             {
@@ -46,6 +47,19 @@ public class ControlerGame : MonoBehaviour {
                 ChangeActivePlayer();
             }
         }
+        traps = FindObjectsOfType<Trap>();
+        foreach (Trap trap in traps)
+        {
+            if (trap.builder == GetPlayer())
+            {
+                trap.Show();
+            }
+            else
+            {
+                trap.Hide();
+            }
+        }
+        ExecuteQueue(GetPlayer());
     }
     // Update is called once per frame
     void Update()
@@ -78,6 +92,7 @@ public class ControlerGame : MonoBehaviour {
                 players[playerTurn].ActivatePlayer();
                 Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
                 playerHand.ChoseCard();
+                ExecuteQueue(GetPlayer());
             }
         }
     }
@@ -100,6 +115,7 @@ public class ControlerGame : MonoBehaviour {
 			Debug.Log ("nie załadowano ręki");
 		return playerHand.GetCardName (cardNumber);
 	}
+
     public Card GetCard(int cardNumber)
     {
         Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
@@ -110,7 +126,7 @@ public class ControlerGame : MonoBehaviour {
 
     public void PlayCard(int cardNumber)
 	{
-		Hand playerHand = players [playerTurn].GetComponentInChildren<Hand> ();
+		Hand playerHand = players[playerTurn].GetComponentInChildren<Hand> ();
 		if (playerHand == null)
 			Debug.Log ("nie załadowano ręki");
 		playerHand.UseCard (cardNumber);
@@ -122,7 +138,7 @@ public class ControlerGame : MonoBehaviour {
 
 	public string GetBlocked()
 	{
-		PlayerControler playerToChange = players [playerTurn].GetComponentInChildren<PlayerControler> ();
+		PlayerControler playerToChange = players[playerTurn].GetComponentInChildren<PlayerControler>();
 		if (playerToChange != null && playerToChange.blocked)
 			return "Poruszanie zablokowane";
 		else
@@ -130,17 +146,27 @@ public class ControlerGame : MonoBehaviour {
 	}
 	public void DrawCard()
 	{
-		Hand playerHand = players [playerTurn].GetComponentInChildren<Hand> ();
+		Hand playerHand = GetPlayer().GetComponentInChildren<Hand> ();
 		playerHand.DrawCard ();
 	}
+
+    public void ForcedDrawCard()
+    {
+        GetOtherPlayer().que.Add("draw");
+        Debug.Log("DrawEnqueued");
+    }
+
+    public void StealCard(Player by, Player from)
+    {
+        by.GetComponentInChildren<Deck>().AddCard(from.GetComponentInChildren<Deck>().PickCard());
+    }
 	public string GetCost()
 	{
-		return players [playerTurn].GetCost ().ToString ();
+		return players[playerTurn].GetCost().ToString();
 	}
-
 	public void GiveResources(float resToGive)
 	{
-		players [playerTurn].GetComponentInChildren<ResourceSystem> ().UseResources (-resToGive);
+		players [playerTurn].GetComponentInChildren<ResourceSystem>().UseResources(-resToGive);
 	}
     public int GetPlayerTurn()
     {
@@ -169,6 +195,10 @@ public class ControlerGame : MonoBehaviour {
     {
         return players[playerTurn];
     }
+    public Player GetOtherPlayer()
+    {
+        return players[(playerTurn + 1) % 2];
+    }
     public ChangePhaseInformation GetChangePhaseInformation()
     {
         return changePhaseInformation;
@@ -180,5 +210,16 @@ public class ControlerGame : MonoBehaviour {
             Debug.Log("nie załadowano ręki");
         return playerHand;
 
+    }
+    public void ExecuteQueue(Player current)
+    {
+        foreach(string eve in current.que)
+        {
+            if (eve == "draw")
+            {
+                DrawCard();
+                Debug.Log("DrawCard");
+            }
+        }
     }
 }

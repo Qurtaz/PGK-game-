@@ -12,7 +12,8 @@ public class BuffDestroy : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if( buff.TurnToFinish(_gameControler.GetPlayerTurn()))
         {
             _buffMenager.Destroy(gameObject);

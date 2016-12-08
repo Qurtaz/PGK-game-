@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ResourceSystem : MonoBehaviour {
+public class ResourceSystem : MonoBehaviour
+{
 	public float resourcesAvailable = 20.0F;
 	private Player player;
 	private RangeFinder range;
@@ -32,5 +33,5 @@ public class ResourceSystem : MonoBehaviour {
 		drawn = false;
 			
 		
-}
+    }
 }

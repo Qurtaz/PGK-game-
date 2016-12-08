@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CheckBuildTeleport : MonoBehaviour
+public class CheckBuildTrap : MonoBehaviour
 {
 
-    private TempBuildTrap builder;
+    private TempBuildTeleport builder;
     // Use this for initialization
     void Start()
     {
-        builder = GetComponentInParent<TempBuildTrap>();
+        builder = GetComponentInParent<TempBuildTeleport>();
     }
 
     // Update is called once per frame

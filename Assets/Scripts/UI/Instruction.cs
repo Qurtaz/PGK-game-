@@ -10,12 +10,12 @@ public class Instruction : MonoBehaviour {
     public int howManyTurnSeeInstruction;
 	// Use this for initialization
 	void Start () {
-        _builgingInstruction = "Wciśniecie scrola na myszce ruch kamera "+ 
-            "\nLewy klawisz myszy zatwierdzamy budowanie " +
-            "\nPrawy klawisz myszy anulujemy budowanie";
-        _movingInstruction = "Wciśniecie scrola na myszce ruch kamera " +
-            "\nLewy klawisz myszy zatwierdzamy mijce do którego się ruszamy " +
-            "\nPrawy klawisz myszy blokujmey ruch";
+        _builgingInstruction = "Wciśniecie scroll na myszce: ruch kamera "+ 
+            "\nLewy przycisk myszy: zatwierdzenie budowanie " +
+            "\nPrawy przycisk myszy: anulowanie budowanie";
+        _movingInstruction = "Wciśniecie scroll na myszce: ruch kamera " +
+            "\nLewy przycisk myszy: zatwierdzenie wyboru miejsca do którego ma podążyć postać" +
+            "\nPrawy prycisk myszy: cofnięcie ruchu";
 
     }
 	

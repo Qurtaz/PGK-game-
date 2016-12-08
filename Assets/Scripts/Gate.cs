@@ -5,7 +5,8 @@ using Helper;
 
 
 
-public class Gate : MonoBehaviour {
+public class Gate : MonoBehaviour
+{
     public GameObject TrigerGate;
     public ControlerGame GameControler;
     public float time = 3;
@@ -17,7 +18,7 @@ public class Gate : MonoBehaviour {
     {
         if(other.gameObject.tag == GameTag.PLAYER)
         {
-            text.text = "Winer /n Player" + other.gameObject.GetComponent<Player>().name;
+            text.text = "Winner /n Player" + other.gameObject.GetComponent<Player>().name;
             GameControler.SetGameWin();
         }
         

@@ -12,6 +12,6 @@ public class TurnNumber : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        text.text = "Turn number: " + game.GetPlayerTurn().ToString() +"\n Phasse : "+ game.GetPlayerPhase();
+        text.text = "Turn number: " + game.GetPlayerTurn().ToString() +"\n Phase : "+ game.GetPlayerPhase();
 	}
 }

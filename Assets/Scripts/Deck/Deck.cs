@@ -4,7 +4,8 @@ using System.Collections.Generic;
 public class Deck : MonoBehaviour {
 
 	private Queue<Card> deck = new Queue<Card>();
-    private int deckSize = 30;
+    private DecksPresets presets;
+    private int deckSize = 60;
     private bool teleportInHand = false;
 
     public int pressedActivate = 0;
@@ -21,6 +22,20 @@ public class Deck : MonoBehaviour {
             {
                 deckSize = value;
             }
+        }
+    }
+
+    public void FillDeck(string deckName)
+    {
+        List<Card> temp = new List<Card>();
+        if (presets.decks.ContainsKey(deckName))
+        {
+            presets.decks.TryGetValue(deckName, out temp);
+            deck = presets.Shuffle(temp);
+        }
+        else
+        {
+            Debug.Log("No such deck");
         }
     }
 
@@ -109,6 +124,7 @@ public class Deck : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
+        presets = GameObject.Find("Presets").GetComponent<DecksPresets>();
         ResetDeck();
         WriteToLog();
 	}
@@ -119,6 +135,15 @@ public class Deck : MonoBehaviour {
         return deck.Dequeue();
     }
 	
+    public int Count()
+    {
+        return deck.Count;
+    }
+
+    public void AddCard(Card which)
+    {
+        deck.Enqueue(which);
+    }
 	// Update is called once per frame
 	void Update ()
     {

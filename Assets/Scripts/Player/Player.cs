@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using Helper;
 
 
@@ -14,6 +16,7 @@ public class Player : MonoBehaviour {
     public Hand hand;
     //public ButtonHandler cardButtuon;
 	private ResourceSystem resources;
+    public List<string> que;
 
     bool isBuilding = false;
     bool isControlling = false;
@@ -22,6 +25,8 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        que = new List<string>();
+        gameController = FindObjectOfType<ControlerGame>();
 		resources = GetComponent<ResourceSystem> ();
         this.DeactivatePlayer();
     }
@@ -42,6 +47,7 @@ public class Player : MonoBehaviour {
 			//Debug.Log ("End turn!"+this.name);
 			DeactivateControl();
 		}
+        gameController.ExecuteQueue(gameController.GetPlayer());
 	}
 
 
@@ -122,6 +128,10 @@ public class Player : MonoBehaviour {
     public bool IsMovingActive()
     {
         return isControlling;
+    }
+    public void EnqueueEvent(string Event)
+    {
+        que.Add(Event);
     }
     /* public string getName()
      {

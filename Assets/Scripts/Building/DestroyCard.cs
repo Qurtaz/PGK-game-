@@ -6,7 +6,7 @@ public class DestroyBuilding : Card {
 	public DestroyBuilding(int id)
 	{
 		cost = 2F;
-        opis = "Po wybraniu karty pozwala zniszczyć postawiony objekt(prze garcza lub jego przeciwnika";
+        opis = "Wybranie karty umożliwia zniszczenie dowolnego obiektu postawionego przez gracza bądź jego przeciwnika";
         cardID = id;
 	}
 	// Use this for initialization

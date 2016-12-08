@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class BuffColection : MonoBehaviour {
+public class BuffCollection : MonoBehaviour {
 
     private List<Buff> buff = new List<Buff>();
     public ControlerGame game;
@@ -30,5 +30,27 @@ public class BuffColection : MonoBehaviour {
     public void RemoveBuff(int i)
     {
         buff.RemoveAt(i);
+    }
+
+    public void RemoveDebuffs()
+    {
+        foreach(Buff bu in buff)
+        {
+            if (!bu.positive)
+            {
+                buff.Remove(bu);
+            }
+        }
+    }
+
+    public void RemoveBuffs()
+    {
+        foreach(Buff bu in buff)
+        {
+            if (bu.positive)
+            {
+                buff.Remove(bu);
+            }
+        }
     }
 }
