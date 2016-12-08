@@ -10,6 +10,11 @@ public class BiggerMovingCost : Buff {
         this.positive = posit;
     }
 
+    public void SetStartTurn(int turn)
+    {
+        startTurn = turn;
+    }
+
     override public float Active()
     {
         return 1.15f;

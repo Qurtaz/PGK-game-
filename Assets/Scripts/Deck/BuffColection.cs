@@ -15,10 +15,10 @@ public class BuffColection : MonoBehaviour {
 	void Update () {
         for(int i=0; i<buff.Count; i++)
         {
-            if (buff[i].TurnToFinish(game.GetPlayerTurn()) == false)
-            {
-                buff.RemoveAt(i);
-            }
+            //if (buff[i].TurnToFinish(game.GetPlayerTurn()) == false)
+            //{
+            //    buff.RemoveAt(i);
+            //}             CHYBA COŚ NIE DZIAŁA (■_■¬)
         }
 	}
 
