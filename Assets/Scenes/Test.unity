@@ -4242,9 +4242,20 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013909362814, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: gameControler
+      value: 
+      objectReference: {fileID: 1383381715}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44b27828f1fa4e1448817c43d433b145, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &64227601 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000013909362814, guid: 44b27828f1fa4e1448817c43d433b145,
+    type: 2}
+  m_PrefabInternal: {fileID: 64227600}
+  m_Script: {fileID: 11500000, guid: 1f70efff68cb70748b2a8b38bcfded09, type: 3}
 --- !u!1 &64792928
 GameObject:
   m_ObjectHideFlags: 0
@@ -91357,7 +91368,7 @@ MonoBehaviour:
   players:
   - {fileID: 357681849}
   - {fileID: 659900837}
-  changePhaseInformation: {fileID: 0}
+  changePhaseInformation: {fileID: 64227601}
   canChangePhase: 1
 --- !u!4 &1383381716
 Transform:
