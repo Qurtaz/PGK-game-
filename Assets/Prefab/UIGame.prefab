@@ -423,6 +423,7 @@ GameObject:
   - 224: {fileID: 224000012317509196}
   - 222: {fileID: 222000012466021982}
   - 114: {fileID: 114000012399269864}
+  - 61: {fileID: 61000013751074256}
   m_Layer: 5
   m_Name: Change Phase
   m_TagString: Untagged
@@ -777,6 +778,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &61000013751074256
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012422680588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1800, y: 800}
 --- !u!114 &114000010051894662
 MonoBehaviour:
   m_ObjectHideFlags: 1
