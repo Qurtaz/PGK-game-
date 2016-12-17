@@ -21,10 +21,9 @@ public class ChangePhaseInformation : MonoBehaviour {
         changePhaseInfo.SetActive(true);
         _text.text = "Player turn: " + gameControler.GetPlayerTurn().ToString() +
         "\n Phase: " + gameControler.GetPlayerPhase() + "\n Player name: " + gameControler.GetPlayerName();
-        Invoke("Turnoff", time);
     }
 
-    private void Turnoff()
+    public void Turnoff()
     {
         changePhaseInfo.SetActive(false);
     }
