@@ -66,17 +66,8 @@ public class GraphNode : MonoBehaviour {
 						nodeToAdd.AddNode (this,moveCost);
 					
 					}
-
-						
-						
-
-
-
 				}
-
-
 			}
-
 		}
 	}
 	void Start () {

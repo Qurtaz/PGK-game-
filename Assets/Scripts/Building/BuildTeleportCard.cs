@@ -5,7 +5,7 @@ public class BuildTeleportCard : Card {
 
     public BuildTeleportCard(int id)
     {
-        cost = 15F;
+        cost = 10F;
         opis = "Pozwala postawić na planszy teleport prowadzący na krzesło";
         cardID = id;
     }

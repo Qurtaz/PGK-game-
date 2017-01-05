@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using Helper;
 using System;
 
@@ -8,12 +10,15 @@ public class ControlerGame : MonoBehaviour {
     private int playerTurn;
     public GameObject playerPrefab;
     public Trap[] traps;
+    public Block[] bloc;
     public List<Player> players = new List<Player>();
     public ChangePhaseInformation changePhaseInformation;
     public bool canChangePhase = true;
+    public Menu menu;
     private bool finish;
     private int turn;
     private int activePhase;
+    private Text _text;
     
     // Use this for initialization
     void Start()
@@ -46,20 +51,26 @@ public class ControlerGame : MonoBehaviour {
             {
                 ChangeActivePlayer();
             }
-        }
-        traps = FindObjectsOfType<Trap>();
-        foreach (Trap trap in traps)
-        {
-            if (trap.builder == GetPlayer())
+            traps = FindObjectsOfType<Trap>();
+            bloc = FindObjectsOfType<Block>();
+            foreach (Trap trap in traps)
             {
-                trap.Show();
+                if (trap.builder == GetPlayer())
+                {
+                    trap.Show();
+                }
+                else
+                {
+                    trap.Hide();
+                }
             }
-            else
+            foreach (Block bl in bloc)
             {
-                trap.Hide();
+                bl.RemoveIfTime();
             }
+            ExecuteQueue(GetPlayer());
+            Debug.Log(turn.ToString());
         }
-        ExecuteQueue(GetPlayer());
     }
     // Update is called once per frame
     void Update()
@@ -92,7 +103,6 @@ public class ControlerGame : MonoBehaviour {
                 players[playerTurn].ActivatePlayer();
                 Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
                 playerHand.ChoseCard();
-                ExecuteQueue(GetPlayer());
             }
         }
     }
@@ -134,9 +144,11 @@ public class ControlerGame : MonoBehaviour {
     public void SetGameWin()
     {
         finish = true;
+        SceneManager.LoadScene("Menu");
+        //_text.text = "Winner " + GetPlayerName();
     }
 
-	public string GetBlocked()
+    public string GetBlocked()
 	{
 		PlayerControler playerToChange = players[playerTurn].GetComponentInChildren<PlayerControler>();
 		if (playerToChange != null && playerToChange.blocked)

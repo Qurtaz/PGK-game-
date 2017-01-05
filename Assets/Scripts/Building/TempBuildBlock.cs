@@ -2,7 +2,7 @@
 using System.Collections;
 using Helper;
 
-public class TempBuildCatapult : MonoBehaviour
+public class TempBuildBlock : MonoBehaviour
 {
     private float scrolls;
     private Collider coll;
@@ -20,10 +20,8 @@ public class TempBuildCatapult : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis(InputPlayer.MOUSESCROLL) != 0)
-            scrolls += Input.GetAxis(InputPlayer.MOUSESCROLL);
         Vector3 hitPoint = MousePoint.mousePoint(unit);
-        hitPoint.y = scrolls;
+        hitPoint.y = MousePoint.mousePoint(unit).y - 1;
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("Platform");
         float minxz = Mathf.Infinity;
@@ -45,7 +43,7 @@ public class TempBuildCatapult : MonoBehaviour
         if (Input.GetAxis(InputPlayer.MOUSE0) > 0 && isAbleToBuild && noCollisionInThisPoint)
         {
             Debug.Log(isAbleToBuild);
-            Instantiate(Resources.Load("Catapult"), hitPoint, Quaternion.identity);
+            Instantiate(Resources.Load("BlockArea"), hitPoint, Quaternion.identity);
 
             Destroy(gameObject);
         }
@@ -55,8 +53,6 @@ public class TempBuildCatapult : MonoBehaviour
             controller.ReturnCardToPlayer(platformCard);
             Destroy(gameObject);
         }
-
-
         Rotation();
     }
     void Rotation()
