@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using Helper;
 using System;
 
@@ -12,9 +14,11 @@ public class ControlerGame : MonoBehaviour {
     public List<Player> players = new List<Player>();
     public ChangePhaseInformation changePhaseInformation;
     public bool canChangePhase = true;
+    public Menu menu;
     private bool finish;
     private int turn;
     private int activePhase;
+    private Text _text;
     
     // Use this for initialization
     void Start()
@@ -140,9 +144,11 @@ public class ControlerGame : MonoBehaviour {
     public void SetGameWin()
     {
         finish = true;
+        SceneManager.LoadScene("Menu");
+        //_text.text = "Winner " + GetPlayerName();
     }
 
-	public string GetBlocked()
+    public string GetBlocked()
 	{
 		PlayerControler playerToChange = players[playerTurn].GetComponentInChildren<PlayerControler>();
 		if (playerToChange != null && playerToChange.blocked)

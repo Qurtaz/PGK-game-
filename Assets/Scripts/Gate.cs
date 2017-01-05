@@ -18,7 +18,8 @@ public class Gate : MonoBehaviour
     {
         if(other.gameObject.tag == GameTag.PLAYER)
         {
-            text.text = "Winner /n Player" + other.gameObject.GetComponent<Player>().name;
+            //text.text = "Winner /n Player" + other.gameObject.GetComponent<Player>().name;
+            text.text = "Winner " + other.name;
             GameControler.SetGameWin();
         }
         
