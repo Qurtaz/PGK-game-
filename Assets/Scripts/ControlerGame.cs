@@ -222,4 +222,8 @@ public class ControlerGame : MonoBehaviour {
             }
         }
     }
+    public PlayerControler GetPlayerControler()
+    {
+        return players[playerTurn].GetPlayerControler();
+    }
 }

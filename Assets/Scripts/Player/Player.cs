@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
     public Hand hand;
     //public ButtonHandler cardButtuon;
 	private ResourceSystem resources;
+    private PlayerControler controlPlayer;
     public List<string> que;
 
     bool isBuilding = false;
@@ -132,6 +133,11 @@ public class Player : MonoBehaviour {
     public void EnqueueEvent(string Event)
     {
         que.Add(Event);
+    }
+
+    public PlayerControler GetPlayerControler()
+    {
+        return controlPlayer;
     }
     /* public string getName()
      {
