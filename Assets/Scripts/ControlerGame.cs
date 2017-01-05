@@ -8,6 +8,7 @@ public class ControlerGame : MonoBehaviour {
     private int playerTurn;
     public GameObject playerPrefab;
     public Trap[] traps;
+    public Block[] bloc;
     public List<Player> players = new List<Player>();
     public ChangePhaseInformation changePhaseInformation;
     public bool canChangePhase = true;
@@ -46,20 +47,26 @@ public class ControlerGame : MonoBehaviour {
             {
                 ChangeActivePlayer();
             }
-        }
-        traps = FindObjectsOfType<Trap>();
-        foreach (Trap trap in traps)
-        {
-            if (trap.builder == GetPlayer())
+            traps = FindObjectsOfType<Trap>();
+            bloc = FindObjectsOfType<Block>();
+            foreach (Trap trap in traps)
             {
-                trap.Show();
+                if (trap.builder == GetPlayer())
+                {
+                    trap.Show();
+                }
+                else
+                {
+                    trap.Hide();
+                }
             }
-            else
+            foreach (Block bl in bloc)
             {
-                trap.Hide();
+                bl.RemoveIfTime();
             }
+            ExecuteQueue(GetPlayer());
+            Debug.Log(turn.ToString());
         }
-        ExecuteQueue(GetPlayer());
     }
     // Update is called once per frame
     void Update()
@@ -92,7 +99,6 @@ public class ControlerGame : MonoBehaviour {
                 players[playerTurn].ActivatePlayer();
                 Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
                 playerHand.ChoseCard();
-                ExecuteQueue(GetPlayer());
             }
         }
     }

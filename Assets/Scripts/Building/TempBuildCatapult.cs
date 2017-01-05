@@ -72,6 +72,6 @@ public class TempBuildCatapult : MonoBehaviour
     }
     public void setCard(Card card)
     {
-
+        platformCard = card;
     }
 }
