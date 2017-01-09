@@ -58924,7 +58924,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   howManyCardOnHand: 5
   cardUI: {fileID: 341465057}
-  deck: {fileID: 889147159}
   canChangePhase: 1
 --- !u!1 &889909484
 GameObject:
@@ -99468,7 +99467,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   howManyCardOnHand: 5
   cardUI: {fileID: 341465057}
-  deck: {fileID: 1464032955}
   canChangePhase: 1
 --- !u!114 &1464032954
 MonoBehaviour:
@@ -128499,7 +128497,6 @@ GameObject:
   - 23: {fileID: 1886480545}
   - 54: {fileID: 1886480544}
   - 114: {fileID: 1886480542}
-  - 114: {fileID: 1886480543}
   m_Layer: 0
   m_Name: "Player\u0141an"
   m_TagString: Player
@@ -128535,17 +128532,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   start: {fileID: 0}
---- !u!114 &1886480543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1886480540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed45817e74139374fa1b83da21d6f9fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1886480544
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136210,7 +136196,6 @@ GameObject:
   - 23: {fileID: 2012964247}
   - 54: {fileID: 2012964246}
   - 114: {fileID: 2012964245}
-  - 114: {fileID: 2012964251}
   m_Layer: 0
   m_Name: PlayerTu
   m_TagString: Player
@@ -136309,17 +136294,6 @@ Transform:
   - {fileID: 1697682902}
   m_Father: {fileID: 659900838}
   m_RootOrder: 1
---- !u!114 &2012964251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2012964244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed45817e74139374fa1b83da21d6f9fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2014999198
 GameObject:
   m_ObjectHideFlags: 0
