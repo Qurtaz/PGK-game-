@@ -106,7 +106,10 @@ public class Player : MonoBehaviour {
     }
 	public float GetResources()
 	{
-		return resources.resourcesAvailable;
+        if (resources != null)
+            return resources.resourcesAvailable;
+        else
+            return 0;
 	}
 	public float GetCost()
 	{

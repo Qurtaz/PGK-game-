@@ -132,6 +132,7 @@ public class Deck : MonoBehaviour {
     {
         if(deck.Count < 1)
             Debug.Log("brak kart w decku, nie pytaj mnie jak");
+        Debug.Log(deck.Dequeue());
         return deck.Dequeue();
     }
 	
