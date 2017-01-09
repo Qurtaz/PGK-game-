@@ -102,7 +102,7 @@ public class ControlerGame : MonoBehaviour {
                 playerTurn = playerTurn % 2;
                 players[playerTurn].ActivatePlayer();
                 Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
-                playerHand.ChoseCard();
+                //playerHand.ChoseCard();
             }
         }
     }

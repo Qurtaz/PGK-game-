@@ -59,6 +59,7 @@ public class Player : MonoBehaviour {
         hand.SetActiveCardUI(isBuilding);
         buildCamera.SetActive(true);
         gameController.GetChangePhaseInformation().See();
+		hand.ChoseCard ();
         //cardButtuon.Check();
     }
     void DeactivateBuilding()
