@@ -18,6 +18,7 @@ public class Player : MonoBehaviour {
 	private ResourceSystem resources;
     private PlayerControler controlPlayer;
     public List<string> que;
+	public float multiplier = 1.0f;
 
     bool isBuilding = false;
     bool isControlling = false;

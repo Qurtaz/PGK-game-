@@ -15,6 +15,7 @@ public class Agent : MonoBehaviour {
 	private bool moving;
 	public float speed = 5.0f;
 	public float force = 100f;
+	public float multiplier = 1.0f;
 	public NodeSwapPathfindingTest test;
 	private bool jumped;
 	private float distToGround;
@@ -22,6 +23,7 @@ public class Agent : MonoBehaviour {
 	private GraphNode nodeStart;
 	public int heuristics;
 	private bool drawn = false;
+	private Player player;
 	// Use this for initialization
 	void Start () {
 		rigid = GetComponentInParent<Rigidbody> ();
@@ -30,13 +32,14 @@ public class Agent : MonoBehaviour {
 		distToGround = rigid.gameObject.GetComponent<Collider> ().bounds.extents.y;
 		start = GetComponentInParent<StartingNode> ();
 		range = new RangeFinder ();
-
+		player = GetComponentInParent<Player> ();
 		rend.HideAllNodes ();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		multiplier = player.multiplier;
 		if (start.start != null)
 			nodeStart = start.start;
 
@@ -77,6 +80,7 @@ public class Agent : MonoBehaviour {
 						cost += diff2.magnitude / 3;
 
 					}
+					cost = cost * multiplier;
 					nodes [0].DisableRendering ();
 					nodes.RemoveAt (0);
 					curTarget = nodes [0];
@@ -92,7 +96,7 @@ public class Agent : MonoBehaviour {
 				}
 			}
 		} else if(!drawn) {
-			range.DrawMaxRange (nodeStart, this.GetComponentInParent<ResourceSystem> ().resourcesAvailable);
+			range.DrawMaxRange (nodeStart, this.GetComponentInParent<ResourceSystem> ().resourcesAvailable, multiplier);
 			drawn = true;
 		}
 

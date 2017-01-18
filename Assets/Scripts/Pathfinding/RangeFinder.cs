@@ -6,7 +6,7 @@ public class RangeFinder {
 
 	private List<GraphNode> nodes;
 
-	public List<GraphNode> FindMaxRange(GraphNode center, float range)
+	public List<GraphNode> FindMaxRange(GraphNode center, float range, float multiplier)
 	{
 		nodes = new List<GraphNode> ();
 		nodes.Add (center);
@@ -23,7 +23,7 @@ public class RangeFinder {
 
 				foreach (KeyValuePair<GraphNode,float> nodeNeighbours in node.actualNode.nodeList) {
 				
-					G = node.g + nodeNeighbours.Value;
+					G = node.g + (nodeNeighbours.Value * multiplier);
 					GraphNodePair nodeWithRangeToAdd = new GraphNodePair (node.actualNode, nodeNeighbours.Key, 0f, G, 0f);
 					if (!nodesWithRange.Exists (i => i.Equals (nodeWithRangeToAdd)) && !checkedNodes.Exists (i => i.Equals (nodeWithRangeToAdd))) {
 						checkedNodes.Add (nodeWithRangeToAdd);
@@ -67,9 +67,9 @@ public class RangeFinder {
 		}
 		return nodes;
 	}
-	public void DrawMaxRange(GraphNode center, float range)
+	public void DrawMaxRange(GraphNode center, float range, float multiplier)
 	{
-		List<GraphNode> nodesToRender = FindMaxRange (center, range);
+		List<GraphNode> nodesToRender = FindMaxRange (center, range, multiplier);
 		foreach (GraphNode node in nodesToRender) {
 			node.ActivateRendering ();
 		}
