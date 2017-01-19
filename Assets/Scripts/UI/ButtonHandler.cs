@@ -40,6 +40,14 @@ public class ButtonHandler : MonoBehaviour {
                 button[i].GetComponentInChildren<Text>().text = controller.GetCardName(i);
                 button[i].gameObject.GetComponent<CardDescription>().card = controller.GetCard(i);
                 button[i].gameObject.SetActive(true);
+                if(controller.ResourcesData() > controller.GetCard(i).cost)
+                {
+                    button[i].interactable = true;
+                }
+                else
+                {
+                    button[i].interactable = false;
+                }
             }
             else
             {

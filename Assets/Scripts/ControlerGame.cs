@@ -11,10 +11,11 @@ public class ControlerGame : MonoBehaviour {
     public GameObject playerPrefab;
     public Trap[] traps;
     public Block[] bloc;
+    public GameObject[] cams;
     public List<Player> players = new List<Player>();
     public ChangePhaseInformation changePhaseInformation;
     public bool canChangePhase = true;
-    public Menu menu;
+    public GameObject Fireworks;
     private bool finish;
     private int turn;
     private int activePhase;
@@ -31,7 +32,7 @@ public class ControlerGame : MonoBehaviour {
         ChangePlayers();
         turn = 1;
         activePhase = -1;
-        ChangeActivePlayer();
+        ChangePlayerControl();
     }
 
     internal string FindCardDescription(string text)
@@ -86,10 +87,11 @@ public class ControlerGame : MonoBehaviour {
 				players.Add (player);
 		}
     }*/
-    public void ChangeActivePlayer()
+    public void ChangePlayerControl()
     {
-        if(finish == false)
+        if (finish == false)
         {
+
             if (players[playerTurn].DeactivatePlayer())         //checks if player isn't moving
             {
                 playerTurn++;
@@ -104,6 +106,14 @@ public class ControlerGame : MonoBehaviour {
                 Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
                 //playerHand.ChoseCard();
             }
+        }
+    }
+    public void ChangeActivePlayer()
+    {
+        if(finish == false)
+        {
+            CameraAnimator cam = cams[playerTurn].GetComponent<CameraAnimator>();
+            cam.ActivateControl();
         }
     }
     public void ChangePlayers()
@@ -145,6 +155,7 @@ public class ControlerGame : MonoBehaviour {
     {
         finish = true;
         changePhaseInformation.Finish();
+        Fireworks.SetActive(true);
     }
 
     public string GetBlocked()

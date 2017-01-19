@@ -8,6 +8,7 @@ public class BuildTeleportCard : Card {
         cost = 10F;
         opis = "Pozwala postawić na planszy teleport prowadzący na krzesło";
         cardID = id;
+        cardName = "Teleport";
     }
 
     public override void ActivateCard()

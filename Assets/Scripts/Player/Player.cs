@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Helper;
+using UnityEngine.UI;
 
 
 public class Player : MonoBehaviour {
@@ -19,7 +20,8 @@ public class Player : MonoBehaviour {
     private PlayerControler controlPlayer;
     public List<string> que;
 	public float multiplier = 1.0f;
-
+    public Sprite characterImage;
+    public Image Image;
     bool isBuilding = false;
     bool isControlling = false;
     private bool isMoving = false;
@@ -55,7 +57,7 @@ public class Player : MonoBehaviour {
 
     void ActivateBuilding()
     {
-
+        Image.sprite = characterImage;
         isBuilding = true;
         hand.SetActiveCardUI(isBuilding);
         buildCamera.SetActive(true);
@@ -101,6 +103,8 @@ public class Player : MonoBehaviour {
     }
     public void ActivatePlayer()
     {
+  
+
         playerToMaterial.GetComponent<Renderer>().material = isActive;
         resources.resourcesAvailable = 20.0F;
 		outOfResources = false;

@@ -8,6 +8,7 @@ public class BuildCatapultCard : Card
         cost = 4F;
         opis = "Pozwala postawić katapulte na scenie";
         cardID = id;
+        cardName = "Catapult";
     }
 
     public override void ActivateCard()
