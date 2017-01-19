@@ -8,6 +8,7 @@ public class BuildDoublePlatformCard : Card
         cost = 3F;
         opis = "Pozwala dwie platformy na planszy, jedna po drugiej";
         cardID = id;
+        cardName = "Double platform";
     }
 
     public override void ActivateCard()

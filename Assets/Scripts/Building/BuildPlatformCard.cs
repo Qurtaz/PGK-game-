@@ -7,6 +7,7 @@ public class BuildPlatformCard : Card {
 		cost = 2F;
         opis = "Pozwala zbudować platforme na planszy";
         cardID = id;
+        cardName = "Platform";
 	}
 
     public override void ActivateCard()

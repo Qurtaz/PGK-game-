@@ -24673,6 +24673,7 @@ MonoBehaviour:
   isNotActive: {fileID: 2100000, guid: 5359d7f30a5bf5d4299a35feeb605fd4, type: 2}
   hand: {fileID: 1464032953}
   que: []
+  multiplier: 1
   outOfResources: 1
 --- !u!1 &359740632
 GameObject:
@@ -42735,6 +42736,7 @@ MonoBehaviour:
   isNotActive: {fileID: 2100000, guid: 5359d7f30a5bf5d4299a35feeb605fd4, type: 2}
   hand: {fileID: 889147160}
   que: []
+  multiplier: 1
   outOfResources: 0
 --- !u!4 &659900838
 Transform:
@@ -54305,6 +54307,7 @@ MonoBehaviour:
   rend: {fileID: 1415653889}
   speed: 5
   force: 2
+  multiplier: 1
   test: {fileID: 0}
   heuristics: 2
 --- !u!4 &812140033
@@ -83834,7 +83837,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1256893948}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14b4772ddb836d40ba5ca69518fa86e, type: 3}
   m_Name: 
@@ -83845,7 +83848,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1256893948}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -88979,7 +88982,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1328243090}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b14b4772ddb836d40ba5ca69518fa86e, type: 3}
   m_Name: 
@@ -88990,7 +88993,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1328243090}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -130479,6 +130482,7 @@ MonoBehaviour:
   rend: {fileID: 1415653889}
   speed: 5
   force: 2
+  multiplier: 1
   test: {fileID: 0}
   heuristics: 2
 --- !u!1 &1917185446
