@@ -132,7 +132,7 @@ public class Deck : MonoBehaviour {
     {
         if(deck.Count < 1)
             Debug.Log("brak kart w decku, nie pytaj mnie jak");
-        Debug.Log(deck.Dequeue());
+		// Debug.Log(deck.Dequeue()); - KTO KURWA WPADŁ NA POMYSŁ, ŻEBY ZDEJMOWAĆ COŚ Z KOLEJKI I WYPISYWAĆ TO DO DEBUGA - W EFEKCIE Z DECKA OTRZYMUJESZ CO DRUGĄ KARTĘ :)
         return deck.Dequeue();
     }
 	
