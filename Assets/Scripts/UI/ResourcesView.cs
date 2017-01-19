@@ -9,7 +9,7 @@ public class ResourcesView : MonoBehaviour {
     public ControlerGame gameControler;
 	// Use this for initialization
 	void Start () {
-        slider.maxValue = (int)gameControler.ResourcesData()*2;
+        slider.maxValue = (int)gameControler.ResourcesData();
         slider.value = (int)gameControler.ResourcesData();
         text.text = Mathf.Round(gameControler.ResourcesData()).ToString();
 	}

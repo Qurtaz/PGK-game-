@@ -26,15 +26,18 @@ public class PointEndNode : MonoBehaviour {
 				float closestMagnitude = Mathf.Infinity;
 				Collider closestNode = new Collider ();
 				foreach (Collider node in closestNodes) {
-					if (node.gameObject.tag == "Node") {
-						float dist = Vector3.Distance (hitPoint, node.transform.position);
-						if (dist < closestMagnitude) {
-							closestMagnitude = dist;
-							agent.end = node.gameObject.GetComponent<GraphNode> ();
-							
-						}
-						
-					}
+                    if (node.gameObject.tag == "Node")
+                    {
+                        float dist = Vector3.Distance(hitPoint, node.transform.position);
+                        if (dist < closestMagnitude)
+                        {
+                            closestMagnitude = dist;
+                            agent.end = node.gameObject.GetComponent<GraphNode>();
+
+                        }
+
+                    }
+                    else agent.end = null;
 				}
 			}
 

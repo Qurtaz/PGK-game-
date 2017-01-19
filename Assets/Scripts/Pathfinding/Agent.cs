@@ -99,21 +99,27 @@ public class Agent : MonoBehaviour {
 	
 	}
 	void SetRoute(GraphNode end, int heuristics){
-
-		rend.HideAllNodes ();
-		nodes = pathfinder.findShortestRoute (nodeStart, end, heuristics);
-		i = nodes.Count;
-		if (i == 0) {
-			curTarget = null;
-			moving = false;
-			drawn = false;
-		} else {
-			foreach (GraphNode node in nodes) {
-				node.ActivateRendering ();
-			}
-			curTarget = nodes [0];
-			moving = true;
-		}
+        if (end != null)
+        {
+            rend.HideAllNodes();
+            nodes = pathfinder.findShortestRoute(nodeStart, end, heuristics);
+            i = nodes.Count;
+            if (i == 0)
+            {
+                curTarget = null;
+                moving = false;
+                drawn = false;
+            }
+            else
+            {
+                foreach (GraphNode node in nodes)
+                {
+                    node.ActivateRendering();
+                }
+                curTarget = nodes[0];
+                moving = true;
+            }
+        }
 	}
 	public void FinishRoute()
 	{

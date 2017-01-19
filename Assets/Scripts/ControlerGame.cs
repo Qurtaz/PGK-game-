@@ -102,7 +102,7 @@ public class ControlerGame : MonoBehaviour {
                 playerTurn = playerTurn % 2;
                 players[playerTurn].ActivatePlayer();
                 Hand playerHand = players[playerTurn].GetComponentInChildren<Hand>();
-                playerHand.ChoseCard();
+                //playerHand.ChoseCard();
             }
         }
     }
@@ -144,8 +144,7 @@ public class ControlerGame : MonoBehaviour {
     public void SetGameWin()
     {
         finish = true;
-        SceneManager.LoadScene("Menu");
-        //_text.text = "Winner " + GetPlayerName();
+        changePhaseInformation.Finish();
     }
 
     public string GetBlocked()
