@@ -22,7 +22,7 @@ public class ResourceSystem : MonoBehaviour
 	void Update () {
 		if (!drawn && player.isBuldingActive()) {
 			rend.HideAllNodes ();
-			range.DrawMaxRange (center.start, resourcesAvailable);
+			range.DrawMaxRange (center.start, resourcesAvailable, player.multiplier);
 			drawn = true;
 		}
 	}

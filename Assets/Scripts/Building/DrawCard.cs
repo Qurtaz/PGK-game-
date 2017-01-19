@@ -9,6 +9,7 @@ public class DrawCard : Card {
 		cost = 3F;
         opis = "Pozwala dobrać dwie dodatkowe karty";
         cardID = id;
+        cardName = "Draw card";
 	}
 	// Use this for initialization
 	void Start () {

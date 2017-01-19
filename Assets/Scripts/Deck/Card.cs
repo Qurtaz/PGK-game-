@@ -5,6 +5,7 @@ public abstract class Card : Object {
 	public float cost = 0F;
     public string opis;
     public int cardID;
+    public string cardName;
 
     public virtual void ActivateCard()
     {

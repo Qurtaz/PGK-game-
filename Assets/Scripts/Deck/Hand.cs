@@ -79,7 +79,10 @@ public class Hand : MonoBehaviour {
         string s;
 		if (playerCard.Count > cardNumber)
         {
-            s = playerCard[cardNumber].GetType().Name;
+            if (playerCard[cardNumber].cardName != null)
+                s = playerCard[cardNumber].cardName;
+            else
+                s = playerCard[cardNumber].GetType().Name;
             return s;
         }
 		else
