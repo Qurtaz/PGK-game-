@@ -130,8 +130,8 @@ public class Deck : MonoBehaviour {
 	}
     public Card PickCard()
     {
-        if(deck.Count < 1)
-            Debug.Log("brak kart w decku, nie pytaj mnie jak");
+       // if(deck.Count < 1)
+			// Debug.Log("brak kart w decku, nie pytaj mnie jak"); - NA PRZYKŁAD, GDY KARTY SIĘ SKOŃCZĄ W DECKU :)
 		// Debug.Log(deck.Dequeue()); - KTO KURWA WPADŁ NA POMYSŁ, ŻEBY ZDEJMOWAĆ COŚ Z KOLEJKI I WYPISYWAĆ TO DO DEBUGA - W EFEKCIE Z DECKA OTRZYMUJESZ CO DRUGĄ KARTĘ :)
         return deck.Dequeue();
     }
