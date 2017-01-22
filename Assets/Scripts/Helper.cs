@@ -61,8 +61,8 @@ namespace Helper
         }
     public static class DataString
     {
-        public static string BUDOWANIE = "Building";
-        public static string RUCH = "Moving";
+        public static string BUDOWANIE = "Budowanie";
+        public static string RUCH = "Poruszanie";
     }
 
 }

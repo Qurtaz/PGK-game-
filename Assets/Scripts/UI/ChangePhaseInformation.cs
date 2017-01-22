@@ -21,8 +21,8 @@ public class ChangePhaseInformation : MonoBehaviour {
     public void See()
     {
         changePhaseInfo.SetActive(true);
-        _text.text = "Player turn: " + gameControler.GetPlayerTurn().ToString() +
-        "\n Phase: " + gameControler.GetPlayerPhase() + "\n Player: " + gameControler.GetPlayerName();
+        _text.text = "Tura numer: " + gameControler.GetPlayerTurn().ToString() +
+        "\n Faza: " + gameControler.GetPlayerPhase() + "\n Gracz: " + gameControler.GetPlayerName();
     }
     public void Finish()
     {
