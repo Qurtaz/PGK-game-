@@ -6,15 +6,15 @@ public class BuildCatapultCard : Card
     public BuildCatapultCard(int id)
     {
         cost = 4F;
-        opis = "Pozwala postawić katapulte na scenie";
+        opis = "Pozwala postawić katapulte na planszy";
         cardID = id;
-        cardName = "Catapult";
+        cardName = "Katapulta";
     }
 
     public override void ActivateCard()
     {
         //base.activateCard();
-        Debug.Log("Catapult activated");
+       // Debug.Log("Catapult activated");
         var cardSetup = Instantiate(Resources.Load("ConstructionCatapult")) as GameObject;
         cardSetup.GetComponent<TempBuildCatapult>().setCard(this);
     }

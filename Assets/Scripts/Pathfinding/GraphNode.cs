@@ -84,6 +84,7 @@ public class GraphNode : MonoBehaviour {
 	void Awake() {
 		nodeList = new Dictionary <GraphNode, float> ();
 		nodeListDebug = new List<GraphNode>();
+		DontDestroyOnLoad(gameObject);
 
 		
 	}

@@ -20,7 +20,7 @@ public class CardDescription : EventTrigger {
 
     public override void OnPointerExit(PointerEventData data)
     {
-        Opis("Informacjie");
+        Opis("Informacje");
     }
 
     void Update()

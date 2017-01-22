@@ -22,7 +22,7 @@ public class ChangePhaseInformation : MonoBehaviour {
     {
         changePhaseInfo.SetActive(true);
         _text.text = "Player turn: " + gameControler.GetPlayerTurn().ToString() +
-        "\n Phase: " + gameControler.GetPlayerPhase() + "\n Player name: " + gameControler.GetPlayerName();
+        "\n Phase: " + gameControler.GetPlayerPhase() + "\n Player: " + gameControler.GetPlayerName();
     }
     public void Finish()
     {

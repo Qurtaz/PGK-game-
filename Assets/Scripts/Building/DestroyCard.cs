@@ -8,7 +8,7 @@ public class DestroyBuilding : Card {
 		cost = 2F;
         opis = "Wybranie karty umożliwia zniszczenie dowolnego obiektu postawionego przez gracza bądź jego przeciwnika";
         cardID = id;
-        cardName = "Destroy platform";
+        cardName = "Zniszcz platformę";
 	}
 	// Use this for initialization
 	public override void ActivateCard()
