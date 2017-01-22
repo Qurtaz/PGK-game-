@@ -6,6 +6,8 @@ public class CameraAnimator: MonoBehaviour
     
     public GameObject myCam;
     public GameObject secondaryCam;
+	public GameObject myPlayer;
+	public GameObject secondaryPlayer;
     public Collider[] colliders;
     public ControlerGame gameController;
     private bool activateControl = false;
@@ -19,7 +21,7 @@ public class CameraAnimator: MonoBehaviour
         if(activateControl && diff.magnitude > 1.0f)
         {
             myCam.transform.position = Vector3.MoveTowards(myCam.transform.position, secondaryCam.transform.position, speed * Time.deltaTime);
-            myCam.transform.LookAt(secondaryCam.transform);
+            myCam.transform.LookAt(secondaryPlayer.transform);
 
         }
         else if(activateControl && diff.magnitude < 1.0f)
@@ -42,7 +44,7 @@ public class CameraAnimator: MonoBehaviour
     }
     void DeactivateControl()
     {
-        myCam.transform.LookAt(storePos);
+		secondaryCam.transform.LookAt(secondaryPlayer.transform);
      //   Debug.Log(storePos);
         myCam.transform.position = storePos;
         gameController.ChangePlayerControl();
