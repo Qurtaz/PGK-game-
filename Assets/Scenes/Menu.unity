@@ -279,7 +279,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Name
+  m_Text: "Dzieci\u0119cy genera\u0142owie"
 --- !u!222 &144031549
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -607,6 +607,26 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 103839794}
+    - target: {fileID: 114000014214749756, guid: 390aa517aaa721348b906b0b5782598b,
+        type: 2}
+      propertyPath: m_Text
+      value: Nowa gra
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013388232332, guid: 390aa517aaa721348b906b0b5782598b,
+        type: 2}
+      propertyPath: m_Text
+      value: Opcje
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012601699552, guid: 390aa517aaa721348b906b0b5782598b,
+        type: 2}
+      propertyPath: m_Text
+      value: Autorzy
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010542094540, guid: 390aa517aaa721348b906b0b5782598b,
+        type: 2}
+      propertyPath: m_Text
+      value: "Wyj\u015Bcie"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 390aa517aaa721348b906b0b5782598b, type: 2}
   m_IsPrefabParent: 0
@@ -852,8 +872,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Game created:\nPawe\u0142 Winiecki\nAdam Kulik\nBart\u0142omiej Szyperski\nKonrad
-    Lacek"
+  m_Text: "Gr\u0119 stworzyli:\nAdam Kulik\nKonrad Lacek\nPawe\u0142 Winiecki\nBart\u0142omiej
+    Szyperski\n"
 --- !u!222 &1081823493
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -4410,6 +4410,13 @@ Prefab:
       propertyPath: m_Text
       value: Zasoby
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010941089046, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_Text
+      value: 'Zmiana fazy
+
+'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44b27828f1fa4e1448817c43d433b145, type: 2}
   m_IsPrefabParent: 0
