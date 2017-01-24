@@ -8,7 +8,7 @@ public class BuildCatapultCard : Card
         cost = 4F;
         opis = "Pozwala postawić katapulte na planszy";
         cardID = id;
-        cardName = "Katapulta";
+        cardName = "Katapulta\n Koszt: " + cost.ToString();
     }
 
     public override void ActivateCard()

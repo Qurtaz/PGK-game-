@@ -4417,6 +4417,16 @@ Prefab:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012898925676, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_Text
+      value: "Przejd\u017A do nowej fazy"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013156721390, guid: 44b27828f1fa4e1448817c43d433b145,
+        type: 2}
+      propertyPath: m_Text
+      value: Przycisk
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44b27828f1fa4e1448817c43d433b145, type: 2}
   m_IsPrefabParent: 0
@@ -24539,7 +24549,7 @@ MonoBehaviour:
   isNotActive: {fileID: 2100000, guid: 5359d7f30a5bf5d4299a35feeb605fd4, type: 2}
   hand: {fileID: 1464032953}
   que: []
-  multiplier: 1
+  multiplier: 0.01
   characterImage: {fileID: 0}
   Image: {fileID: 64227602}
   outOfResources: 1
@@ -28849,8 +28859,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 411304359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.8, z: 7}
-  m_LocalScale: {x: 20, y: 2.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: -2.8, z: 6.6}
+  m_LocalScale: {x: 17.6, y: 2.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 417360506}
@@ -39806,8 +39816,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 609884302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.8, z: 7}
-  m_LocalScale: {x: 20, y: 2.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: -2.8, z: 6.6}
+  m_LocalScale: {x: 17.6, y: 2.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 407156868}
@@ -43028,7 +43038,7 @@ MonoBehaviour:
   isNotActive: {fileID: 2100000, guid: 5359d7f30a5bf5d4299a35feeb605fd4, type: 2}
   hand: {fileID: 889147160}
   que: []
-  multiplier: 1
+  multiplier: 0.01
   characterImage: {fileID: 0}
   Image: {fileID: 64227602}
   outOfResources: 0
@@ -44242,7 +44252,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 670878624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.27, y: 24.32, z: 33.03}
+  m_LocalPosition: {x: 3, y: 35.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -104732,7 +104742,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh421184
+  m_Name: pb_Mesh76430
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2

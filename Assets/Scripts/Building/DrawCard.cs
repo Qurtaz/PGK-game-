@@ -9,8 +9,8 @@ public class DrawCard : Card {
 		cost = 3F;
         opis = "Pozwala dobrać dwie dodatkowe karty";
         cardID = id;
-        cardName = "Dobierz karty";
-	}
+        cardName = "Dobierz karty\n Koszt: " + cost.ToString();
+    }
 	// Use this for initialization
 	void Start () {
 
