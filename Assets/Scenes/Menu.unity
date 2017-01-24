@@ -553,14 +553,14 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Aby przemie\u015Bci\u0107 posta\u0107 w dane miejsce nale\u017Cy wskaza\u0107
-    po\u017C\u0105dane miejsce kursorem nast\u0119pnie zatwierdzi\u0107 je lewym przyciskiem
-    myszy. Wyb\xF3r mo\u017Cna cofn\u0105\u0107 prawym przyciskiem myszy.\n\nAby zbudowa\u0107
-    budynek korzystaj\u0105c z karty, najpierw nale\u017Cy wybra\u0107 kursorem odpowiedni\u0105
-    kart\u0119, nast\u0119pnie za pomoca lewego przycisku myszy mo\u017Cna zatwierdzi\u0107
-    jej pozycj\u0119, lub cofn\u0105\u0107 wyb\xF3r prawym przyciskiem myszy.\n\nKamer\u0119
-    mo\u017Cna przemieszcza\u0107 za pomoc\u0105 przycisk\xF3w W/A/S/D, a obraca\u0107
-    mo\u017Cna j\u0105 za pomoc\u0105 wci\u015Bni\u0119cia i przytrzymania rolki myszy.\n\nSkaka\u0107
-    mo\u017Cna tylko na pola s\u0105siaduj\u0105ce."
+    po\u017C\u0105dane miejsce kursorem, a nast\u0119pnie zatwierdzi\u0107 je lewym
+    przyciskiem myszy; wyb\xF3r mo\u017Cna cofn\u0105\u0107 prawym przyciskiem myszy.\n\nAby
+    zbudowa\u0107 budynek korzystaj\u0105c z karty, najpierw nale\u017Cy wybra\u0107
+    kursorem odpowiedni\u0105 kart\u0119, nast\u0119pnie za pomoca lewego przycisku
+    myszy mo\u017Cna zatwierdzi\u0107 jej pozycj\u0119, lub cofn\u0105\u0107 wyb\xF3r
+    prawym przyciskiem myszy.\n\nKamer\u0119 mo\u017Cna przemieszcza\u0107 za pomoc\u0105
+    przycisk\xF3w W/A/S/D, a obraca\u0107 mo\u017Cna j\u0105 za pomoc\u0105 wci\u015Bni\u0119cia
+    i przytrzymania rolki myszy.\n\nSkaka\u0107 mo\u017Cna tylko na pola s\u0105siaduj\u0105ce."
 --- !u!222 &238209020
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -997,17 +997,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "W lewym dolnym rogu ekrany znajduj\u0105 si\u0119 mo\u017Cliwe do zagrania
-    karty, wraz z ich kosztem w zasobach; po najechania myszk\u0105 na kt\xF3r\u0105kolwiek
+  m_Text: "W lewym dolnym rogu ekranu znajduj\u0105 si\u0119 mo\u017Cliwe do zagrania
+    karty, wraz z ich kosztem w zasobach; po najechaniu myszk\u0105 na kt\xF3r\u0105kolwiek
     z nich zostanie wy\u015Bwietlony jej opis. Karty kt\xF3re mo\u017Cna zagra\u0107
-    przy obecnej ilo\u015Bci zasob\xF3w zaznaczone s\u0105 na zielono.\n\nW prawym
+    przy obecnej ilo\u015Bci zasob\xF3w zaznaczone s\u0105 na niebiesko.\n\nW prawym
     dolnym rogu ekranu wy\u015Bwietlone s\u0105 informacje dotycz\u0105ce tury, fazy,
     oraz aktywnego gracza. Znajduje si\u0119 tam tak\u017Ce przycisk s\u0142u\u017C\u0105cy
     do zmiany gracza lub fazy; w przypadku aktywnej fazy budowania przycisk zmieni
     j\u0105 na faz\u0119 ruchu, w przypadku aktywnej fazy ruchu przycisk zmieni aktywnego
-    gracza.\n\nW lewym g\xF3rnym rogu znajduje si\u0119 pasek wskazuj\u0105cy poziom
-    zasob\xF3w gracza.\n\nZielone/bia\u0142e sfery na scenie wyznaczaj\u0105 maksymalny
-    zasi\u0119g ruchu gracza przy obecnej ilo\u015Bci zasob\xF3w."
+    gracza.\n\nW lewym g\xF3rnym rogu ekranu znajduje si\u0119 pasek wskazuj\u0105cy
+    poziom zasob\xF3w gracza.\n\nZielone/bia\u0142e sfery na scenie wyznaczaj\u0105
+    maksymalny zasi\u0119g ruchu gracza przy obecnej ilo\u015Bci zasob\xF3w."
 --- !u!222 &396640989
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2622,10 +2622,10 @@ MonoBehaviour:
     zarz\u0105dzania zasobami.\n\nRozgrywka sk\u0142ada si\u0119 z tur, kt\xF3re mo\u017Cna
     podzieli\u0107 na faz\u0119 budowania i faz\u0119 ruchu; faza budowania zawsze
     poprzedza faz\u0119 ruchu.\n\nFaza budowania s\u0142u\u017Cy do zagrywania kart
-    buduj\u0105cych drog\u0119 do mety, korzystaj\u0105c z odnawianych co tur\u0119
-    zasob\xF3w. \n\nPodczas fazy ruchu gracze przemieszczaj\u0105 si\u0119 po zbudowanych
-    wcze\u015Bniej platformach do mety.\n\nW czasie fazy ruchu oraz fazy budowania
-    gracz korzysta z tych samych zasob\xF3w.\n"
+    pomagaj\u0105cych zbudowa\u0107 drog\u0119 do mety przy wykorzystaniu zasob\xF3w.\n\nPodczas
+    fazy ruchu gracze przemieszczaj\u0105 si\u0119 po zbudowanych wcze\u015Bniej konstrukcjach
+    do mety.\n\nW czasie fazy ruchu oraz fazy budowania gracz korzysta z tych samych
+    zasob\xF3w.\n"
 --- !u!222 &1614819439
 CanvasRenderer:
   m_ObjectHideFlags: 0
